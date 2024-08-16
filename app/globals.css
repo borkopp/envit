@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 70px; /* Should match the navbar height */
+}
+
+.testimonials-swiper .swiper-pagination {
+  bottom: -7px !important; 
+}
+.testimonials-swiper .swiper-pagination-bullet {
+  background-color: #ffffff; 
+  opacity: 0.5;
+}
+.testimonials-swiper .swiper-pagination-bullet-active {
+  background-color: #ffffff; 
+  opacity: 1;
+}
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -30,4 +51,13 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.demo-swiper {
+  position: relative;
+  padding-bottom: 60px !important;
+}
+
+.demo-swiper .swiper-pagination {
+  bottom: 20px !important;
 }
