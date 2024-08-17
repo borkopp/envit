@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../styles/Banner.module.css";
+import styles from "@/styles/Banner.module.css";
 
 const Hero = () => {
   return (
