@@ -1,67 +1,52 @@
 import Image from "next/image";
 import Link from "next/link";
+import { client } from "@/sanity/lib/client";
+import { Post } from "../utils/interface";
 
-const NewsItem = ({
-  image,
-  date,
-  title,
-  content,
-}: {
-  image: string;
-  date: string;
-  title: string;
-  content: string;
-}) => (
-  <div className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
-    <Image
-      className="w-full h-48 object-cover mb-4"
-      src={image}
-      alt={title}
-      width={400}
-      height={200}
-    />
-    <p className="text-gray-600 mb-2">{date}</p>
-    <h4 className="text-xl text-black font-semibold mb-2">{title}</h4>
-    <p className="text-gray-700 mb-4">{content}</p>
-    <Link href="#">
-      <span className="inline-block bg-green-500 text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-green-600 transition duration-300">
-        View Details
-      </span>
-    </Link>
-  </div>
-);
+async function getPosts() {
+  const query = `
+  *[_type == "news"] {
+    title,
+    slug,
+    publishedAt,
+    excerpt,
+    _id,
+    thumbnail {
+      asset-> {
+        url
+      }
+    }
+  }
+  `;
+  const data = await client.fetch(query);
+  return data;
+}
 
-const LatestNews = () => {
-  const newsItems = [
-    {
-      image: "/news1.png",
-      date: "28.03.2024",
-      title: "News #1",
-      content:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint, unde accusamus. Quam a reiciendis est illo magni iste eveniet delectus assumenda animi. Iure, autem. Culpa necessitatibus dolor tenetur possimus praesentium!",
-    },
-    {
-      image: "/news2.jpeg",
-      date: "01.03.2024",
-      title: "News #2",
-      content:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero necessitatibus, dolorum facere velit molestiae ullam esse harum temporibus at soluta saepe animi repellat enim aliquid? Id distinctio quo est omnis!",
-    },
-    {
-      image: "/news3.png",
-      date: "24.12.2023",
-      title: "News #3",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem deleniti harum dolore molestiae suscipit molestias ut dicta animi? Ipsum, consectetur aut! Iste, adipisci quia ut dolore totam repellat! Quas, deserunt.",
-    },
-    {
-      image: "/news4.png",
-      date: "10.11.2023",
-      title: "News #4",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi reiciendis cumque eligendi inventore, cum doloremque laudantium voluptatum labore itaque quas minus rerum aperiam, sit qui alias excepturi debitis omnis aut.",
-    },
-  ];
+export default async function LatestNews() {
+  const posts: Post[] = await getPosts();
+  console.log(posts);
+
+  const NewsItem = ({ title, publishedAt, excerpt, slug, thumbnail }: Post) => (
+    <div className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+      <Image
+        className="w-full h-48 object-cover mb-4"
+        src={thumbnail?.asset?.url || "/news1.png"}
+        alt={title}
+        width={400}
+        height={200}
+      />
+      <p className="text-gray-600 mb-2">
+        {new Date(publishedAt).toLocaleDateString()}
+      </p>
+      <h4 className="text-xl text-black font-semibold mb-2">{title}</h4>
+      <p className="text-gray-700 mb-4">{excerpt}</p>
+      <Link href={`/news/${slug.current}`}>
+        <span className="inline-block bg-green-500 text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-green-600 transition duration-300">
+          View Details
+        </span>
+      </Link>
+    </div>
+  );
 
   return (
     <section className="py-16 bg-gray-100" id="blog">
@@ -76,13 +61,10 @@ const LatestNews = () => {
           </p>
         </div>
         <div className="flex flex-wrap -mx-4">
-          {newsItems.map((item, index) => (
-            <NewsItem key={index} {...item} />
-          ))}
+          {posts?.length > 0 &&
+            posts?.map((post) => <NewsItem key={post._id} {...post} />)}
         </div>
       </div>
     </section>
   );
-};
-
-export default LatestNews;
+}

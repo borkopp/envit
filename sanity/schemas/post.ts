@@ -23,6 +23,14 @@ export const post = {
       validation: (Rule: Rule) => Rule.required().error("Slug is required"),
     },
     {
+      name: "thumbnail",
+      title: "Thumbnail",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
@@ -31,7 +39,7 @@ export const post = {
 
     {
       name: "excerpt",
-      title: "Excerpt",
+      title: "Excerpt (Short description)",
       type: "text",
       rows: 3,
       validation: (Rule: Rule) => Rule.max(200).error("Maximum 200 characters"),
