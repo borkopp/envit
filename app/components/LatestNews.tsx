@@ -22,18 +22,20 @@ async function getPosts() {
   return data;
 }
 
+export const revalidate = 60;
+
 export default async function LatestNews() {
   const posts: Post[] = await getPosts();
-  console.log(posts);
 
   const NewsItem = ({ title, publishedAt, excerpt, slug, thumbnail }: Post) => (
     <div className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
       <Image
         className="w-full h-48 object-cover mb-4"
-        src={thumbnail?.asset?.url || "/news1.png"}
+        src={thumbnail?.asset?.url || "/logo2.png"}
         alt={title}
         width={400}
         height={200}
+        quality={100}
       />
       <p className="text-gray-600 mb-2">
         {new Date(publishedAt).toLocaleDateString()}

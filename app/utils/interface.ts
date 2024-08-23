@@ -12,4 +12,12 @@ export interface Post {
       url: string;
     };
   };
+  author: {
+    name: string;
+    image: {
+      asset: {
+        url: string;
+      };
+    };
+  };
 }
