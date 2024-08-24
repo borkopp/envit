@@ -3,6 +3,8 @@ import { client } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import React from "react";
 import Image from "next/image";
+import ImageGallery from "@/app/components/ImageGallery";
+
 interface Params {
   params: {
     slug: string;
@@ -29,6 +31,11 @@ async function getPost(slug: string) {
             asset-> {
               url
             }
+          }
+        },
+        images[] {
+          asset-> {
+            url
           }
         }
       }
@@ -70,6 +77,12 @@ const ArticlePage = async ({ params }: Params) => {
       <div className="prose max-w-none">
         <PortableText value={post?.body} />
       </div>
+
+      {post.images && post.images.length > 0 && (
+        <div className="mt-4">
+          <ImageGallery images={post.images} />
+        </div>
+      )}
     </article>
   );
 };

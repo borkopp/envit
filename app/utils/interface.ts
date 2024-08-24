@@ -7,12 +7,12 @@ export interface Post {
   excerpt: string;
   body: any;
   _id: string;
-  thumbnail: {
+  thumbnail?: {
     asset: {
       url: string;
     };
   };
-  author: {
+  author?: {
     name: string;
     image: {
       asset: {
@@ -20,4 +20,9 @@ export interface Post {
       };
     };
   };
+  images?: {
+    asset: {
+      url: string;
+    };
+  }[];
 }

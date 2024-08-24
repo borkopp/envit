@@ -51,6 +51,12 @@ export const post = {
       of: [{ type: "block" }, { type: "image" }],
     },
     {
+      name: "images",
+      title: "Gallery",
+      type: "array",
+      of: [{ type: "image", options: { hotspot: true } }],
+    },
+    {
       name: "author",
       title: "Author",
       type: "object",

@@ -44,7 +44,7 @@ export default async function LatestNews() {
       <p className="text-gray-700 mb-4">{excerpt}</p>
       <Link href={`/news/${slug.current}`}>
         <span className="inline-block bg-green-500 text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-green-600 transition duration-300">
-          View Details
+          Read More
         </span>
       </Link>
     </div>
