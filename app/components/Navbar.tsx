@@ -37,7 +37,7 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden text-sm md:flex items-center space-x-2">
             <Link
               href="/#home"
               className={`py-4 px-2 font-bold transition duration-300 ${isActive("/")}`}
@@ -79,6 +79,12 @@ const Navbar = () => {
               className="py-4 px-2 text-black font-bold hover:text-green-500 transition duration-300"
             >
               CASE STUDIES
+            </Link>
+            <Link
+              href="/faq"
+              className="py-4 px-2 text-black font-bold hover:text-green-500 transition duration-300"
+            >
+              FAQ
             </Link>
           </div>
           <div className="md:hidden flex items-center">

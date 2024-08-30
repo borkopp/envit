@@ -55,11 +55,9 @@ export default async function NewsPage() {
   );
 
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-10 bg-gray-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-black mb-8 text-center">
-          All News
-        </h1>
+        <h1 className="text-3xl font-semibold text-center mb-10">All News</h1>
         <div className="flex flex-wrap -mx-4">
           {posts?.length > 0 &&
             posts?.map((post) => <NewsItem key={post._id} {...post} />)}
