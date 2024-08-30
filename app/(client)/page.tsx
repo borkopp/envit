@@ -29,10 +29,6 @@ export default function Home() {
         <Testimonials />
         <CaseStudies />
       </main>
-
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 }
