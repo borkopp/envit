@@ -5,7 +5,7 @@ import { Post } from "../utils/interface";
 
 async function getPosts() {
   const query = `
-  *[_type == "news"] {
+  *[_type == "news"] | order(publishedAt desc)[0...4] {
     title,
     slug,
     publishedAt,
@@ -21,7 +21,6 @@ async function getPosts() {
   const data = await client.fetch(query);
   return data;
 }
-
 export const revalidate = 60;
 
 export default async function LatestNews() {
@@ -65,6 +64,13 @@ export default async function LatestNews() {
         <div className="flex flex-wrap -mx-4">
           {posts?.length > 0 &&
             posts?.map((post) => <NewsItem key={post._id} {...post} />)}
+        </div>
+        <div className="text-center mt-8">
+          <Link href="/news">
+            <span className="inline-block bg-green-500 text-white py-3 px-6 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
+              See All News
+            </span>
+          </Link>
         </div>
       </div>
     </section>

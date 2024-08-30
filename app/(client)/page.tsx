@@ -20,7 +20,6 @@ export default function Home() {
       </Head>
 
       <main>
-        <Navbar />
         <Hero />
         <LatestNews />
         <DemoSoilPlant />

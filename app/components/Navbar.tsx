@@ -2,12 +2,20 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const closeNavbar = () => {
     setIsOpen(false);
+  };
+
+  const isActive = (path: string) => {
+    return pathname === path
+      ? "text-green-500"
+      : "text-black hover:text-green-500";
   };
 
   return (
@@ -32,13 +40,13 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-2">
             <Link
               href="/#home"
-              className="py-4 px-2 text-black font-bold hover:text-green-500 transition duration-300"
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/")}`}
             >
               HOME
             </Link>
             <Link
-              href="/#blog"
-              className="py-4 px-2 text-black font-bold hover:text-green-500 transition duration-300"
+              href="/news"
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/news")}`}
             >
               NEWS
             </Link>
