@@ -51,6 +51,12 @@ const Navbar = () => {
               NEWS
             </Link>
             <Link
+              href="/technology-description"
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/technology-description")}`}
+            >
+              TECHNOLOGY
+            </Link>
+            <Link
               href="/#project"
               className="py-4 px-2 text-black font-bold hover:text-green-500 transition duration-300"
             >
@@ -109,6 +115,12 @@ const Navbar = () => {
           onClick={closeNavbar}
         >
           News
+        </Link>
+        <Link
+          href="/technology-description"
+          className={`py-4 px-2 font-bold transition duration-300 ${isActive("/technology-description")}`}
+        >
+          TECHNOLOGY
         </Link>
         <Link
           href="/#project"
