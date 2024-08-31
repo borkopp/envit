@@ -96,21 +96,22 @@ export default function TechnologyDescription() {
           were about 1.62 ×10⁹ kg Pb.⁸
         </p>
         <p className="text-lg leading-relaxed mb-6">
-          Pb is highly toxic to humans. Any exposure is considered potentially
-          harmful, and no threshold for adverse effects has been identified.⁹
-          Children are a particularly vulnerable group due to accidental
-          ingestion.¹⁰ Adults absorb 10–15% of ingested Pb, whereas children may
-          absorb up to 50% via the gastrointestinal tract.¹¹ Soil ingestion
-          accounts for more than 80% of daily Pb exposure.¹² The high
+          <strong>Pb is highly toxic to humans.</strong> Any exposure is
+          considered potentially harmful, and no threshold for adverse effects
+          has been identified.⁹ Children are a particularly vulnerable group due
+          to accidental ingestion.¹⁰ Adults absorb{" "}
+          <strong>10–15% of ingested Pb</strong>, whereas children may absorb{" "}
+          <strong>up to 50%</strong> via the gastrointestinal tract.¹¹ Soil
+          ingestion accounts for more than 80% of daily Pb exposure.¹² The high
           gastrointestinal uptake and the permeable blood-brain barrier make
           children especially susceptible to Pb exposure, leading to brain
           damage, neurotoxic effects, and developmental issues.¹³ A recent
           report from the Centers for Disease Control and Prevention (CDC) found
-          that 535,000 children between one and five years old in the USA have a
-          minimum of 5 µg Pb dL ⁻¹ of blood. This is not much different from the
-          results found in 1990.¹⁴ Arguments have been made to clean up areas
-          where soil contains high levels of Pb, especially if children
-          frequently visit those areas.
+          that <strong> 535,000 children</strong> between one and five years old
+          in the USA have a minimum of 5 µg Pb dL ⁻¹ of blood. This is not much
+          different from the results found in 1990.¹⁴ Arguments have been made
+          to clean up areas where soil contains high levels of Pb, especially if
+          children frequently visit those areas.
         </p>
         <p className="text-lg leading-relaxed mb-6">
           The human population is growing, and the world food supply will need

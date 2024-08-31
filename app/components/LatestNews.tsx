@@ -53,24 +53,17 @@ export default async function LatestNews() {
     <section className="py-16 bg-gray-100" id="blog">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-black mb-4">
-            Latest News from All Categories
-          </h1>
+          <h1 className="text-4xl font-bold text-black mb-4">Latest News</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam
-            excepturi reiciendis eius sunt? Ab doloremque ullam similique incid
+            The latest news and insights from our blog. To see all the news
           </p>
+          <Link href="/news">
+            <span className="underline">click here.</span>
+          </Link>
         </div>
         <div className="flex flex-wrap -mx-4">
           {posts?.length > 0 &&
             posts?.map((post) => <NewsItem key={post._id} {...post} />)}
-        </div>
-        <div className="text-center mt-8">
-          <Link href="/news">
-            <span className="inline-block bg-green-500 text-white py-3 px-6 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
-              See All News
-            </span>
-          </Link>
         </div>
       </div>
     </section>
