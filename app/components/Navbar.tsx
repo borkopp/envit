@@ -57,8 +57,8 @@ const Navbar = () => {
               TECHNOLOGY
             </Link>
             <Link
-              href="/#project"
-              className="py-4 px-2 text-black font-bold hover:text-green-500 transition duration-300"
+              href="/demo-resoil-plant"
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/demo-resoil-plant")}`}
             >
               DEMO
             </Link>
@@ -116,7 +116,7 @@ const Navbar = () => {
           Home
         </Link>
         <Link
-          href="/#blog"
+          href="/news"
           className="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white text-black  transition duration-300"
           onClick={closeNavbar}
         >
@@ -129,18 +129,12 @@ const Navbar = () => {
           TECHNOLOGY
         </Link>
         <Link
-          href="/#project"
+          href="/demo-resoil-plant"
           className="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white text-black transition duration-300"
           onClick={closeNavbar}
         >
           Demo
         </Link>
-        {/* <Link
-          href="/#service"
-          className="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white transition duration-300"
-        >
-          Service
-        </Link> */}
         <Link
           href="/#team"
           className="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white text-black transition duration-300"
