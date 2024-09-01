@@ -4,6 +4,7 @@ import { PortableText } from "@portabletext/react";
 import React from "react";
 import Image from "next/image";
 import ImageGallery from "@/app/components/ImageGallery";
+import { types } from "util";
 
 interface Params {
   params: {
@@ -79,7 +80,7 @@ const ArticlePage = async ({ params }: Params) => {
       </div>
 
       {post.images && post.images.length > 0 && (
-        <div className="mt-4">
+        <div className="my-12">
           <ImageGallery images={post.images} />
         </div>
       )}
