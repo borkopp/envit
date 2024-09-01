@@ -62,6 +62,12 @@ const Navbar = () => {
             >
               DEMO
             </Link>
+            <Link
+              href="/sales-program"
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/sales-program")}`}
+            >
+              SALES
+            </Link>
             {/* <Link
               href="/#service"
               className="py-4 px-2 text-black font-bold hover:text-green-500 transition duration-300"
