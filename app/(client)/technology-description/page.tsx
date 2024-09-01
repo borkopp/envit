@@ -4,7 +4,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Download } from "lucide-react";
 import Image from "next/image";
+import { FaFilePdf } from "react-icons/fa6";
 
 export default function TechnologyDescription() {
   return (
@@ -36,7 +38,10 @@ export default function TechnologyDescription() {
             ></iframe>
           </div>
           <div className="flex flex-col justify-center">
-            <h3 className="text-2xl font-semibold mb-4">Technical Paper</h3>
+            <h3 className="text-2xl flex items-center gap-2 font-semibold mb-4">
+              Technical Paper
+              <FaFilePdf />
+            </h3>
             <p className="mb-4">
               Learn more about our technology by reading our detailed technical
               paper.
@@ -45,9 +50,10 @@ export default function TechnologyDescription() {
               href="/ReSoil-Technology.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-500 text-white py-3 px-6 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300 text-center"
+              className="bg-green-500 flex justify-center items-center gap-2 text-white py-3 px-6 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300 text-center"
             >
               Download PDF
+              <Download />
             </a>
           </div>
         </div>
