@@ -4,11 +4,13 @@ import { FaFilePdf } from "react-icons/fa6";
 
 const SalesProgramPage = () => {
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold  mb-10">E-max™</h1>
+          <h1 className="text-4xl text-gray-800 text-center font-bold mb-10">
+            E-max™
+          </h1>
           <p className="text-xl text-gray-700">
             A portable and robust analyzer to quantify <strong>cadmium</strong>{" "}
             and other potentially toxic elements in soil and food

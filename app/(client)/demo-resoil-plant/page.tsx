@@ -1,6 +1,4 @@
 import GallerySlider from "@/app/components/GallerySlider";
-import ImageGallery from "@/app/components/ImageGallery";
-import Image from "next/image";
 
 export default function DemoResoilPlant() {
   const galleryImages = [

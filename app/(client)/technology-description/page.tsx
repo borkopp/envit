@@ -10,7 +10,7 @@ import { FaFilePdf } from "react-icons/fa6";
 
 export default function TechnologyDescription() {
   return (
-    <div className="container mx-auto px-6 md:px-16 lg:px-24 py-10">
+    <div className="container  mx-auto px-6 md:px-16 lg:px-24 py-10">
       <h1 className="text-3xl font-semibold text-center mb-10">
         Technology Description
       </h1>

@@ -81,8 +81,8 @@ const Navbar = () => {
               TEAM
             </Link>
             <Link
-              href="/#case-studies"
-              className="py-4 px-2 text-black font-bold hover:text-green-500 transition duration-300"
+              href="/case-studies"
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/case-studies")}`}
             >
               CASE STUDIES
             </Link>
