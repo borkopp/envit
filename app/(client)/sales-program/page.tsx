@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { FaFilePdf } from "react-icons/fa6";
 
-const EMaxPage = () => {
+const SalesProgramPage = () => {
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
@@ -26,21 +26,21 @@ const EMaxPage = () => {
         <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-12">
           <a
             href="/sales-program/emax-manual.pdf"
-            className="bg-green-500 text-white font-semibold py-3 px-8 rounded-lg shadow-lg text-sm hover:bg-[#0296B2] transition"
+            className="bg-green-500 text-white font-semibold py-3 px-8 rounded-lg shadow-lg text-sm hover:bg-green-600 transition"
           >
             E-MAX User Manual
             <FaFilePdf className="inline-block ml-2" size={18} />
           </a>
           <a
             href="/sales-program/emax-application-note.pdf"
-            className="bg-green-500 text-white font-semibold py-3 px-8 rounded-lg shadow-lg text-sm hover:bg-[#0296B2] transition"
+            className="bg-green-500 text-white font-semibold py-3 px-8 rounded-lg shadow-lg text-sm hover:bg-green-600 transition"
           >
             E-MAX Application Note Soil & Rice
             <FaFilePdf className="inline-block ml-2" size={18} />
           </a>
           <a
             href="/sales-program/emax-application-note-soil.pdf"
-            className="bg-green-500 text-white font-semibold py-3 px-8 rounded-lg shadow-lg text-sm hover:bg-[#0296B2] transition"
+            className="bg-green-500 text-white font-semibold py-3 px-8 rounded-lg shadow-lg text-sm hover:bg-green-600 transition"
           >
             E-MAX Application Note Soil
             <FaFilePdf className="inline-block ml-2" size={18} />
@@ -126,4 +126,4 @@ const EMaxPage = () => {
   );
 };
 
-export default EMaxPage;
+export default SalesProgramPage;
