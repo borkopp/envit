@@ -4,6 +4,7 @@ import { PortableText } from "@portabletext/react";
 import React from "react";
 import Image from "next/image";
 import ImageGallery from "@/app/components/ImageGallery";
+import defaultImage from "../../../public/logo2.png";
 import { types } from "util";
 
 interface Params {
@@ -50,13 +51,23 @@ const ArticlePage = async ({ params }: Params) => {
 
   return (
     <article className="max-w-3xl mx-auto px-4 py-8 bg-white text-black">
-      <Image
-        src={post?.thumbnail?.asset.url}
-        alt={post?.title}
-        width={800}
-        height={400}
-        className="w-full h-64 object-cover mb-8 rounded-lg"
-      />
+      {post?.thumbnail?.asset.url ? (
+        <Image
+          src={post.thumbnail.asset.url}
+          alt={post?.title || "Article thumbnail"}
+          width={800}
+          height={400}
+          className="w-full h-64 object-cover mb-8 rounded-lg"
+        />
+      ) : (
+        <Image
+          src={defaultImage}
+          alt="Default thumbnail"
+          width={800}
+          height={400}
+          className="w-full h-64 object-cover mb-8 rounded-lg"
+        />
+      )}
       <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
       <div className="flex items-center mb-6">
         {post?.author?.image && (
