@@ -15,7 +15,25 @@ const GallerySlider: React.FC<GallerySliderProps> = ({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-  const totalSlides = Math.ceil(images.length / 4);
+  const [slidesPerView, setSlidesPerView] = useState(4);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setSlidesPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(4);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const totalSlides = Math.ceil(images.length / slidesPerView);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -94,16 +112,24 @@ const GallerySlider: React.FC<GallerySliderProps> = ({
             {Array.from({ length: totalSlides }).map((_, slideIndex) => (
               <div key={slideIndex} className="flex-shrink-0 w-full flex">
                 {images
-                  .slice(slideIndex * 4, slideIndex * 4 + 4)
+                  .slice(
+                    slideIndex * slidesPerView,
+                    slideIndex * slidesPerView + slidesPerView
+                  )
                   .map((image, imageIndex) => (
-                    <div key={imageIndex} className="w-1/4 p-2">
+                    <div
+                      key={imageIndex}
+                      className={`w-1/${slidesPerView} p-2`}
+                    >
                       <Image
                         src={image.asset.url}
-                        alt={`Gallery image ${slideIndex * 4 + imageIndex + 1}`}
+                        alt={`Gallery image ${slideIndex * slidesPerView + imageIndex + 1}`}
                         width={500}
                         height={500}
-                        className="w-full h-72 object-cover rounded cursor-pointer"
-                        onClick={() => openModal(slideIndex * 4 + imageIndex)}
+                        className="w-full h-auto object-cover rounded cursor-pointer"
+                        onClick={() =>
+                          openModal(slideIndex * slidesPerView + imageIndex)
+                        }
                       />
                     </div>
                   ))}
