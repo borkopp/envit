@@ -3,6 +3,13 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +24,23 @@ const Navbar = () => {
       ? "text-green-500"
       : "text-black hover:text-green-500";
   };
+
+  const isTechnologyActive = () => {
+    return technologyItems.some((item) => pathname === item.href)
+      ? "text-green-500"
+      : "text-black hover:text-green-500";
+  };
+
+  const technologyItems = [
+    { href: "/technology-description", label: "TECHNOLOGY DESCRIPTION" },
+    { href: "/demo-resoil-plant", label: "DEMO RESOIL PLANT" },
+    { href: "/sales-program", label: "SALES PROGRAM" },
+    { href: "/case-studies", label: "CASE STUDIES" },
+    { href: "/ip", label: "IP" },
+    { href: "/resoil-in-brief", label: "RESOIL IN BRIEF" },
+    { href: "/rnd", label: "RND" },
+    { href: "/soil-washing", label: "SOIL WASHING" },
+  ];
 
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50">
@@ -40,71 +64,52 @@ const Navbar = () => {
           <div className="hidden text-sm md:flex items-center space-x-2">
             <Link
               href="/#home"
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive(
-                "/"
-              )}`}
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/")}`}
             >
               HOME
             </Link>
             <Link
               href="/news"
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive(
-                "/news"
-              )}`}
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/news")}`}
             >
               NEWS
             </Link>
-            <Link
-              href="/technology-description"
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive(
-                "/technology-description"
-              )}`}
-            >
-              TECHNOLOGY
-            </Link>
-            <Link
-              href="/demo-resoil-plant"
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive(
-                "/demo-resoil-plant"
-              )}`}
-            >
-              DEMO
-            </Link>
-            <Link
-              href="/sales-program"
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive(
-                "/sales-program"
-              )}`}
-            >
-              SALES
-            </Link>
-            {/* <Link
-              href="/#service"
-              className="py-4 px-2 text-black font-bold hover:text-green-500 transition duration-300"
-            >
-              SERVICE
-            </Link> */}
-            <Link
-              href="/#team"
-              className="py-4 px-2 text-black font-bold hover:text-green-500 transition duration-300"
-            >
-              TEAM
-            </Link>
-            <Link
-              href="/case-studies"
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive(
-                "/case-studies"
-              )}`}
-            >
-              CASE STUDIES
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                className={`py-4 px-2 ring-0 flex items-center border-0 border-none font-bold transition duration-300 ${isTechnologyActive()}`}
+              >
+                TECHNOLOGY
+                <RiArrowDropDownLine size={22} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {technologyItems.map((item) => (
+                  <Link
+                    href={item.href}
+                    key={item.href}
+                    className={`w-full ${isActive(item.href)}`}
+                  >
+                    <DropdownMenuItem className="px-6 py-4">
+                      <strong>{item.label}</strong>
+                    </DropdownMenuItem>
+                  </Link>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Link
               href="/faq"
-              className="py-4 px-2 text-black font-bold hover:text-green-500 transition duration-300"
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/faq")}`}
             >
               FAQ
             </Link>
+            <Link
+              href="/about-us"
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/about-us")}`}
+            >
+              ABOUT US
+            </Link>
           </div>
+
+          {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
               className="outline-none mobile-menu-button"
@@ -125,6 +130,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu */}
       <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
         <Link
           href="/#home"
@@ -135,39 +142,35 @@ const Navbar = () => {
         </Link>
         <Link
           href="/news"
-          className="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white text-black  transition duration-300"
+          className="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white text-black transition duration-300"
           onClick={closeNavbar}
         >
           News
         </Link>
+        <div className="py-2 px-4 text-sm text-black font-bold">TECHNOLOGY</div>
+        {technologyItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="block py-2 px-8 text-sm hover:bg-green-500 hover:text-white text-black transition duration-300"
+            onClick={closeNavbar}
+          >
+            {item.label}
+          </Link>
+        ))}
         <Link
-          href="/technology-description"
-          className={`py-4 px-2 font-bold transition duration-300 ${isActive(
-            "/technology-description"
-          )}`}
-        >
-          TECHNOLOGY
-        </Link>
-        <Link
-          href="/demo-resoil-plant"
+          href="/faq"
           className="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white text-black transition duration-300"
           onClick={closeNavbar}
         >
-          Demo
+          FAQ
         </Link>
         <Link
-          href="/#team"
+          href="/about-us"
           className="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white text-black transition duration-300"
           onClick={closeNavbar}
         >
-          Team
-        </Link>
-        <Link
-          href="/#case-studies"
-          className="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white text-black transition duration-300"
-          onClick={closeNavbar}
-        >
-          Case Studies
+          ABOUT US
         </Link>
       </div>
     </nav>
