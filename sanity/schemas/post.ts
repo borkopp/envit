@@ -42,7 +42,6 @@ export const post = {
       title: "Excerpt (Short description)",
       type: "text",
       rows: 3,
-      validation: (Rule: Rule) => Rule.max(200).error("Maximum 200 characters"),
     },
     {
       name: "body",
