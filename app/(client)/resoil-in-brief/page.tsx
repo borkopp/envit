@@ -1,12 +1,4 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Download } from "lucide-react";
 import Image from "next/image";
-import { FaFilePdf } from "react-icons/fa6";
 import Link from "next/link";
 
 export default function ResoilInbrief() {
@@ -50,7 +42,7 @@ export default function ResoilInbrief() {
         <div className="p-6 border rounded-lg shadow-md">
           <h3 className="text-md font-bold mb-2">Section 1</h3>
           <p className="mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
           <Link href="/section-1">
             <span className="text-blue-500 hover:underline">Read More</span>
@@ -59,7 +51,7 @@ export default function ResoilInbrief() {
         <div className="p-6 border rounded-lg shadow-md">
           <h3 className="text-md font-bold mb-2">Section 2</h3>
           <p className="mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
           <Link href="/section-2">
             <span className="text-blue-500 hover:underline">Read More</span>
@@ -68,7 +60,7 @@ export default function ResoilInbrief() {
         <div className="p-6 border rounded-lg shadow-md">
           <h3 className="text-md font-bold mb-2">Section 3</h3>
           <p className="mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
           <Link href="/section-3">
             <span className="text-blue-500 hover:underline">Read More</span>
