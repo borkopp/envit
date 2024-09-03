@@ -40,31 +40,41 @@ const Navbar = () => {
           <div className="hidden text-sm md:flex items-center space-x-2">
             <Link
               href="/#home"
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/")}`}
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive(
+                "/"
+              )}`}
             >
               HOME
             </Link>
             <Link
               href="/news"
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/news")}`}
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive(
+                "/news"
+              )}`}
             >
               NEWS
             </Link>
             <Link
               href="/technology-description"
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/technology-description")}`}
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive(
+                "/technology-description"
+              )}`}
             >
               TECHNOLOGY
             </Link>
             <Link
               href="/demo-resoil-plant"
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/demo-resoil-plant")}`}
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive(
+                "/demo-resoil-plant"
+              )}`}
             >
               DEMO
             </Link>
             <Link
               href="/sales-program"
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/sales-program")}`}
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive(
+                "/sales-program"
+              )}`}
             >
               SALES
             </Link>
@@ -82,7 +92,9 @@ const Navbar = () => {
             </Link>
             <Link
               href="/case-studies"
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/case-studies")}`}
+              className={`py-4 px-2 font-bold transition duration-300 ${isActive(
+                "/case-studies"
+              )}`}
             >
               CASE STUDIES
             </Link>
@@ -130,7 +142,9 @@ const Navbar = () => {
         </Link>
         <Link
           href="/technology-description"
-          className={`py-4 px-2 font-bold transition duration-300 ${isActive("/technology-description")}`}
+          className={`py-4 px-2 font-bold transition duration-300 ${isActive(
+            "/technology-description"
+          )}`}
         >
           TECHNOLOGY
         </Link>
