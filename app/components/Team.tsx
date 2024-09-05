@@ -1,6 +1,9 @@
 import Image from "next/image";
-
 import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+
+interface TeamProps {
+  backgroundColor?: string;
+}
 
 const TeamMember = ({
   image,
@@ -50,7 +53,7 @@ const TeamMember = ({
   </div>
 );
 
-const Team = () => {
+const Team: React.FC<TeamProps> = ({ backgroundColor = "bg-gray-100" }) => {
   const teamMembers = [
     {
       image: "/about1.jpeg",
@@ -96,7 +99,7 @@ const Team = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-100" id="team">
+    <section className={`py-16 ${backgroundColor}`} id="team">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl text-gray-800 font-bold mb-4">Our Team</h2>
