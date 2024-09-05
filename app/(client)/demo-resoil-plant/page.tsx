@@ -35,7 +35,7 @@ export default function DemoResoilPlant() {
       </section>
 
       <section className="mb-12">
-        <GallerySlider images={galleryImages} interval={5000} />
+        <GallerySlider images={galleryImages} interval={8000} />
       </section>
     </div>
   );
