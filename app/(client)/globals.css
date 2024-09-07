@@ -10,6 +10,16 @@ section {
   scroll-margin-top: 70px; /* Should match the navbar height */
 }
 
+.mobile-menu-enter {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease-out;
+}
+
+.mobile-menu-enter-active {
+  max-height: 1000px; /* Adjust this value based on your menu's maximum height */
+}
+
 .testimonials-swiper .swiper-pagination {
   bottom: -7px !important; 
 }

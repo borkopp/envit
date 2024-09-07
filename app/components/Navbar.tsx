@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
@@ -13,7 +13,20 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [menuClass, setMenuClass] = useState("mobile-menu-enter");
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (isOpen) {
+      setMenuClass("mobile-menu-enter");
+      setTimeout(
+        () => setMenuClass("mobile-menu-enter mobile-menu-enter-active"),
+        10
+      );
+    } else {
+      setMenuClass("mobile-menu-enter");
+    }
+  }, [isOpen]);
 
   const closeNavbar = () => {
     setIsOpen(false);
@@ -132,27 +145,30 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
+      <div className={`${isOpen ? "block" : "hidden"} md:hidden ${menuClass}`}>
         <Link
           href="/#home"
-          className="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white text-black transition duration-300"
+          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
           onClick={closeNavbar}
         >
-          Home
+          HOME
         </Link>
         <Link
           href="/news"
-          className="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white text-black transition duration-300"
+          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
           onClick={closeNavbar}
         >
-          News
+          NEWS
         </Link>
-        <div className="py-2 px-4 text-sm text-black font-bold">TECHNOLOGY</div>
+        <div className="py-2 flex px-4 text-sm text-black font-bold">
+          TECHNOLOGY
+          <RiArrowDropDownLine size={22} />
+        </div>
         {technologyItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="block py-2 px-8 text-sm hover:bg-green-500 hover:text-white text-black transition duration-300"
+            className="block py-2 px-8 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
             onClick={closeNavbar}
           >
             {item.label}
@@ -160,14 +176,14 @@ const Navbar = () => {
         ))}
         <Link
           href="/faq"
-          className="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white text-black transition duration-300"
+          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
           onClick={closeNavbar}
         >
           FAQ
         </Link>
         <Link
           href="/about-us"
-          className="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white text-black transition duration-300"
+          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
           onClick={closeNavbar}
         >
           ABOUT US
