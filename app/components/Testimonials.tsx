@@ -61,7 +61,7 @@ const Testimonials = () => {
       id="testimonials"
     >
       <div className="absolute inset-0 bg-black opacity-20"></div>
-      <div className="container mx-auto px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={30}
@@ -78,11 +78,21 @@ const Testimonials = () => {
           }}
           loop={true}
           breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
             640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
               slidesPerView: 2,
+              spaceBetween: 30,
             },
             1024: {
               slidesPerView: 2,
+              spaceBetween: 30,
             },
           }}
         >
@@ -96,20 +106,29 @@ const Testimonials = () => {
         <div className="swiper-button-next"></div>
       </div>
       <style jsx>{`
-      
         .swiper-button-next,
         .swiper-button-prev {
           color: white;
           padding: 8px 16px;
           border-radius: 50%;
+          display: none;
         }
-          .swiper-button-prev {
-  left: -50px; /* Adjust this value to move further left */
-}
 
-.swiper-button-next {
-  right: -50px; /* Adjust this value to move further right */
-}
+        @media (min-width: 768px) {
+          .swiper-button-next,
+          .swiper-button-prev {
+            display: flex;
+          }
+
+          .swiper-button-prev {
+            left: -30px;
+          }
+
+          .swiper-button-next {
+            right: -30px;
+          }
+        }
+
         .swiper-button-next:after,
         .swiper-button-prev:after {
           font-size: 20px;

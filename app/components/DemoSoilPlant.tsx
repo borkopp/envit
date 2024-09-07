@@ -20,12 +20,12 @@ const DemoSoilPlant = () => {
 
   return (
     <section className="py-16 bg-white" id="project">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h2 className="text-4xl text-gray-800 font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl text-gray-800 font-bold mb-4">
             Soil Plant Demonstration
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
             Explore our innovative soil plant solutions through this visual
             demonstration.
             <br />
@@ -35,23 +35,24 @@ const DemoSoilPlant = () => {
             </Link>
           </p>
         </div>
-        <div className="max-w-3xl mx-auto">
-          <Carousel>
+        <div className="max-w-full sm:max-w-3xl mx-auto">
+          <Carousel className="w-full">
             <CarouselContent>
               {demoItems.map((item, index) => (
-                <CarouselItem key={index}>
-                  <Image
-                    src={item.asset.url}
-                    alt={`Demo image ${index + 1}`}
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover rounded-lg"
-                  />
+                <CarouselItem key={index} className="pl-0 sm:pl-4">
+                  <div className="relative aspect-[4/3] w-full">
+                    <Image
+                      src={item.asset.url}
+                      alt={`Demo image ${index + 1}`}
+                      fill
+                      className="object-cover rounded-lg"
+                    />
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="hidden sm:flex" />
+            <CarouselNext className="hidden sm:flex" />
           </Carousel>
         </div>
       </div>
