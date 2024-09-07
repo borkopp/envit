@@ -1,89 +1,59 @@
 "use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import Image from "next/image";
-
-const DemoItem = ({
-  image,
-  title,
-  description,
-}: {
-  image: string;
-  title: string;
-  description: string;
-}) => (
-  <div className="relative w-full h-screen">
-    <Image src={image} alt={title} layout="fill" className="absolute inset-0" />
-    <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
-      <h6 className="text-2xl font-semibold uppercase mb-2">{title}</h6>
-      <p className="text-sm">{description}</p>
-    </div>
-  </div>
-);
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Link from "next/link";
 
 const DemoSoilPlant = () => {
   const demoItems = [
-    {
-      image: "/demo1.png",
-      title: "Vector Illustration",
-      description:
-        "LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create slimmer, more portable technology.",
-    },
-    {
-      image: "/demo2.jpeg",
-      title: "Vector Illustration",
-      description:
-        "LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create slimmer, more portable technology.",
-    },
-    {
-      image: "/demo4.jpeg",
-      title: "Vector Illustration",
-      description:
-        "LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create slimmer, more portable technology.",
-    },
-    {
-      image: "/demo5.jpeg",
-      title: "Vector Illustration",
-      description:
-        "LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create slimmer, more portable technology.",
-    },
-    {
-      image: "/demo6.jpeg",
-      title: "Vector Illustration",
-      description:
-        "LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create slimmer, more portable technology.",
-    },
+    { asset: { url: "/demo1.png" } },
+    { asset: { url: "/demo2.jpeg" } },
+    { asset: { url: "/demo4.jpeg" } },
+    { asset: { url: "/demo5.jpeg" } },
+    { asset: { url: "/demo6.jpeg" } },
   ];
 
   return (
     <section className="py-16 bg-white" id="project">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl text-gray-800 font-bold mb-4">
-            Demo Soil Plant
-          </h1>
+        <div className="text-center mb-8">
+          <h2 className="text-4xl text-gray-800 font-bold mb-4">
+            Soil Plant Demonstration
+          </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Explore our innovative soil plant solutions through this visual
+            demonstration.
+            <br />
+            <span>To read more, </span>
+            <Link href="/demo-resoil-plant">
+              <span className="underline">click here.</span>
+            </Link>
           </p>
         </div>
-        <Swiper
-          modules={[Navigation, Pagination]}
-          spaceBetween={0}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          className="demo-swiper"
-        >
-          {demoItems.map((item, index) => (
-            <SwiperSlide key={index}>
-              <DemoItem {...item} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className="max-w-3xl mx-auto">
+          <Carousel>
+            <CarouselContent>
+              {demoItems.map((item, index) => (
+                <CarouselItem key={index}>
+                  <Image
+                    src={item.asset.url}
+                    alt={`Demo image ${index + 1}`}
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover rounded-lg"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
       </div>
     </section>
   );
