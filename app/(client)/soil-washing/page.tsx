@@ -1,87 +1,50 @@
-// Mark this file as a Client Component
-"use client";
-
-import { useState } from "react";
-import Image from "next/image";
+import ImageGallery from "@/app/components/image-gallery";
 
 export default function SoilWashing() {
-  const [selectedImage, setSelectedImage] = useState(null);
-
   const images = [
-    "/washing/3.jpeg",
-    "/washing/2.jpeg",
-    "/washing/3.jpeg",
-    "/washing/2.jpeg",
-    "/washing/3.jpeg",
-    "/washing/2.jpeg",
-    "/washing/3.jpeg",
-    "/washing/2.jpeg",
+    { asset: { url: "/washing/1.jpg" } },
+    { asset: { url: "/washing/2.jpeg" } },
+    { asset: { url: "/washing/3.jpeg" } },
+    { asset: { url: "/washing/4.jpg" } },
+    { asset: { url: "/washing/5.jpg" } },
+    { asset: { url: "/washing/6.jpeg" } },
+    { asset: { url: "/washing/7.jpg" } },
+    { asset: { url: "/washing/8.jpg" } },
   ];
-
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
 
   return (
     <div className="container mx-auto px-6 md:px-16 lg:px-24 py-10">
       {/* Two Paragraphs with Gap */}
       <div className="mb-12">
         <p className="text-lg mb-6">
-          The soil-washing plant with ReSoil® technology was constructed in
-          city of Prevalje which sits in a contaminated area of Meža Valley,
-          Slovenia. The mission of this facility is to prove the scalability of
-          ReSoil® technology. With the capacity of 6 t/day it enables
-          demonstrational remediation of local sites as well as demonstration of
-          ReSoil® technology to stakeholders. The Technology Readiness Level of
-          plant operation is TRL 7 (EU, NASA methodology).{" "}
+          The <strong>soil-washing plant</strong> with <strong>ReSoil</strong>{" "}
+          technology was constructed in city of Prevalje which sits in a{" "}
+          <strong>contaminated area</strong> of Meža Valley, Slovenia. The
+          mission of this facility is to prove the <strong>scalability</strong>{" "}
+          of ReSoil technology. With the capacity of <strong>6 t/day</strong> it
+          enables demonstrational remediation of local sites as well as
+          demonstration of ReSoil technology to stakeholders. The{" "}
+          <strong>Technology Readiness Level</strong> of plant operation is{" "}
+          <strong>TRL 7</strong> (EU, NASA methodology).
         </p>
         <p className="text-lg">
           The permit for construction of this soil washing plant was granted by
           Slovenian Environmental Protection Agency in 2017. The permit was
-          based on proofs of ReSoil® closed process cycles operation and
-          zero-emissions. Construction of the plant was co-financed from EU LIFE
-          + Programme with 50% contribution of 1.1 M EUR. The operating permit
-          for this soil-washing plant was obtained in July 2018. The ReSoil®
-          technology uses common process equipment such are sieves, mixing
-          vessels and filter presses. The remediation process can be controlled
-          manually and the innovative part of ReSoil® technology, i.e. in press
-          soil rinsing, EDTA and process water recycling, can also be controlled
-          automatically by the SCADA (supervisory, control and data acquisition)
-          system.{" "}
+          based on proofs of <strong>ReSoil</strong>&reg; closed process cycles
+          operation and <strong>zero-emissions</strong>. Construction of the
+          plant was co-financed from EU LIFE + Programme with 50% contribution
+          of 1.1 M EUR. The operating permit for this soil-washing plant was
+          obtained in July 2018. The <strong>ReSoil</strong>&reg; technology
+          uses common process equipment such are <strong>sieves</strong>,{" "}
+          <strong>mixing vessels</strong> and <strong>filter presses</strong>.
+          The remediation process can be controlled manually and the innovative
+          part of <strong>ReSoil</strong>&reg; technology, i.e. in press soil
+          rinsing, <strong>EDTA</strong> and process water recycling, can also
+          be controlled automatically by the <strong>SCADA</strong>{" "}
+          (supervisory, control and data acquisition) system.
         </p>
       </div>
-
-      {/* Grid of Images */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {images.map((src, index) => (
-          <div key={index} className="relative cursor-pointer"></div>
-        ))}
-      </div>
-
-      {/* Modal for Maximized Image */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-          onClick={closeModal}
-        >
-          <div className="relative bg-white p-4">
-            <Image
-              src={selectedImage}
-              alt="Selected Image"
-              layout="intrinsic"
-              width={1000}
-              height={1000}
-              className="object-contain"
-            />
-            <button
-              className="absolute top-2 right-2 text-white text-2xl font-bold"
-              onClick={closeModal}
-            >
-              X
-            </button>
-          </div>
-        </div>
-      )}
+      <ImageGallery images={images} />
     </div>
   );
 }

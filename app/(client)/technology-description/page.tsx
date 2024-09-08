@@ -16,7 +16,7 @@ export default function TechnologyDescription() {
       </h1>
 
       <section className="mb-12">
-        <p className="text-xl leading-relaxed mb-6">
+        <p className="text-lg leading-relaxed mb-6">
           <strong>ReSoil®</strong>, our patented soil remediation technology,
           is the only commercially available solution that efficiently removes{" "}
           <strong>Pb (lead)</strong> and other toxic metals from contaminated
@@ -332,10 +332,10 @@ export default function TechnologyDescription() {
       <section className="mb-8">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger className="bg-gray-100 p-4 rounded-lg">
+            <AccordionTrigger className="bg-gray-100 p-4 ">
               References
             </AccordionTrigger>
-            <AccordionContent className="bg-gray-100 rounded-t-none rounded-b-xl">
+            <AccordionContent className="bg-gray-100">
               <ol className="space-y-4 p-4">
                 <li>
                   1. Cai M, McBride MB, Kaiming L (2016) Bioaccessibility of Ba,
