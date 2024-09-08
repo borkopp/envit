@@ -9,7 +9,7 @@ import Team from "@/app/components/Team";
 import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 
-const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_ACCESS_TOKEN;
+const MAPBOX_ACCESS_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
 export default function AboutUs() {
   const companyLocation = {
