@@ -1,125 +1,194 @@
+"use client";
+import React, { useState } from "react";
+import Map, { Marker } from "react-map-gl";
+import { MapPin, Mail, Phone, Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import Team from "@/app/components/Team";
-import Image from "next/image";
+import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import Link from "next/link";
 
-export default function Aboutus() {
+const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_ACCESS_TOKEN;
+
+export default function AboutUs() {
+  const companyLocation = {
+    latitude: 46.189,
+    longitude: 14.521,
+    zoom: 14,
+  };
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Implement your form submission logic here
+    console.log("Form submitted:", formData);
+    // Reset form after submission
+    setFormData({ name: "", email: "", message: "" });
+  };
+
   return (
-    <div className="bg-gray-50 py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* History and Background Section */}
-        <section id="team">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl text-gray-800 font-bold mb-10">
-                History and Background
-              </h2>
-              <p className="text-xl leading-relaxed mb-6">
-                Envit Ltd. is a research & development SME company for
-                environmental technology and engineering. Established in 2009 as
-                a spin-out from the University of Ljubljana, Slovenia, we were
-                founded by Prof. Domen Leštan and two PhD students. Our
-                inception followed the development of an innovative soil washing
-                technology (now ReSoil®) that demonstrated both feasibility and
-                commercial potential. In 2015, Arhel Ltd. acquired the majority
-                of Envit Ltd. shares. By 2017, we began constructing a
-                demonstration soil-washing plant using ReSoil® technology in
-                Prevalje, near the Pb, Zn, and Cd contaminated Meza Valley,
-                Slovenia. This project was co-financed by the EU LIFE +
-                Programme and Arhel Ltd.&apos;s corporate investment fund. Our
-                ReSoil® technology has been awarded the Seal of Excellence from
-                the EU Commission, opening doors for projects using ReSoil® to
-                access EU structural and cohesion funds.
+    <div className="container mx-auto px-4 py-16 space-y-24">
+      <section>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold">Our Story</h2>
+            <p className="text-muted-foreground">
+              Envit Ltd. is a research & development SME company for
+              environmental technology and engineering. It was established in
+              2009 as a spin-out company of University of Ljubljana, Slovenia.
+            </p>
+            <p className="text-muted-foreground">
+              The founding of Envit Ltd. was initiated by prof. Domen Leštan and
+              his fellow two PhD students, following the development of
+              innovative soil washing technology (ReSoil) at UL to the level
+              which attested the feasibility and commercial potential of the
+              technology.
+            </p>
+            <p className="text-muted-foreground">
+              In 2015 the majority of shares of Envit Ltd. were acquired by
+              Arhel Ltd. In 2017 the construction of a demonstration-al
+              soil-washing plant with ReSoil technology commenced in the city of
+              Prevalje, nearby Pb, Zn and Cd contaminated Meza Valley, Slovenia,
+              co-financed from EU LIFE + Programme and a corporate investment
+              fund from Arhel Ltd. ReSoil was awarded Seal of Excellence from
+              the EU Commission which allows projects with ReSoil technology to
+              access EU structural and cohesion funds.
+            </p>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Our Location</h3>
+              <address className="not-italic text-muted-foreground">
+                Pod lipami 35
+                <br />
+                1218 Komenda
+                <br />
+                Slovenia
+              </address>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Contact</h3>
+              <p className="text-muted-foreground flex items-center">
+                <Mail className="mr-2 h-4 w-4" /> info@envit.si
+              </p>
+              <p className="text-muted-foreground flex items-center">
+                <FaLinkedin className="mr-2 h-4 w-4" />{" "}
+                <Link
+                  className="underline"
+                  href="https://www.linkedin.com/company/envit/"
+                  target="_blank"
+                >
+                  ENVIT Ltd.
+                </Link>
+              </p>
+              <p className="text-muted-foreground flex items-center">
+                <FaXTwitter className="mr-2 h-4 w-4" />{" "}
+                <Link
+                  className="underline"
+                  href="https://x.com/EnvitLtd"
+                  target="_blank"
+                >
+                  ENVIT Ltd.
+                </Link>
               </p>
             </div>
           </div>
-        </section>
-
-        {/* Team Section */}
-        <Team backgroundColor="bg-gray-50" />
-
-        {/* Location and Contact Form Section */}
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Location Section */}
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-3xl font-semibold mb-6 text-gray-700">
-              Our Location
-            </h2>
-            <p className="text-lg text-gray-600 mb-4">
-              Pod lipami 35
-              <br />
-              1218 Komenda
-              <br />
-              Slovenia
-            </p>
-            <p className="text-lg text-gray-600 mb-4">
-              Email:{" "}
-              <a
-                href="mailto:info@envit.si"
-                className="text-blue-500 hover:underline"
+          <div className="h-[400px] md:h-full min-h-[400px] rounded-lg overflow-hidden shadow-lg">
+            <Map
+              mapboxAccessToken={MAPBOX_ACCESS_TOKEN}
+              initialViewState={companyLocation}
+              style={{ width: "100%", height: "100%" }}
+              mapStyle="mapbox://styles/mapbox/light-v11"
+            >
+              <Marker
+                longitude={companyLocation.longitude}
+                latitude={companyLocation.latitude}
+                anchor="bottom"
               >
-                info@envit.si
-              </a>
-            </p>
-            <p className="text-lg text-gray-600">Envit Ltd. offices</p>
-          </div>
-
-          {/* Contact Form Section */}
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-3xl font-semibold mb-6 text-gray-700">
-              Contact Us
-            </h2>
-            <form>
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="name"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="email"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-              </div>
-              <div className="mb-6">
-                <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="message"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  rows={4}
-                  required
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
-              >
-                Send Message
-              </button>
-            </form>
+                <MapPin className="w-8 h-8 text-primary" />
+              </Marker>
+            </Map>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section>
+        <Team backgroundColor="bg-white" />
+      </section>
+
+      <section>
+        <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-muted-foreground mb-1"
+            >
+              Name
+            </label>
+            <Input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+              className="w-full"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-muted-foreground mb-1"
+            >
+              Email
+            </label>
+            <Input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+              className="w-full"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-muted-foreground mb-1"
+            >
+              Message
+            </label>
+            <Textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              required
+              className="w-full"
+              rows={4}
+            />
+          </div>
+          <Button
+            type="submit"
+            className="w-full bg-green-500 hover:bg-green-600"
+          >
+            <Send className="mr-2 h-4 w-4" /> Send Message
+          </Button>
+        </form>
+      </section>
     </div>
   );
 }
