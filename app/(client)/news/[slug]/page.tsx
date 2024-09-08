@@ -3,7 +3,7 @@ import { client } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import React from "react";
 import Image from "next/image";
-import ImageGallery from "@/app/components/ImageGallery";
+import ImageGallery from "@/app/components/image-gallery";
 import defaultImage from "/public/logo2.png";
 
 interface Params {
