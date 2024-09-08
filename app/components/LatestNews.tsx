@@ -55,11 +55,11 @@ export default async function LatestNews() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-black mb-4">Latest News</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            The latest news and insights from our blog. To see all the news
+            The latest news and insights from our blog. To see all the news{" "}
+            <Link href="/news">
+              <span className="underline">click here</span>
+            </Link>
           </p>
-          <Link href="/news">
-            <span className="underline">click here.</span>
-          </Link>
         </div>
         <div className="flex flex-wrap -mx-4">
           {posts?.length > 0 &&
