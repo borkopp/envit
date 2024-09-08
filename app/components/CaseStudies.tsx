@@ -34,9 +34,11 @@ const CaseStudyItem = ({ study }: { study: CaseStudy }) => (
       width={400}
       height={200}
     />
-    <p className="text-white bg-gray-800 px-4 py-2 text-sm w-fit mb-2">
-      {study.date}
-    </p>
+    {study.date && (
+      <p className="text-white bg-gray-800 px-4 py-2 text-sm w-fit mb-2">
+        {study.date}
+      </p>
+    )}
     <h4 className="text-xl text-black font-semibold mb-2">{study.title}</h4>
     <p className="text-gray-700 mb-4">{study.description}</p>
     <Link
