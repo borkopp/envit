@@ -20,7 +20,7 @@ export default function DemoResoilPlant() {
       </h1>
 
       <section className="mb-12">
-        <p className="text-xl leading-relaxed mb-6">
+        <p className="text-lg mb-8 leading-relaxed">
           Small mobile <strong>ReSoil®</strong> plant (up to 300 kg of soil /
           day) was constructed in mobile containers for POSIDON PCP H2020
           project. In this way we were able to investigate the future lay-up of
