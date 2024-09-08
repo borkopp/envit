@@ -27,11 +27,9 @@ const DemoSoilPlant = () => {
           </h2>
           <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
             Explore our innovative soil plant solutions through this visual
-            demonstration.
-            <br />
-            <span>To read more, </span>
+            demonstration. <span>To read more </span>
             <Link href="/demo-resoil-plant">
-              <span className="underline">click here.</span>
+              <span className="underline">click here</span>
             </Link>
           </p>
         </div>

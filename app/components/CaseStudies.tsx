@@ -84,9 +84,9 @@ const CaseStudies = () => {
           <p className="text-gray-600 max-w-2xl mx-auto">
             Discover our success stories through these case studies. Each one
             highlights our innovative solutions and the real-world impact
-            we&apos;ve made for our clients. To read more,{" "}
+            we&apos;ve made for our clients. To read more{" "}
             <Link href="/case-studies">
-              <span className="underline">click here.</span>
+              <span className="underline">click here</span>
             </Link>
           </p>
         </div>
