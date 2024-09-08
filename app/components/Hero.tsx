@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "@/styles/Banner.module.css";
+import { IoIosArrowDown } from "react-icons/io";
 
 const Hero = () => {
   return (
@@ -27,10 +28,11 @@ const Hero = () => {
             <span className="text-green-500">Green Transition</span> Worldwide
           </h1>
           <Link
-            href="#"
+            href="#blog"
             className="inline-block bg-green-500 text-white py-3 px-6 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300"
           >
-            Hire Us Now!
+            Read More
+            <IoIosArrowDown className="inline-block ml-2" />
           </Link>
         </div>
       </div>
