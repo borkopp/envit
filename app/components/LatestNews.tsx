@@ -26,29 +26,36 @@ export const revalidate = 60;
 export default async function LatestNews() {
   const posts: Post[] = await getPosts();
 
-  const NewsItem = ({ title, publishedAt, excerpt, slug, thumbnail }: Post) => (
-    <div className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
-      <Image
-        className="w-full h-48 object-cover mb-4"
-        src={thumbnail?.asset?.url || "/logo2.png"}
-        alt={title}
-        width={400}
-        height={200}
-        quality={100}
-      />
-      <p className="text-gray-600 mb-2">
-        {new Date(publishedAt).toLocaleDateString()}
-      </p>
-      <h4 className="text-xl text-black font-semibold mb-2">{title}</h4>
-      <p className="text-gray-700 mb-4">{excerpt}</p>
-      <Link href={`/news/${slug.current}`}>
-        <span className="inline-block bg-green-500 text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-green-600 transition duration-300">
-          Read More
-        </span>
-      </Link>
-    </div>
-  );
+  const NewsItem = ({ title, publishedAt, excerpt, slug, thumbnail }: Post) => {
+    const formattedDate = new Date(publishedAt).toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
 
+    return (
+      <div className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+        <Image
+          className="w-full h-48 object-cover mb-4"
+          src={thumbnail?.asset?.url || "/logo2.png"}
+          alt={title}
+          width={400}
+          height={200}
+          quality={100}
+        />
+        <p className="text-white bg-gray-800 px-4 py-2 text-sm w-fit mb-2">
+          {formattedDate}
+        </p>
+        <h4 className="text-xl text-black font-semibold mb-2">{title}</h4>
+        <p className="text-gray-700 mb-4">{excerpt}</p>
+        <Link href={`/news/${slug.current}`}>
+          <span className="inline-block bg-green-500 text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-green-600 transition duration-300">
+            Read More
+          </span>
+        </Link>
+      </div>
+    );
+  };
   return (
     <section className="py-16 bg-gray-100" id="blog">
       <div className="container mx-auto px-4">
