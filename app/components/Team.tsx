@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 interface TeamProps {
   backgroundColor?: string;
@@ -14,7 +15,7 @@ const TeamMember = ({
   image: string;
   name: string;
   role: string;
-  social: { facebook: string; twitter: string; linkedin: string };
+  social: { facebook?: string; twitter?: string; linkedin?: string };
 }) => (
   <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-8">
     <div className="bg-white rounded-lg overflow-hidden shadow-md relative group">
@@ -30,24 +31,30 @@ const TeamMember = ({
         <p className="text-gray-600">{role}</p>
       </div>
       <div className="absolute inset-0 bg-green-500 bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <a
-          href={social.facebook}
-          className="text-white mx-2 hover:text-gray-200"
-        >
-          <FaFacebook size={24} />
-        </a>
-        <a
-          href={social.twitter}
-          className="text-white mx-2 hover:text-gray-200"
-        >
-          <FaTwitter size={24} />
-        </a>
-        <a
-          href={social.linkedin}
-          className="text-white mx-2 hover:text-gray-200"
-        >
-          <FaLinkedin size={24} />
-        </a>
+        {social.facebook && (
+          <a
+            href={social.facebook}
+            className="text-white mx-2 hover:text-gray-200"
+          >
+            <FaFacebook size={24} />
+          </a>
+        )}
+        {social.twitter && (
+          <a
+            href={social.twitter}
+            className="text-white mx-2 hover:text-gray-200"
+          >
+            <FaXTwitter size={24} />
+          </a>
+        )}
+        {social.linkedin && (
+          <a
+            href={social.linkedin}
+            className="text-white mx-2 hover:text-gray-200"
+          >
+            <FaLinkedin size={24} />
+          </a>
+        )}
       </div>
     </div>
   </div>
@@ -60,9 +67,8 @@ const Team: React.FC<TeamProps> = ({ backgroundColor = "bg-gray-100" }) => {
       name: "Domen Leštan",
       role: "CEO & CTO",
       social: {
-        facebook: "https://facebook.com/domen",
-        twitter: "https://twitter.com/domen",
-        linkedin: "https://linkedin.com/in/domen",
+        twitter: "https://twitter.com/envitltd",
+        linkedin: "https://www.linkedin.com/in/domen-lestan-083093b",
       },
     },
 
@@ -71,9 +77,8 @@ const Team: React.FC<TeamProps> = ({ backgroundColor = "bg-gray-100" }) => {
       name: "Neža Finžgar",
       role: "CAO",
       social: {
-        facebook: "https://facebook.com/domen",
-        twitter: "https://twitter.com/domen",
-        linkedin: "https://linkedin.com/in/domen",
+        twitter: "https://twitter.com/envitltd",
+        linkedin: "https://www.linkedin.com/in/neza-finzgar-6b791b18",
       },
     },
     {
@@ -81,9 +86,7 @@ const Team: React.FC<TeamProps> = ({ backgroundColor = "bg-gray-100" }) => {
       name: "Dragan Martinovič",
       role: "COO",
       social: {
-        facebook: "https://facebook.com/domen",
-        twitter: "https://twitter.com/domen",
-        linkedin: "https://linkedin.com/in/domen",
+        linkedin: "https://www.linkedin.com/in/dragan-martinovic-3974335",
       },
     },
     {
@@ -91,9 +94,8 @@ const Team: React.FC<TeamProps> = ({ backgroundColor = "bg-gray-100" }) => {
       name: "Grega E. Voglar",
       role: "Bussines Developer and International Project Coordinator",
       social: {
-        facebook: "https://facebook.com/domen",
-        twitter: "https://twitter.com/domen",
-        linkedin: "https://linkedin.com/in/domen",
+        twitter: "https://x.com/yamamaartmuzik",
+        linkedin: "https://www.linkedin.com/in/grega-e-voglar-bab60963",
       },
     },
   ];
