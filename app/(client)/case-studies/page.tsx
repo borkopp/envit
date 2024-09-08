@@ -14,12 +14,12 @@ interface CaseStudy {
   primaryLink: {
     type: "url" | "pdf";
     url?: string;
-    file?: { asset: { url: string } };
+    fileUrl?: string;
   };
   secondaryLink?: {
     type: "url" | "pdf";
     url?: string;
-    file?: { asset: { url: string } };
+    fileUrl?: string;
   };
 }
 
@@ -35,8 +35,16 @@ async function getCaseStudies() {
       }
     },
     date,
-    primaryLink,
-    secondaryLink
+    primaryLink {
+      type,
+      url,
+      "fileUrl": file.asset->url
+    },
+    secondaryLink {
+      type,
+      url,
+      "fileUrl": file.asset->url
+    }
   }`;
   return client.fetch(query);
 }
@@ -77,28 +85,25 @@ export default async function CaseStudiesPage() {
                 <p className="text-gray-700 text-lg mb-12">
                   {study.description}
                 </p>
-                <div className="space-x-4">
+                <div className="flex flex-col sm:flex-row gap-4">
                   {study.primaryLink && (
                     <Link
                       href={
                         study.primaryLink.type === "url"
                           ? study.primaryLink.url || "#"
-                          : study.primaryLink.file?.asset.url || "#"
+                          : study.primaryLink.fileUrl || "#"
                       }
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-green-500 text-white items-center justify-center text-lg px-6 py-3 rounded-lg hover:bg-green-600 transition"
+                      className="bg-green-500 text-white flex items-center justify-center text-lg px-6 py-3 rounded-lg hover:bg-green-600 transition w-full sm:w-auto"
                     >
                       {study.primaryLink.type === "url"
                         ? "View Case Study"
                         : "View PDF"}
                       {study.primaryLink.type === "url" ? (
-                        <FaExternalLinkAlt
-                          size={16}
-                          className="ml-2 inline-block"
-                        />
+                        <FaExternalLinkAlt size={16} className="ml-2" />
                       ) : (
-                        <FaFilePdf className="ml-2 inline-block" />
+                        <FaFilePdf className="ml-2" />
                       )}
                     </Link>
                   )}
@@ -108,19 +113,19 @@ export default async function CaseStudiesPage() {
                       href={
                         study.secondaryLink.type === "url"
                           ? study.secondaryLink.url || "#"
-                          : study.secondaryLink.file?.asset.url || "#"
+                          : study.secondaryLink.fileUrl || "#"
                       }
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-white border-green-500 border-2 text-gray-800 items-center justify-center text-lg px-6 py-3 rounded-lg hover:bg-green-200 transition"
+                      className="bg-white border-green-500 border-2 text-gray-800 flex items-center justify-center text-lg px-6 py-3 rounded-lg hover:bg-green-200 transition w-full sm:w-auto"
                     >
                       {study.secondaryLink.type === "url"
-                        ? "Additional Resource"
+                        ? "Additional Link"
                         : "Additional PDF"}
                       {study.secondaryLink.type === "url" ? (
-                        <FaExternalLinkAlt className="ml-2 inline-block" />
+                        <FaExternalLinkAlt className="ml-2" />
                       ) : (
-                        <FaFilePdf className="ml-2 inline-block" />
+                        <FaFilePdf className="ml-2" />
                       )}
                     </Link>
                   )}
