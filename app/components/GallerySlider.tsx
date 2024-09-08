@@ -124,9 +124,9 @@ const GallerySlider: React.FC<GallerySliderProps> = ({
                       <Image
                         src={image.asset.url}
                         alt={`Gallery image ${slideIndex * slidesPerView + imageIndex + 1}`}
-                        width={500}
-                        height={500}
-                        className="w-full h-auto object-cover rounded cursor-pointer"
+                        width={300}
+                        height={300}
+                        className="w-full h-[300px] object-cover rounded cursor-pointer"
                         onClick={() =>
                           openModal(slideIndex * slidesPerView + imageIndex)
                         }
