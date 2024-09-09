@@ -22,7 +22,10 @@ async function getAllPosts() {
   return data;
 }
 
-export const revalidate = 60;
+export const revalidate = 10;
+export const headers = {
+  "Cache-Control": "public, s-maxage=10, stale-while-revalidate=59",
+};
 
 export default async function NewsPage() {
   const posts: Post[] = await getAllPosts();
