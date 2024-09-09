@@ -68,18 +68,19 @@ export default async function CaseStudiesPage() {
           {caseStudies.map((study) => (
             <div
               key={study._id}
-              className="flex flex-col md:flex-row gap-8 bg-white p-8 rounded-lg shadow-lg"
+              className="flex flex-col lg:flex-row gap-8 bg-white p-4 sm:p-8 rounded-lg shadow-lg"
             >
-              <div className="md:w-2/5">
+              <div className="lg:w-1/2">
                 <Image
                   src={study?.thumbnail?.asset.url}
                   alt={study.title}
-                  width={500}
-                  height={300}
-                  className="w-full h-64 object-cover rounded-lg"
+                  layout="responsive"
+                  width={1000}
+                  height={600}
+                  className="w-full h-auto object-contain rounded-lg"
                 />
               </div>
-              <div className="md:w-3/5">
+              <div className="lg:w-1/2">
                 <h2 className="text-3xl font-semibold mb-6">{study.title}</h2>
                 <p className="text-gray-600 text-lg mb-6">{study.date}</p>
                 <p className="text-gray-700 text-lg mb-12">
