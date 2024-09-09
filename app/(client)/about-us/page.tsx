@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Map, { Marker } from "react-map-gl";
-import { MapPin, Mail, Phone, Send } from "lucide-react";
+import { MapPin, Mail, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -33,7 +33,7 @@ export default function AboutUs() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Implement your form submission logic here
+    // Form submission logic
     console.log("Form submitted:", formData);
     // Reset form after submission
     setFormData({ name: "", email: "", message: "" });
