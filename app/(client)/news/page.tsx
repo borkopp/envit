@@ -58,7 +58,6 @@ export default async function NewsPage() {
     <section className="py-10 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-semibold text-center mb-6">News</h1>
-
         <p className="text-gray-600 text-center max-w-2xl mb-10 mx-auto">
           Stay up to date with the latest news and announcements from our
           company. Learn more about our recent projects, company news and
