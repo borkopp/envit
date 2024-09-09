@@ -3,14 +3,16 @@ import Link from "next/link";
 
 const CmsNavbar = () => {
   return (
-    <div className="flex justify-between items-center py-1 px-5">
+    <div className="flex-row justify-between items-center py-1 px-5 mb-4">
       <Link href="/">
         <Image
           src="/logo2.png"
           alt="Logo"
-          width={100}
+          width={120}
           height={50}
-          className=""
+          objectFit="contain"
+          className="w-full h-20"
+          quality={100}
         />
       </Link>
     </div>

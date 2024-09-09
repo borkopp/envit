@@ -5,7 +5,7 @@ import { Post } from "../utils/interface";
 
 async function getPosts() {
   const query = `
-  *[_type == "news"] | order(publishedAt desc)[0...4] {
+  *[_type == "news"] | order(publishedAt desc)[0...4]  {
     title,
     slug,
     publishedAt,
@@ -21,7 +21,10 @@ async function getPosts() {
   const data = await client.fetch(query);
   return data;
 }
-export const revalidate = 60;
+export const revalidate = 10;
+export const headers = {
+  "Cache-Control": "no-store",
+};
 
 export default async function LatestNews() {
   const posts: Post[] = await getPosts();
