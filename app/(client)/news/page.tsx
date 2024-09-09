@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { Post } from "../../utils/interface";
+import { Metadata } from "next";
 
 async function getAllPosts() {
   const query = `
@@ -23,10 +24,13 @@ async function getAllPosts() {
 }
 
 export const revalidate = 10;
-export const headers = {
-  "Cache-Control": "public, s-maxage=10, stale-while-revalidate=59",
-};
-
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    other: {
+      "Cache-Control": "public, s-maxage=10, stale-while-revalidate=59",
+    },
+  };
+}
 export default async function NewsPage() {
   const posts: Post[] = await getAllPosts();
 
