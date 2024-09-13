@@ -1,6 +1,6 @@
 "use client";
 import styles from "@/styles/Banner.module.css";
-import { VscMute, VscUnmute } from "react-icons/vsc";
+import { VscDebugRestart, VscMute, VscUnmute } from "react-icons/vsc";
 import { useRef, useState } from "react";
 
 const Hero = () => {
@@ -14,6 +14,13 @@ const Hero = () => {
     }
   };
 
+  const restartVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play();
+    }
+  };
+
   return (
     <section className="relative h-[calc(100vh-64px)]" id="home">
       <div
@@ -21,7 +28,7 @@ const Hero = () => {
       >
         <video
           id="background-video"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-hover"
           autoPlay
           muted={isMuted}
           loop
@@ -41,6 +48,13 @@ const Hero = () => {
               <VscUnmute className="mr-2" />
             )}
             {isMuted ? "Unmute" : "Mute"}
+          </button>
+          <button
+            onClick={restartVideo}
+            className="bg-white text-black py-2 px-4 rounded-full text-sm font-semibold hover:bg-gray-200 transition duration-300 flex items-center"
+          >
+            <VscDebugRestart className="mr-2" />
+            Restart
           </button>
         </div>
       </div>
