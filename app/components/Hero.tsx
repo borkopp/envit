@@ -27,7 +27,7 @@ const Hero = () => {
           loop
           ref={videoRef}
         >
-          <source src="/envit-presentation.mp4" type="video/mp4" />
+          <source src="/hero/envit-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-4 z-30">
