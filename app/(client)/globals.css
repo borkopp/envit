@@ -2,50 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
-
-section {
-  scroll-margin-top: 70px; /* Should match the navbar height */
-}
-
-.mobile-menu-enter {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 1s ease-out;
-}
-
-.mobile-menu-enter-active {
-  max-height: 1000px; /* Adjust this value based on your menu's maximum height */
-}
-
-.testimonials-swiper .swiper-pagination {
-  bottom: -7px !important; 
-}
-.testimonials-swiper .swiper-pagination-bullet {
-  background-color: #ffffff; 
-  opacity: 0.5;
-}
-.testimonials-swiper .swiper-pagination-bullet-active {
-  background-color: #ffffff; 
-  opacity: 1;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-.demo-swiper {
-  position: relative;
-  padding-bottom: 60px !important;
-}
-
-.demo-swiper .swiper-pagination {
-  bottom: 20px !important;
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -110,6 +66,4 @@ section {
   body {
     @apply bg-background text-foreground;
   }
-}
-
 }

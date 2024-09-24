@@ -6,6 +6,7 @@ import Expertise from "@/app/components/Expertise";
 import Team from "@/app/components/Team";
 import Testimonials from "@/app/components/Testimonials";
 import CaseStudies from "@/app/components/CaseStudies";
+import HeroTest from "../components/HeroTest";
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Hero />
+        <HeroTest />
         <LatestNews />
         <DemoSoilPlant />
         <Expertise />

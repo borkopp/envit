@@ -1,92 +1,57 @@
-"use client";
-import { useEffect } from "react";
+import {Button} from "@/components/ui/button";
+import {ArrowRight, Leaf, Shield} from "lucide-react";
+import Image from "next/image";
 
-const SkillCircle = ({
-  percentage,
-  title,
-}: {
-  percentage: number;
-  title: string;
-}) => (
-  <div className="w-full sm:w-1/3 px-4 mb-8">
-    <div className="skill-circle relative w-32 h-32 mx-auto mb-4">
-      <svg className="w-full h-full" viewBox="0 0 36 36">
-        <path
-          className="circle-bg"
-          d="M18 2.0845
-            a 15.9155 15.9155 0 0 1 0 31.831
-            a 15.9155 15.9155 0 0 1 0 -31.831"
-          fill="none"
-          stroke="#eee"
-          strokeWidth="2"
-        />
-        <path
-          className="circle"
-          d="M18 2.0845
-            a 15.9155 15.9155 0 0 1 0 31.831
-            a 15.9155 15.9155 0 0 1 0 -31.831"
-          fill="none"
-          stroke="#4CAF50"
-          strokeWidth="2"
-          strokeDasharray={`${percentage}, 100`}
-        />
-      </svg>
-      <div className="absolute inset-0 flex items-center justify-center text-2xl font-bold">
-        {percentage}%
-      </div>
-    </div>
-    <h4 className="text-center text-lg font-semibold">{title}</h4>
-  </div>
-);
-
-const Expertise = () => {
-  useEffect(() => {
-    const circles = document.querySelectorAll(".circle");
-    circles.forEach((circle) => {
-      if (circle instanceof SVGPathElement) {
-        const length = circle.getTotalLength();
-        circle.style.strokeDasharray = `${length}`;
-        circle.style.strokeDashoffset = `${length}`;
-
-        setTimeout(() => {
-          circle.style.transition = "stroke-dashoffset 2s ease-in-out";
-          circle.style.strokeDashoffset = `${
-            length -
-            (parseFloat(circle.getAttribute("stroke-dasharray") || "0") / 100) *
-              length
-          }`;
-        }, 100);
-      }
-    });
-  }, []);
-
+export default function Expertise() {
   return (
-    <section className="py-16 bg-gray-900 text-white" id="expertise">
+    <section className="bg-gray-900 text-white py-16">
       <div className="container mx-auto px-4">
-        <div className="flex flex-wrap -mx-4">
-          <div className="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
-            <h1 className="text-4xl font-bold mb-6">Our Fields of Expertise</h1>
-            <p className="text-gray-300 mb-4">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et ut
-              sed a. Nulla amet obcaecati similique tempore, dolores aliquam
-              expedita deserunt minus unde quia earum sequi accusamus asperiores
-              suscipit iste!
-            </p>
-          </div>
-          <div className="w-full lg:w-1/2 px-4">
-            <div className="flex flex-wrap -mx-4">
-              <SkillCircle percentage={85} title="Research and Development" />
-              <SkillCircle
-                percentage={90}
-                title="Environmental Technology and Engineering"
-              />
-              <SkillCircle percentage={75} title="Soil Washing Technology" />
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <h3 className="text-2xl font-semibold mb-4 flex items-center">
+                <Leaf className="mr-2 text-green-400" />
+                Our Mission
+              </h3>
+              <p className="text-gray-300">
+                Remediation of soils contaminated with “heavy metals” with ReSoil® technology for a global green transition. ReSoil® is a
+                multi-patented remediation solution that makes it possible to remove toxic metals such as Pb, Zc, Zn, Cu, Ni and metalloids such as As
+                and Sb in an emission-free process without wastewater, while preserving the soil as a natural substrate.
+              </p>
             </div>
+
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <h3 className="text-2xl font-semibold mb-4 flex items-center">
+                <Shield className="mr-2 text-blue-400" />
+                Unmet Needs
+              </h3>
+              <p className="text-gray-300">
+                <span>
+                  Areas contaminated with toxic metals and metalloids where people come into direct contact with the soil, such as urban soils,
+                  gardens, agricultural areas, playgrounds, parks, etc., pose a major health risk.
+                  <br />
+                  <br />
+                </span>
+                <span className="mt-2">
+                  Worldwide, the areas affected are so large that remediation using methods that involve the loss of soil as an irreplaceable natural
+                  resource (excavation and disposal, soil covering and sealing, separation and sand washing, washing with strong acids and alkalis) is
+                  not feasible. Immobilization does not remove toxic metals and metalloids from the soil, and phytoextraction is not efficient.
+                </span>
+              </p>
+            </div>
+
+            {/* <Button className="w-full">
+              Learn More About ReSoil® Technology
+              <ArrowRight className="ml-2" />
+            </Button> */}
+          </div>
+
+          <div className="relative ml-12">
+            <div className="aspect-square bg-gradient-to-br from-green-500 to-blue-600 rounded-full opacity-20 absolute inset-0 blur-3xl"></div>
+            <Image src="/envit-graphic.png" alt="Soil Remediation Process" className="relative z-10 mx-auto" width={600} height={600} />
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default Expertise;
+}
