@@ -25,8 +25,8 @@ interface CaseStudy {
   };
 }
 
-const CaseStudyItem = ({study}: {study: CaseStudy}) => (
-  <div className="w-full md:w-1/3 px-4 mb-8">
+const CaseStudyItem = ({study, aosdelay}: {study: CaseStudy; aosdelay: number}) => (
+  <div data-aos="fade-up" data-aos-delay={aosdelay} className="w-full md:w-1/3 px-4 mb-8">
     <Image className="w-full h-48 object-cover mb-4" src={study.thumbnail.asset.url} alt={study.title} width={400} height={200} />
     {study.date && <p className="text-white bg-gray-800 px-4 py-2 text-sm w-fit mb-2">{study.date}</p>}
     <h4 className="text-xl text-black font-semibold mb-2">{study.title}</h4>
@@ -80,7 +80,7 @@ const CaseStudies = () => {
         </div>
         <div className="flex flex-wrap -mx-4">
           {caseStudies.map((study, index) => (
-            <CaseStudyItem key={index} study={study} />
+            <CaseStudyItem key={index} study={study} aosdelay={index * 100} />
           ))}
         </div>
       </div>

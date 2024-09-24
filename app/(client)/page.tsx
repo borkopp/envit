@@ -1,3 +1,4 @@
+"use client";
 import Head from "next/head";
 import Hero from "@/app/components/Hero";
 import LatestNews from "@/app/components/LatestNews";
@@ -7,23 +8,34 @@ import Team from "@/app/components/Team";
 import Testimonials from "@/app/components/Testimonials";
 import CaseStudies from "@/app/components/CaseStudies";
 import HeroTest from "../components/HeroTest";
-
+import HeroTest2 from "../components/HeroTest2";
+import {useEffect} from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function Home() {
+  useEffect(() => {
+    AOS.init({
+      duration: 500,
+      easing: "ease-in-out",
+    });
+  }, []);
   return (
     <div>
       <Head>
-        <title>ENV</title>
+        <title>ENVIT</title>
         <meta name="description" content="ENV website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
+        {/* <Hero /> */}
         <HeroTest />
-        <LatestNews />
-        <DemoSoilPlant />
+        {/* <HeroTest2 /> */}
         <Expertise />
-        <Team />
+        <LatestNews />
         <Testimonials />
+        <DemoSoilPlant />
+        <Team />
         <CaseStudies />
       </main>
     </div>

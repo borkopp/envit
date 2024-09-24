@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { client } from "@/sanity/lib/client";
-import { Post } from "../utils/interface";
+import {client} from "@/sanity/lib/client";
+import {Post} from "../utils/interface";
 
 async function getPosts() {
   const query = `
@@ -29,7 +29,7 @@ export const headers = {
 export default async function LatestNews() {
   const posts: Post[] = await getPosts();
 
-  const NewsItem = ({ title, publishedAt, excerpt, slug, thumbnail }: Post) => {
+  const NewsItem = ({title, publishedAt, excerpt, slug, thumbnail, aosdelay}: Post & {aosdelay: number}) => {
     const formattedDate = new Date(publishedAt).toLocaleDateString("en-GB", {
       day: "numeric",
       month: "short",
@@ -37,7 +37,7 @@ export default async function LatestNews() {
     });
 
     return (
-      <div className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+      <div data-aos="fade-up" data-aos-delay={aosdelay} className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
         <Image
           className="w-full h-48 object-cover mb-4"
           src={thumbnail?.asset?.url || "/logo2.png"}
@@ -46,9 +46,7 @@ export default async function LatestNews() {
           height={200}
           quality={100}
         />
-        <p className="text-white bg-gray-800 px-4 py-2 text-sm w-fit mb-2">
-          {formattedDate}
-        </p>
+        <p className="text-white bg-gray-800 px-4 py-2 text-sm w-fit mb-2">{formattedDate}</p>
         <h4 className="text-xl text-black font-semibold mb-2">{title}</h4>
         <p className="text-gray-700 mb-4">{excerpt}</p>
         <Link href={`/news/${slug.current}`}>
@@ -72,8 +70,7 @@ export default async function LatestNews() {
           </p>
         </div>
         <div className="flex flex-wrap -mx-4">
-          {posts?.length > 0 &&
-            posts?.map((post) => <NewsItem key={post._id} {...post} />)}
+          {posts?.length > 0 && posts?.map((post, index) => <NewsItem key={post._id} {...post} aosdelay={index * 100} />)}
         </div>
       </div>
     </section>

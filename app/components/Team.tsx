@@ -11,13 +11,15 @@ const TeamMember = ({
   name,
   role,
   social,
+  aosdelay,
 }: {
   image: string;
   name: string;
   role: string;
   social: {facebook?: string; twitter?: string; linkedin?: string};
+  aosdelay: number;
 }) => (
-  <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-8">
+  <div data-aos="fade-up" data-aos-delay={aosdelay} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-8">
     <div className="bg-white rounded-lg overflow-hidden shadow-md relative group">
       <Image src={image} alt={name} className="w-full h-64 object-cover" width={400} height={200} />
       <div className="p-4">
@@ -55,6 +57,7 @@ const Team: React.FC<TeamProps> = ({backgroundColor = "bg-gray-100"}) => {
         twitter: "https://twitter.com/envitltd",
         linkedin: "https://www.linkedin.com/in/domen-lestan-083093b",
       },
+      aosdelay: 0,
     },
 
     {
@@ -65,6 +68,7 @@ const Team: React.FC<TeamProps> = ({backgroundColor = "bg-gray-100"}) => {
         twitter: "https://twitter.com/envitltd",
         linkedin: "https://www.linkedin.com/in/neza-finzgar-6b791b18",
       },
+      aosdelay: 100,
     },
     {
       image: "/team/anelakaurin.jpg",
@@ -73,6 +77,7 @@ const Team: React.FC<TeamProps> = ({backgroundColor = "bg-gray-100"}) => {
       social: {
         linkedin: "https://www.linkedin.com/in/dragan-martinovic-3974335",
       },
+      aosdelay: 200,
     },
     {
       image: "/team/grega.jpg",
@@ -82,6 +87,7 @@ const Team: React.FC<TeamProps> = ({backgroundColor = "bg-gray-100"}) => {
         twitter: "https://x.com/yamamaartmuzik",
         linkedin: "https://www.linkedin.com/in/grega-e-voglar-bab60963",
       },
+      aosdelay: 300,
     },
   ];
 

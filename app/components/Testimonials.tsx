@@ -64,6 +64,7 @@ const Testimonials = () => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <Swiper
+          data-aos="fade-up"
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={30}
           slidesPerView={2}

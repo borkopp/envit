@@ -1,7 +1,7 @@
 "use client";
 import styles from "@/styles/Banner.module.css";
-import { VscDebugRestart, VscMute, VscUnmute } from "react-icons/vsc";
-import { useRef, useState } from "react";
+import {VscDebugRestart, VscMute, VscUnmute} from "react-icons/vsc";
+import {useRef, useState} from "react";
 
 const Hero = () => {
   const [isMuted, setIsMuted] = useState(true);
@@ -23,36 +23,21 @@ const Hero = () => {
 
   return (
     <section className="relative h-[calc(100vh-64px)]" id="home">
-      <div
-        className={`${styles.videoBackground} absolute inset-0 overflow-hidden`}
-      >
-        <video
-          id="background-video"
-          className="w-full h-full object-hover"
-          autoPlay
-          muted={isMuted}
-          loop
-          ref={videoRef}
-        >
+      <div className={`${styles.videoBackground} absolute inset-0 overflow-hidden`}>
+        <video id="background-video" className="w-full h-full object-hover" autoPlay muted={isMuted} loop ref={videoRef}>
           <source src="/hero/presentation.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-4 z-30">
           <button
             onClick={toggleMute}
-            className="bg-white text-black py-2 px-4 rounded-full text-sm font-semibold hover:bg-gray-200 transition duration-300 flex items-center"
-          >
-            {isMuted ? (
-              <VscMute className="mr-2" />
-            ) : (
-              <VscUnmute className="mr-2" />
-            )}
+            className="bg-white text-black py-2 px-4 rounded-full text-sm font-semibold hover:bg-gray-200 transition duration-300 flex items-center">
+            {isMuted ? <VscMute className="mr-2" /> : <VscUnmute className="mr-2" />}
             {isMuted ? "Unmute" : "Mute"}
           </button>
           <button
             onClick={restartVideo}
-            className="bg-white text-black py-2 px-4 rounded-full text-sm font-semibold hover:bg-gray-200 transition duration-300 flex items-center"
-          >
+            className="bg-white text-black py-2 px-4 rounded-full text-sm font-semibold hover:bg-gray-200 transition duration-300 flex items-center">
             <VscDebugRestart className="mr-2" />
             Restart
           </button>

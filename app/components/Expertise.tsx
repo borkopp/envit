@@ -8,7 +8,7 @@ export default function Expertise() {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <div className="bg-gray-800 p-6 rounded-lg">
+            <div data-aos="fade-up" className="bg-gray-800 p-6 rounded-lg">
               <h3 className="text-2xl font-semibold mb-4 flex items-center">
                 <Leaf className="mr-2 text-green-400" />
                 Our Mission
@@ -20,7 +20,7 @@ export default function Expertise() {
               </p>
             </div>
 
-            <div className="bg-gray-800 p-6 rounded-lg">
+            <div data-aos="fade-up" data-aos-delay="100" className="bg-gray-800 p-6 rounded-lg">
               <h3 className="text-2xl font-semibold mb-4 flex items-center">
                 <Shield className="mr-2 text-blue-400" />
                 Unmet Needs
@@ -48,7 +48,15 @@ export default function Expertise() {
 
           <div className="relative ml-12">
             <div className="aspect-square bg-gradient-to-br from-green-500 to-blue-600 rounded-full opacity-20 absolute inset-0 blur-3xl"></div>
-            <Image src="/envit-graphic.png" alt="Soil Remediation Process" className="relative z-10 mx-auto" width={600} height={600} />
+            <Image
+              data-aos="fade-up"
+              data-aos-delay="200"
+              src="/envit-graphic.png"
+              alt="Soil Remediation Process"
+              className="relative z-10 mx-auto"
+              width={600}
+              height={600}
+            />
           </div>
         </div>
       </div>
