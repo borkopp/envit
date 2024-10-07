@@ -61,9 +61,31 @@ const Team: React.FC<TeamProps> = ({backgroundColor = "bg-gray-100"}) => {
     },
 
     {
+      image: "/team/neza.jpeg",
+      name: "Neža Finžgar, PhD",
+      role: "Co-founder & Finance",
+      social: {
+        twitter: "https://twitter.com/envitltd",
+        linkedin: "https://www.linkedin.com/in/domen-lestan-083093b",
+      },
+      aosdelay: 0,
+    },
+
+    {
+      image: "/team/grega.jpg",
+      name: "Grega E. Voglar, PhD",
+      role: "Business Developer & Project Manager",
+      social: {
+        twitter: "https://x.com/yamamaartmuzik",
+        linkedin: "https://www.linkedin.com/in/grega-e-voglar-bab60963",
+      },
+      aosdelay: 300,
+    },
+
+    {
       image: "/team/simongluhar.jpg",
       name: "Simon Gluhar, PhD",
-      role: "Researcher & ReSoil Developer",
+      role: "Researcher & ReSoil® developer",
       social: {
         twitter: "https://twitter.com/envitltd",
         linkedin: "https://www.linkedin.com/in/neza-finzgar-6b791b18",
@@ -79,16 +101,6 @@ const Team: React.FC<TeamProps> = ({backgroundColor = "bg-gray-100"}) => {
       },
       aosdelay: 200,
     },
-    {
-      image: "/team/grega.jpg",
-      name: "Grega E. Voglar, PhD",
-      role: "Business Developer & Project Manager",
-      social: {
-        twitter: "https://x.com/yamamaartmuzik",
-        linkedin: "https://www.linkedin.com/in/grega-e-voglar-bab60963",
-      },
-      aosdelay: 300,
-    },
   ];
 
   return (
@@ -100,7 +112,7 @@ const Team: React.FC<TeamProps> = ({backgroundColor = "bg-gray-100"}) => {
             Meet our dedicated team of experts who are passionate about creating a sustainable future through innovative environmental solutions.
           </p>
         </div>
-        <div className="flex flex-wrap -mx-4">
+        <div className="flex flex-row -mx-2">
           {teamMembers.map((member, index) => (
             <TeamMember key={index} {...member} />
           ))}
