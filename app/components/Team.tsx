@@ -22,7 +22,7 @@ const TeamMember = ({
   <div data-aos="fade-up" data-aos-delay={aosdelay} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-8">
     <div className="bg-white rounded-lg overflow-hidden shadow-md relative group">
       <Image src={image} alt={name} className="w-full h-64 object-cover" width={400} height={200} />
-      <div className="p-4">
+      <div className="p-4 h-[120px]">
         <h3 className="text-xl text-black font-semibold mb-1">{name}</h3>
         <p className="text-gray-600">{role}</p>
       </div>
@@ -51,8 +51,8 @@ const Team: React.FC<TeamProps> = ({backgroundColor = "bg-gray-100"}) => {
   const teamMembers = [
     {
       image: "/team/domenlestan.jpg",
-      name: "Prof. Domen Leštan, PhD",
-      role: "CEO & CTO",
+      name: "Prof. Domen Leštan",
+      role: "CEO, CTO & Co-founder",
       social: {
         twitter: "https://twitter.com/envitltd",
         linkedin: "https://www.linkedin.com/in/domen-lestan-083093b",
