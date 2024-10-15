@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import Map, { Marker } from "react-map-gl";
-import { MapPin, Mail, Send } from "lucide-react";
+import dynamic from 'next/dynamic';
+import { Mail, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,13 +9,27 @@ import Team from "@/app/components/Team";
 import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 
-const MAPBOX_ACCESS_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+const MapContainer = dynamic(
+  () => import('react-leaflet').then((mod) => mod.MapContainer),
+  { ssr: false }
+);
+const TileLayer = dynamic(
+  () => import('react-leaflet').then((mod) => mod.TileLayer),
+  { ssr: false }
+);
+const Marker = dynamic(
+  () => import('react-leaflet').then((mod) => mod.Marker),
+  { ssr: false }
+);
+const Popup = dynamic(
+  () => import('react-leaflet').then((mod) => mod.Popup),
+  { ssr: false }
+);
 
 export default function AboutUs() {
   const companyLocation = {
     latitude: 46.189,
     longitude: 14.521,
-    zoom: 14,
   };
 
   const [formData, setFormData] = useState({
@@ -104,21 +118,25 @@ export default function AboutUs() {
               </p>
             </div>
           </div>
-          <div className="h-[400px] md:h-full min-h-[400px] rounded-lg overflow-hidden shadow-lg">
-            <Map
-              mapboxAccessToken={MAPBOX_ACCESS_TOKEN}
-              initialViewState={companyLocation}
-              style={{ width: "100%", height: "100%" }}
-              mapStyle="mapbox://styles/mapbox/light-v11"
-            >
-              <Marker
-                longitude={companyLocation.longitude}
-                latitude={companyLocation.latitude}
-                anchor="bottom"
+          <div className="h-[400px] md:h-full min-h-[400px] rounded-lg overflow-hidden shadow-lg relative">
+            <div className="absolute inset-0 z-0">
+              <MapContainer 
+                center={[companyLocation.latitude, companyLocation.longitude]} 
+                zoom={14} 
+                style={{ height: '100%', width: '100%' }}
+                zoomControl={false}
               >
-                <MapPin className="w-8 h-8 text-primary" />
-              </Marker>
-            </Map>
+                <TileLayer
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                />
+                <Marker position={[companyLocation.latitude, companyLocation.longitude]}>
+                  <Popup>
+                    Envit Ltd. <br /> Pod lipami 35, 1218 Komenda, Slovenia
+                  </Popup>
+                </Marker>
+              </MapContainer>
+            </div>
           </div>
         </div>
       </section>
@@ -183,7 +201,7 @@ export default function AboutUs() {
           </div>
           <Button
             type="submit"
-            className="w-full bg-green-500 hover:bg-green-600"
+            className="w-full bg-primary hover:bg-primary-hover"
           >
             <Send className="mr-2 h-4 w-4" /> Send Message
           </Button>

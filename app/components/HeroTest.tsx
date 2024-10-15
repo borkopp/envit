@@ -19,7 +19,7 @@ export default function HeroSection() {
                 Our resoil technology is changing the way we think about agriculture and sustainability.
               </p>
             </div>
-            <blockquote data-aos="fade-up" data-aos-delay={300} className="border-l-4 border-green-500 pl-4 italic text-xl text-slate-500">
+            <blockquote data-aos="fade-up" data-aos-delay={300} className="border-l-4 border-primary pl-4 italic text-xl text-slate-500">
               &quot;The nation that destroys its soil destroys itself.&quot;
               <footer className="text-sm text-zinc-700 mt-2">- Franklin D. Roosevelt</footer>
             </blockquote>
@@ -28,14 +28,14 @@ export default function HeroSection() {
                 data-aos="fade-up"
                 data-aos-delay={400}
                 href="#learn-more"
-                className="inline-flex h-10 items-center justify-center rounded-md bg-green-500 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-green-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-green-300 disabled:pointer-events-none disabled:opacity-50">
+                className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-white shadow transition-colors hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50">
                 Learn More
               </Link>
               <Link
                 data-aos="fade-up"
                 data-aos-delay={500}
                 href="#contact"
-                className="inline-flex h-10 items-center justify-center rounded-md border border-zinc-200 px-8 text-sm font-medium shadow-sm transition-colors hover:bg-zinc-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-300 disabled:pointer-events-none disabled:opacity-50">
+                className="inline-flex h-10 items-center justify-center rounded-md border border-zinc-200 px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-300 disabled:pointer-events-none disabled:opacity-50">
                 Contact Us
               </Link>
             </div>

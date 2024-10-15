@@ -65,7 +65,7 @@ export default function ResoilInbrief() {
             removes toxic metals from contaminated soils and sediments.
           </p>
           <Link href="/technology-description">
-            <button className="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600">
+            <button className="bg-primary text-white px-4 py-2 rounded-full hover:bg-primary-hover">
               Read More
             </button>
           </Link>
@@ -82,7 +82,7 @@ export default function ResoilInbrief() {
             from city of Arnoldstein, Austria.
           </p>
           <Link href="/case-studies">
-            <button className="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600">
+            <button className="bg-primary text-white px-4 py-2 rounded-full hover:bg-primary-hover">
               Read More
             </button>
           </Link>
@@ -99,7 +99,7 @@ export default function ResoilInbrief() {
             Are there other available similar soil remediation technologies?
           </p>
           <Link href="/faq">
-            <button className="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600">
+            <button className="bg-primary text-white px-4 py-2 rounded-full hover:bg-primary-hover">
               Read More
             </button>
           </Link>

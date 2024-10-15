@@ -33,7 +33,7 @@ const CaseStudyItem = ({study, aosdelay}: {study: CaseStudy; aosdelay: number}) 
     <p className="text-gray-700 mb-4">{study.description}</p>
     <Link
       href="/case-studies"
-      className="inline-block bg-green-500 text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-green-600 transition duration-300"
+      className="inline-block bg-primary text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-primary-hover transition duration-300"
       target="_blank"
       rel="noopener noreferrer">
       View Details
@@ -68,9 +68,10 @@ const CaseStudies = () => {
   return (
     <section className="py-16 bg-white" id="case-studies">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl text-gray-800 font-bold mb-4">Case Studies</h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+      <div className="space-y-4 items-center text-center mb-14">
+          <h3 className="text-sm font-bold uppercase tracking-wide text-primary">Case Studies</h3>
+          <h2 className="text-4xl font-bold tracking-tighter sm:text-4xl">Our Case Studies</h2>
+          <p className="text-neutral-500 text-[1rem] max-w-2xl mx-auto my-4 text-center relative">
             Discover our success stories through these case studies. Each one highlights our innovative solutions and the real-world impact we&apos;ve
             made for our clients. To read more{" "}
             <Link href="/case-studies">

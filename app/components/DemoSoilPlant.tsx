@@ -15,9 +15,10 @@ const DemoSoilPlant = () => {
   return (
     <section className="py-16 bg-white" id="project">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl sm:text-4xl text-gray-800 font-bold mb-4">Soil Plant Demonstration</h2>
-          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+      <div className="space-y-4 items-center text-center mb-14">
+          <h3 className="text-sm font-bold uppercase tracking-wide text-primary">Soil Plant</h3>
+          <h2 className="text-4xl font-bold tracking-tighter sm:text-4xl">Soil Plant Demonstration</h2>
+          <p className="text-neutral-500 text-[1rem] max-w-2xl mx-auto my-4 text-center relative">
             Explore our innovative soil plant solutions through this visual demonstration. <span>To read more </span>
             <Link href="/demo-resoil-plant">
               <span className="underline">click here</span>

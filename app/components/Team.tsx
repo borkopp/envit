@@ -26,7 +26,7 @@ const TeamMember = ({
         <h3 className="text-xl text-black font-semibold mb-1">{name}</h3>
         <p className="text-gray-600">{role}</p>
       </div>
-      <div className="absolute inset-0 bg-green-500 bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute inset-0 bg-primary/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         {social.facebook && (
           <a href={social.facebook} className="text-white mx-2 hover:text-gray-200">
             <FaFacebook size={24} />
@@ -106,9 +106,10 @@ const Team: React.FC<TeamProps> = ({backgroundColor = "bg-gray-100"}) => {
   return (
     <section className={`py-16 ${backgroundColor}`} id="team">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl text-gray-800 font-bold mb-4">The Envit Core Team</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+      <div className="space-y-4 items-center text-center mb-14">
+          <h3 className="text-sm font-bold uppercase tracking-wide text-primary">Team</h3>
+          <h2 className="text-4xl font-bold tracking-tighter sm:text-4xl">The ENVIT Core Team</h2>
+          <p className="text-neutral-500 text-[1rem] max-w-2xl mx-auto my-4 text-center relative">
             Meet our dedicated team of experts who are passionate about creating a sustainable future through innovative environmental solutions.
           </p>
         </div>

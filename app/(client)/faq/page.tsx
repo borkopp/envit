@@ -9,12 +9,13 @@ const FAQPage = () => {
   return (
     <section className="py-10 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-semibold text-center mb-6">
-          Frequently Asked Questions
-        </h1>
-        <p className="text-gray-600 text-center max-w-2xl mb-10 mx-auto">
-          Find answers to common questions about our technology and services.
-        </p>
+      <div className="space-y-4 items-center text-center mb-14">
+          <h3 className="text-sm font-bold uppercase tracking-wide text-primary">FAQ</h3>
+          <h2 className="text-4xl font-semibold tracking-tighter sm:text-4xl">Frequently Asked Questions</h2>
+          <p className="text-neutral-500 text-[1rem]  mx-auto my-4 text-center relative">
+            Find answers to common questions about our technology and services.
+          </p>
+        </div>
 
         <Accordion
           type="single"

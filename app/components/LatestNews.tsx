@@ -50,7 +50,7 @@ export default async function LatestNews() {
         <h4 className="text-xl text-black font-semibold mb-2">{title}</h4>
         <p className="text-gray-700 mb-4">{excerpt}</p>
         <Link href={`/news/${slug.current}`}>
-          <span className="inline-block bg-green-500 text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-green-600 transition duration-300">
+          <span className="inline-block bg-primary text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-primary-hover transition duration-300">
             Read More
           </span>
         </Link>
@@ -60,9 +60,10 @@ export default async function LatestNews() {
   return (
     <section className="py-16 bg-gray-100" id="blog">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-black mb-4">Latest News</h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+      <div className="space-y-4 items-center text-center mb-14">
+          <h3 className="text-sm font-bold uppercase tracking-wide text-primary">News</h3>
+          <h2 className="text-4xl font-bold tracking-tighter sm:text-4xl">Latest News</h2>
+          <p className="text-neutral-500 text-[1rem]  mx-auto my-4 text-center relative">
             The latest news and insights from our blog. To see all the news{" "}
             <Link href="/news">
               <span className="underline">click here</span>

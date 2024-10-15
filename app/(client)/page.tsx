@@ -23,7 +23,7 @@ export default function Home() {
     <div>
       <Head>
         <title>ENVIT</title>
-        <meta name="description" content="ENV website" />
+        <meta name="description" content="ENVIT ReSoil Technology" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

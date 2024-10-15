@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,11 +10,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [menuClass, setMenuClass] = useState("mobile-menu-enter");
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     if (isOpen) {
@@ -34,14 +36,14 @@ const Navbar = () => {
 
   const isActive = (path: string) => {
     return pathname === path
-      ? "text-green-500"
-      : "text-black hover:text-green-500";
+      ? "text-primary"
+      : "text-black hover:text-primary";
   };
 
   const isTechnologyActive = () => {
     return technologyItems.some((item) => pathname === item.href)
-      ? "text-green-500"
-      : "text-black hover:text-green-500";
+      ? "text-primary"
+      : "text-black hover:text-primary";
   };
 
   const technologyItems = [
@@ -55,19 +57,30 @@ const Navbar = () => {
     { href: "/soil-washing", label: "SOIL WASHING" },
   ];
 
+  const handleNavigation = (href: string) => {
+    closeNavbar();
+    router.push(href);
+  };
+
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    closeNavbar();
+    router.push("/");
+  };
+
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-white shadow-lg sticky top-0  z-50">
       <div className="max-w-6xl mx-auto px-4 py-2">
         <div className="flex justify-between">
           <div className="flex space-x-7">
             <div>
-              <Link href="/" className="flex items-center py-4 px-2">
+              <Link href="/" onClick={handleHomeClick} className="flex items-center py-2">
                 <Image
-                  src="/logo2.png"
-                  alt="Logo"
+                  src="/logo-black.png"
+                  alt="Envit Logo"
                   className="h-full"
-                  width={80}
-                  height={80}
+                  width={100}
+                  height={100}
                   objectFit="contain"
                   quality={100}
                 />
@@ -76,17 +89,18 @@ const Navbar = () => {
           </div>
           <div className="hidden text-sm md:flex items-center space-x-2">
             <Link
-              href="/#home"
+              href="/"
+              onClick={handleHomeClick}
               className={`py-4 px-2 font-bold transition duration-300 ${isActive("/")}`}
             >
               HOME
             </Link>
-            <Link
-              href="/news"
+            <button
+              onClick={() => handleNavigation("/news")}
               className={`py-4 px-2 font-bold transition duration-300 ${isActive("/news")}`}
             >
               NEWS
-            </Link>
+            </button>
             <DropdownMenu>
               <DropdownMenuTrigger
                 className={`py-4 px-2 ring-0 flex items-center border-0 border-none font-bold transition duration-300 ${isTechnologyActive()}`}
@@ -94,32 +108,30 @@ const Navbar = () => {
                 TECHNOLOGY
                 <RiArrowDropDownLine size={22} />
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent className="flex flex-col">
                 {technologyItems.map((item) => (
-                  <Link
-                    href={item.href}
-                    key={item.href}
-                    className={`w-full ${isActive(item.href)}`}
-                  >
-                    <DropdownMenuItem className="px-6 py-4">
+                  <DropdownMenuItem key={item.href} onSelect={() => handleNavigation(item.href)}>
+                    <button
+                      className={`w-full text-left px-4 py-2 hover:bg-gray-100 ${isActive(item.href)}`}
+                    >
                       <strong>{item.label}</strong>
-                    </DropdownMenuItem>
-                  </Link>
+                    </button>
+                  </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            <Link
-              href="/faq"
+            <button
+              onClick={() => handleNavigation("/faq")}
               className={`py-4 px-2 font-bold transition duration-300 ${isActive("/faq")}`}
             >
               FAQ
-            </Link>
-            <Link
-              href="/about-us"
+            </button>
+            <button
+              onClick={() => handleNavigation("/about-us")}
               className={`py-4 px-2 font-bold transition duration-300 ${isActive("/about-us")}`}
             >
               ABOUT US
-            </Link>
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -147,47 +159,43 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div className={`${isOpen ? "block" : "hidden"} md:hidden ${menuClass}`}>
         <Link
-          href="/#home"
+          href="/"
+          onClick={handleHomeClick}
           className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
-          onClick={closeNavbar}
         >
           HOME
         </Link>
-        <Link
-          href="/news"
+        <button
+          onClick={() => handleNavigation("/news")}
           className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
-          onClick={closeNavbar}
         >
           NEWS
-        </Link>
+        </button>
         <div className="py-2 flex px-4 text-sm text-black font-bold">
           TECHNOLOGY
           <RiArrowDropDownLine size={22} />
         </div>
         {technologyItems.map((item) => (
-          <Link
+          <button
             key={item.href}
-            href={item.href}
+            onClick={() => handleNavigation(item.href)}
             className="block py-2 px-8 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
-            onClick={closeNavbar}
           >
             {item.label}
-          </Link>
+          </button>
         ))}
-        <Link
-          href="/faq"
+        <button
+          onClick={() => handleNavigation("/faq")}
           className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
-          onClick={closeNavbar}
         >
           FAQ
-        </Link>
-        <Link
-          href="/about-us"
+        </button>
+        <button
+          onClick={() => handleNavigation("/about-us")}
           className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
-          onClick={closeNavbar}
         >
           ABOUT US
-        </Link>
+        </button>
       </div>
     </nav>
   );

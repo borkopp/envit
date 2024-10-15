@@ -52,7 +52,7 @@ export default async function NewsPage() {
             </p>
             <h4 className="text-xl text-black font-semibold mb-2">{title}</h4>
             <p className="text-gray-700 mb-4">{excerpt}</p>
-            <span className="inline-block bg-green-500 text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-green-600 transition duration-300">
+            <span className="inline-block bg-primary text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-green-600 transition duration-300">
               Read More
             </span>
           </div>
@@ -64,12 +64,15 @@ export default async function NewsPage() {
   return (
     <section className="py-10 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-semibold text-center mb-6">News</h1>
-        <p className="text-gray-600 text-center max-w-2xl mb-10 mx-auto">
-          Stay up to date with the latest news and announcements from our
-          company. Learn more about our recent projects, company news and
-          industry insights.
-        </p>
+      <div className="space-y-4 items-center text-center mb-14">
+          <h3 className="text-sm font-bold uppercase tracking-wide text-primary">News</h3>
+          <h2 className="text-4xl font-semibold tracking-tighter sm:text-4xl">Our News & Updates</h2>
+          <p className="text-neutral-500 text-[1rem]  mx-auto my-4 text-center relative max-w-2xl">
+            Stay up to date with the latest news and announcements from our
+            company. Learn more about our recent projects, company news and
+            industry insights.
+          </p>
+        </div>
         <div className="flex flex-wrap -mx-4">
           {posts?.length > 0 &&
             posts?.map((post) => <NewsItem key={post._id} {...post} />)}

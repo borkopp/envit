@@ -15,9 +15,10 @@ export default function DemoResoilPlant() {
 
   return (
     <div className="container mx-auto px-6 md:px-16 lg:px-24 py-10">
-      <h1 className="text-3xl font-semibold text-center mb-10">
-        Demo ReSoil Plant
-      </h1>
+      <div className="space-y-4 items-center text-center mb-14">
+          <h3 className="text-sm font-bold uppercase tracking-wide text-primary">DEMO</h3>
+          <h2 className="text-4xl font-semibold tracking-tighter sm:text-4xl">Demo ReSoil&reg; Plant</h2>
+        </div>
 
       <section className="mb-12">
         <p className="text-lg mb-8 leading-relaxed">
