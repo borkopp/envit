@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Expertise() {
   return (
-    <section className="bg-gray-900 text-white py-24">
+    <section id="ourmission" className="bg-gray-900 text-white py-24">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">

@@ -39,7 +39,7 @@ export default function HeroTest3() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <Button asChild size="lg" className="bg-primary-hover hover:bg-primary">
-                <Link href="/contact">
+                <Link href="#ourmission">
                   Learn more
                 </Link>
               </Button>
