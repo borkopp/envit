@@ -40,7 +40,7 @@ export default async function LatestNews() {
       <div data-aos="fade-up" data-aos-delay={aosdelay} className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
         <Image
           className="w-full h-48 object-cover mb-4"
-          src={thumbnail?.asset?.url || "/logo2.png"}
+          src={thumbnail?.asset?.url || "/logo-resoil.png"}
           alt={title}
           width={400}
           height={200}

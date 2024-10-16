@@ -6,7 +6,7 @@ const CmsNavbar = () => {
     <div className="flex-row justify-between items-center py-1 px-5 mb-4">
       <Link href="/">
         <Image
-          src="/logo2.png"
+          src="/logo.png"
           alt="Logo"
           width={120}
           height={50}

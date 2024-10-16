@@ -4,7 +4,7 @@ import { PortableText } from "@portabletext/react";
 import React from "react";
 import Image from "next/image";
 import ImageGallery from "@/app/components/image-gallery";
-import defaultImage from "/public/logo2.png";
+import defaultImage from "/public/logo-resoil.png";
 
 interface Params {
   params: {

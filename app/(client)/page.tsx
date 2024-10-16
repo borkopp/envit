@@ -12,6 +12,7 @@ import HeroTest2 from "../components/HeroTest2";
 import {useEffect} from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import HeroTest3 from "../components/HeroTest3";
 export default function Home() {
   useEffect(() => {
     AOS.init({
@@ -29,8 +30,9 @@ export default function Home() {
 
       <main>
         {/* <Hero /> */}
-        <HeroTest />
+        {/* <HeroTest /> */}
         {/* <HeroTest2 /> */}
+        <HeroTest3 />
         <Expertise />
         <LatestNews />
         <Testimonials />
