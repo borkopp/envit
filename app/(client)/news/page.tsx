@@ -58,13 +58,13 @@ export default function NewsPage() {
     >
       <Link href={`/news/${slug.current}`}>
         <motion.div 
-          className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+          className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer h-full flex flex-col"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
         >
           <Image
-            className="w-full h-48 object-cover"
+            className="w-full h-56 object-cover"
             src={thumbnail?.asset?.url || "/logo-resoil.png"}
             alt={title}
             width={400}
@@ -72,18 +72,18 @@ export default function NewsPage() {
             quality={100}
           />
           <motion.div 
-            className="p-6"
+            className="p-6 flex flex-col flex-grow"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <p className="text-gray-600 text-sm mb-2">
+            <p className="text-gray-600 text-sm mb-3">
               {new Date(publishedAt).toLocaleDateString()}
             </p>
-            <h4 className="text-xl text-black font-semibold mb-2">{title}</h4>
-            <p className="text-gray-700 mb-4">{excerpt}</p>
+            <h4 className="text-xl text-black font-semibold mb-3">{title}</h4>
+            <p className="text-gray-700 mb-6 flex-grow">{excerpt}</p>
             <motion.span 
-              className="inline-block bg-primary text-white py-2 px-4 rounded-full text-sm font-semibold"
+              className="inline-block bg-primary text-white py-2 px-6 rounded-full text-sm font-semibold self-start"
               whileHover={{ scale: 1.05, backgroundColor: "#22c55e" }}
               transition={{ type: "spring", stiffness: 400 }}
             >
