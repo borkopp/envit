@@ -4,49 +4,37 @@ import Image from "next/image";
 
 export default function Expertise() {
   return (
-    <section id="ourmission" className="bg-gray-900 text-white py-24">
+    <section id="ourmission" className="py-24 bg-gradient-to-b from-gray-900 to-gray-800">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <div data-aos="fade-up" className="bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-2xl font-semibold mb-4 flex items-center">
+            <div data-aos="fade-up" className="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
+              <h3 className="text-2xl text-white font-semibold mb-4 flex items-center">
                 <Leaf className="mr-2 text-green-400" />
                 Our Mission
               </h3>
-              <p className="text-gray-300">
-                Remediation of soils contaminated with “heavy metals” with ReSoil® technology for a global green transition. ReSoil® is a
-                multi-patented remediation solution that makes it possible to remove toxic metals such as Pb, Zc, Zn, Cu, Ni and metalloids such as As
-                and Sb in an emission-free process without wastewater, while preserving the soil as a natural substrate.
+              <p className="text-gray-200">
+                ReSoil® technology remediates soils contaminated with heavy metals. Our multi-patented solution removes toxic metals and metalloids through an emission-free process, preserving soil as a natural substrate.
               </p>
             </div>
 
-            <div data-aos="fade-up" data-aos-delay="100" className="bg-gray-800 p-6 rounded-lg">
-              <h3 className="text-2xl font-semibold mb-4 flex items-center">
+            <div data-aos="fade-up" data-aos-delay="100" className="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
+              <h3 className="text-2xl text-white font-semibold mb-4 flex items-center">
                 <Shield className="mr-2 text-blue-400" />
                 Unmet Needs
               </h3>
-              <p className="text-gray-300">
-                <span>
-                  Areas contaminated with toxic metals and metalloids where people come into direct contact with the soil, such as urban soils,
-                  gardens, agricultural areas, playgrounds, parks, etc., pose a major health risk.
-                  <br />
-                  <br />
-                </span>
-                <span className="mt-2">
-                  Worldwide, the areas affected are so large that remediation using methods that involve the loss of soil as an irreplaceable natural
-                  resource (excavation and disposal, soil covering and sealing, separation and sand washing, washing with strong acids and alkalis) is
-                  not feasible. Immobilization does not remove toxic metals and metalloids from the soil, and phytoextraction is not efficient.
-                </span>
+              <p className="text-gray-200">
+                Contaminated urban soils, gardens, and public spaces pose significant health risks. Traditional remediation methods are often impractical or inefficient for large-scale application, highlighting the need for innovative solutions like ReSoil®.
               </p>
             </div>
-
-            {/* <Button className="w-full">
+{/* 
+            <Button data-aos="fade-up" data-aos-delay="200" className="w-full bg-green-500 hover:bg-green-600 text-white">
               Learn More About ReSoil® Technology
               <ArrowRight className="ml-2" />
             </Button> */}
           </div>
 
-          <div className="relative ml-12">
+          <div className="relative">
             <div className="aspect-square bg-gradient-to-br from-green-500 to-blue-600 rounded-full opacity-20 absolute inset-0 blur-3xl"></div>
             <Image
               data-aos="fade-up"

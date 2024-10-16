@@ -8,7 +8,39 @@ import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, SortAsc } from "lucide-react";
-import { motion } from "framer-motion";
+
+const NewsItem = ({ title, publishedAt, excerpt, slug, thumbnail }: Post) => (
+  <div className="w-full md:w-1/2 lg:w-1/3 p-4">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden group hover:scale-[0.98] transition-all duration-300 h-full flex flex-col">
+      <Image
+        className="w-full h-56 object-cover"
+        src={thumbnail?.asset?.url || "/logo-resoil.png"}
+        alt={title}
+        width={400}
+        height={200}
+        quality={100}
+      />
+      <div className="p-6 flex-grow flex flex-col">
+        <p className="text-sm text-gray-500 mb-2 transition-transform duration-300 group-hover:-translate-y-1">
+          {new Date(publishedAt).toLocaleDateString()}
+        </p>
+        <h4 className="text-xl font-semibold mb-2 text-gray-800 transition-transform duration-300 group-hover:-translate-y-1">
+          {title}
+        </h4>
+        <p className="text-gray-600 mb-4 flex-grow transition-transform duration-300 group-hover:-translate-y-2">
+          {excerpt}
+        </p>
+        <div className="relative h-8 mt-2">
+          <Link href={`/news/${slug.current}`}>
+            <span className="absolute bottom-0 left-0 right-0 bg-primary text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-primary-dark transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-full group-hover:translate-y-0 text-center">
+              Read More
+            </span>
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 export default function NewsPage() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -49,51 +81,6 @@ export default function NewsPage() {
       return new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime();
     }
   });
-
-  const NewsItem = ({ title, publishedAt, excerpt, slug, thumbnail }: Post) => (
-    <motion.div 
-      className="w-full md:w-1/2 lg:w-1/3 p-4"
-      whileHover={{ scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 300 }}
-    >
-      <Link href={`/news/${slug.current}`}>
-        <motion.div 
-          className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer h-full flex flex-col"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Image
-            className="w-full h-56 object-cover"
-            src={thumbnail?.asset?.url || "/logo-resoil.png"}
-            alt={title}
-            width={400}
-            height={200}
-            quality={100}
-          />
-          <motion.div 
-            className="p-6 flex flex-col flex-grow"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <p className="text-gray-600 text-sm mb-3">
-              {new Date(publishedAt).toLocaleDateString()}
-            </p>
-            <h4 className="text-xl text-black font-semibold mb-3">{title}</h4>
-            <p className="text-gray-700 mb-6 flex-grow">{excerpt}</p>
-            <motion.span 
-              className="inline-block bg-primary text-white py-2 px-6 rounded-full text-sm font-semibold self-start"
-              whileHover={{ scale: 1.05, backgroundColor: "#22c55e" }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              Read More
-            </motion.span>
-          </motion.div>
-        </motion.div>
-      </Link>
-    </motion.div>
-  );
 
   return (
     <section className="py-10 bg-gray-50">

@@ -108,7 +108,7 @@ const Team: React.FC<TeamProps> = ({backgroundColor = "bg-gray-100"}) => {
       <div className="container mx-auto px-4">
       <div className="space-y-4 items-center text-center mb-14">
           <h3 className="text-sm font-bold uppercase tracking-wide text-primary">Team</h3>
-          <h2 className="text-4xl font-bold tracking-tighter sm:text-4xl">The ENVIT Core Team</h2>
+          <h2 className="text-4xl font-semibold tracking-tighter sm:text-4xl">The ENVIT Core Team</h2>
           <p className="text-neutral-500 text-[1rem] max-w-2xl mx-auto my-4 text-center relative">
             Meet our dedicated team of experts who are passionate about creating a sustainable future through innovative environmental solutions.
           </p>

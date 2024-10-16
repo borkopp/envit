@@ -1,11 +1,13 @@
 import type {Metadata} from "next";
 import {Inter} from "next/font/google";
+import { Rubik } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 
 const inter = Inter({subsets: ["latin"]});
+const rubik = Rubik({subsets: ["latin"]});
 
 export const metadata: Metadata = {
   title: "ENVIT",
@@ -19,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-            <head>
+      <head>
         <link
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -27,7 +29,7 @@ export default function RootLayout({
           crossOrigin=""
         />
       </head>
-      <body className={inter.className}>
+      <body className={rubik.className}>
         <Navbar />
         <main>
           {children}

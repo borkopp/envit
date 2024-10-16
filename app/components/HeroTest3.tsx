@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 export default function HeroTest3() {
   return (
-    <section className="py-12 lg:py-32">
+    <section className="py-12 lg:py-40">
       <div className="container mx-auto px-4">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
           <div className="space-y-6">

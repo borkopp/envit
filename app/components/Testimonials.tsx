@@ -11,7 +11,7 @@ const TestimonialItem = ({content, question, image}: {content: string; question:
     <div>
       <div className="flex items-center mb-4">
         {/* <Image src={image} alt="User" width={40} height={40} className="rounded-full mr-4" /> */}
-        <h3 className="font-bold text-gray-700 text-lg">{question}</h3>
+        <h3 className="font-semibold text-primary text-lg">{question}</h3>
       </div>
       <p className="text-gray-600">{content}</p>
     </div>
@@ -60,8 +60,9 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-cover bg-center relative" style={{backgroundImage: "url('/bg-hero.webp')"}} id="testimonials">
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+    // <section className="py-24 bg-cover bg-center relative" style={{backgroundImage: "url('/bg-hero.webp')"}} id="testimonials">
+    <section className="py-24 bg-gradient-to-b from-gray-900 to-gray-800" id="testimonials">
+      <div className="absolute inset-0"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <Swiper
           data-aos="fade-up"
