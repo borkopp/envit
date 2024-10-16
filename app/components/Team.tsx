@@ -26,7 +26,7 @@ const TeamMember = ({
         <h3 className="text-xl text-black font-semibold mb-1">{name}</h3>
         <p className="text-gray-600">{role}</p>
       </div>
-      <div className="absolute inset-0 bg-primary/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute inset-0 bg-green-700 bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         {social.facebook && (
           <a href={social.facebook} className="text-white mx-2 hover:text-gray-200">
             <FaFacebook size={24} />
