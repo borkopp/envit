@@ -1,5 +1,5 @@
 "use client";
-import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
+import HeroVideoDialog from "@/components/ui/hero-video-dialog";
 import Link from "next/link";
 
 export default function HeroSection() {
