@@ -1,13 +1,14 @@
 import type {Metadata} from "next";
-import {Inter} from "next/font/google";
-import { Rubik } from "next/font/google";
+import {Inter, Montserrat, Lato} from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Navbar";
+import NewNavbar from "../components/NewNavbar";
 import Footer from "../components/Footer";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import {FloatingNavDemo} from "../components/FloatingNavbar";
+import {NavbarDemo} from "../components/NewestNavbar";
 
-const inter = Inter({subsets: ["latin"]});
-const rubik = Rubik({subsets: ["latin"]});
+const montserrat = Montserrat({subsets: ["latin"], variable: "--font-montserrat"});
+const lato = Lato({weight: ["400", "700"], subsets: ["latin"], variable: "--font-lato"});
 
 export const metadata: Metadata = {
   title: "ENVIT",
@@ -29,13 +30,12 @@ export default function RootLayout({
           crossOrigin=""
         />
       </head>
-      <body className={rubik.className}>
-        <Navbar />
-        <main>
-          {children}
-          <ScrollToTopButton />
-        </main>
+      <body className={`${montserrat.className} ${lato.variable}`}>
+        <NewNavbar />
+        {/* <NavbarDemo /> */}
+        <main>{children}</main>
         <Footer />
+        <ScrollToTopButton />
       </body>
     </html>
   );

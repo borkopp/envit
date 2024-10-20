@@ -1,16 +1,10 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { RiArrowDropDownLine } from "react-icons/ri";
-import { Button } from "@/components/ui/button";
+import {usePathname, useRouter} from "next/navigation";
+import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
+import {RiArrowDropDownLine} from "react-icons/ri";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,10 +15,7 @@ const Navbar = () => {
   useEffect(() => {
     if (isOpen) {
       setMenuClass("mobile-menu-enter");
-      setTimeout(
-        () => setMenuClass("mobile-menu-enter mobile-menu-enter-active"),
-        10
-      );
+      setTimeout(() => setMenuClass("mobile-menu-enter mobile-menu-enter-active"), 10);
     } else {
       setMenuClass("mobile-menu-enter");
     }
@@ -35,26 +26,22 @@ const Navbar = () => {
   };
 
   const isActive = (path: string) => {
-    return pathname === path
-      ? "text-primary"
-      : "text-black hover:text-primary";
+    return pathname === path ? "text-primary" : "text-black hover:text-primary";
   };
 
   const isTechnologyActive = () => {
-    return technologyItems.some((item) => pathname === item.href)
-      ? "text-primary"
-      : "text-black hover:text-primary";
+    return technologyItems.some((item) => pathname === item.href) ? "text-primary" : "text-black hover:text-primary";
   };
 
   const technologyItems = [
-    { href: "/technology-description", label: "TECHNOLOGY DESCRIPTION" },
-    { href: "/demo-resoil-plant", label: "DEMO RESOIL PLANT" },
-    { href: "/sales-program", label: "SALES PROGRAM" },
-    { href: "/case-studies", label: "CASE STUDIES" },
-    { href: "/ip", label: "IP" },
-    { href: "/resoil-in-brief", label: "RESOIL IN BRIEF" },
-    { href: "/rnd", label: "RND" },
-    { href: "/soil-washing", label: "SOIL WASHING" },
+    {href: "/technology-description", label: "TECHNOLOGY DESCRIPTION"},
+    {href: "/demo-resoil-plant", label: "DEMO RESOIL PLANT"},
+    {href: "/sales-program", label: "SALES PROGRAM"},
+    {href: "/case-studies", label: "CASE STUDIES"},
+    {href: "/ip", label: "IP"},
+    {href: "/resoil-in-brief", label: "RESOIL IN BRIEF"},
+    {href: "/rnd", label: "RND"},
+    {href: "/soil-washing", label: "SOIL WASHING"},
   ];
 
   const handleNavigation = (href: string) => {
@@ -75,71 +62,44 @@ const Navbar = () => {
           <div className="flex space-x-7">
             <div>
               <Link href="/" onClick={handleHomeClick} className="flex items-center py-2">
-                <Image
-                  src="/logo-black.png"
-                  alt="Envit Logo"
-                  className="h-full"
-                  width={100}
-                  height={100}
-                  objectFit="contain"
-                  quality={100}
-                />
+                <Image src="/logo-black.png" alt="Envit Logo" className="h-full" width={100} height={100} objectFit="contain" quality={100} />
               </Link>
             </div>
           </div>
           <div className="hidden text-sm md:flex items-center space-x-2">
-            <Link
-              href="/"
-              onClick={handleHomeClick}
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/")}`}
-            >
+            <Link href="/" onClick={handleHomeClick} className={`py-4 px-2 font-bold transition duration-300 ${isActive("/")}`}>
               HOME
             </Link>
-            <button
-              onClick={() => handleNavigation("/news")}
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/news")}`}
-            >
+            <button onClick={() => handleNavigation("/news")} className={`py-4 px-2 font-bold transition duration-300 ${isActive("/news")}`}>
               NEWS
             </button>
             <DropdownMenu>
               <DropdownMenuTrigger
-                className={`py-4 px-2 ring-0 flex items-center border-0 border-none font-bold transition duration-300 ${isTechnologyActive()}`}
-              >
+                className={`py-4 px-2 ring-0 flex items-center border-0 border-none font-bold transition duration-300 ${isTechnologyActive()}`}>
                 TECHNOLOGY
                 <RiArrowDropDownLine size={22} />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="flex flex-col">
                 {technologyItems.map((item) => (
                   <DropdownMenuItem key={item.href} onSelect={() => handleNavigation(item.href)}>
-                    <button
-                      className={`w-full text-left px-4 py-2 hover:bg-gray-100 ${isActive(item.href)}`}
-                    >
+                    <button className={`w-full text-left px-4 py-2 hover:bg-gray-100 ${isActive(item.href)}`}>
                       <strong>{item.label}</strong>
                     </button>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            <button
-              onClick={() => handleNavigation("/faq")}
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/faq")}`}
-            >
+            <button onClick={() => handleNavigation("/faq")} className={`py-4 px-2 font-bold transition duration-300 ${isActive("/faq")}`}>
               FAQ
             </button>
-            <button
-              onClick={() => handleNavigation("/about-us")}
-              className={`py-4 px-2 font-bold transition duration-300 ${isActive("/about-us")}`}
-            >
+            <button onClick={() => handleNavigation("/about-us")} className={`py-4 px-2 font-bold transition duration-300 ${isActive("/about-us")}`}>
               ABOUT US
             </button>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
-            <button
-              className="outline-none mobile-menu-button"
-              onClick={() => setIsOpen(!isOpen)}
-            >
+            <button className="outline-none mobile-menu-button" onClick={() => setIsOpen(!isOpen)}>
               <svg
                 className="w-6 h-6 text-black font-bold hover:text-green-500"
                 fill="none"
@@ -147,8 +107,7 @@ const Navbar = () => {
                 strokeLinejoin="round"
                 strokeWidth="2"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path d="M4 6h16M4 12h16M4 18h16"></path>
               </svg>
             </button>
@@ -161,14 +120,12 @@ const Navbar = () => {
         <Link
           href="/"
           onClick={handleHomeClick}
-          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
-        >
+          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300">
           HOME
         </Link>
         <button
           onClick={() => handleNavigation("/news")}
-          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
-        >
+          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300">
           NEWS
         </button>
         <div className="py-2 flex px-4 text-sm text-black font-bold">
@@ -179,21 +136,18 @@ const Navbar = () => {
           <button
             key={item.href}
             onClick={() => handleNavigation(item.href)}
-            className="block py-2 px-8 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
-          >
+            className="block py-2 px-8 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300">
             {item.label}
           </button>
         ))}
         <button
           onClick={() => handleNavigation("/faq")}
-          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
-        >
+          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300">
           FAQ
         </button>
         <button
           onClick={() => handleNavigation("/about-us")}
-          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300"
-        >
+          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300">
           ABOUT US
         </button>
       </div>

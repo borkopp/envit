@@ -1,6 +1,6 @@
 "use client";
 import Head from "next/head";
-import Hero from "@/app/components/Hero";
+import NewHero from "@/app/components/NewHero";
 import LatestNews from "@/app/components/LatestNews";
 import DemoSoilPlant from "@/app/components/DemoSoilPlant";
 import Expertise from "@/app/components/Expertise";
@@ -29,12 +29,13 @@ export default function Home() {
       </Head>
 
       <main>
+        <NewHero />
         {/* <Hero /> */}
         {/* <HeroTest /> */}
         {/* <HeroTest2 /> */}
-        <HeroTest3 />
-        <Expertise />
+        {/* <HeroTest3 /> */}
         <LatestNews />
+        <Expertise />
         <Testimonials />
         <DemoSoilPlant />
         <Team />
