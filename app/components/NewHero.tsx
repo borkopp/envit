@@ -20,12 +20,12 @@ const NewHero = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
-            href="/our-solutions"
+            href="#technology"
             className="bg-green-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-700 transition duration-300">
             Our Solutions
           </Link>
           <Link
-            href="/team"
+            href="#team"
             className="bg-transparent border-2 flex items-center border-white text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-green-800 transition duration-300">
             Meet the Team <ArrowRight className="ml-2" />
           </Link>

@@ -99,9 +99,9 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
-            <button className="outline-none mobile-menu-button" onClick={() => setIsOpen(!isOpen)}>
+            <button className="outline-none mobile-menu-button p-2" onClick={() => setIsOpen(!isOpen)}>
               <svg
-                className="w-6 h-6 text-black font-bold hover:text-green-500"
+                className="w-6 h-6 text-black hover:text-green-500"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -116,19 +116,19 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`${isOpen ? "block" : "hidden"} md:hidden ${menuClass}`}>
+      <div className={`${isOpen ? "block" : "hidden"} md:hidden ${menuClass} bg-white`}>
         <Link
           href="/"
           onClick={handleHomeClick}
-          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300">
+          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300 w-full text-left">
           HOME
         </Link>
         <button
           onClick={() => handleNavigation("/news")}
-          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300">
+          className="block py-2 px-4 text-sm hover:bg-green-500 font-medium hover:text-white text-black transition duration-300 w-full text-left">
           NEWS
         </button>
-        <div className="py-2 flex px-4 text-sm text-black font-bold">
+        <div className="py-2 px-4 text-sm text-black font-bold flex items-center">
           TECHNOLOGY
           <RiArrowDropDownLine size={22} />
         </div>

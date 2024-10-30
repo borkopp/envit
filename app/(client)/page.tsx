@@ -13,6 +13,7 @@ import {useEffect} from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import HeroTest3 from "../components/HeroTest3";
+import VideoSection from "../components/VideoSection";
 export default function Home() {
   useEffect(() => {
     AOS.init({
@@ -34,8 +35,9 @@ export default function Home() {
         {/* <HeroTest /> */}
         {/* <HeroTest2 /> */}
         {/* <HeroTest3 /> */}
-        <LatestNews />
+        <VideoSection />
         <Expertise />
+        <LatestNews />
         <Testimonials />
         <DemoSoilPlant />
         <Team />

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {client} from "@/sanity/lib/client";
-import {Post} from "../../utils/interface";
+import {Post} from "../../../utils/interface";
 import {useState, useEffect} from "react";
 import {Input} from "@/components/ui/input";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
