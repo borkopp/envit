@@ -19,7 +19,7 @@ const TeamMember = ({
   social: {facebook?: string; twitter?: string; linkedin?: string};
   aosdelay: number;
 }) => (
-  <div data-aos="fade-up" data-aos-delay={aosdelay} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-8">
+  <div data-aos="fade-up" data-aos-delay={aosdelay} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-3 mb-8">
     <div className="bg-white rounded-lg overflow-hidden shadow-md relative group">
       <Image src={image} alt={name} className="w-full h-64 object-cover" width={400} height={200} />
       <div className="p-4 h-[120px]">
