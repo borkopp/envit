@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import  CaseStudiesClient  from "./CaseStudiesClient";
 import { client } from "@/sanity/lib/client";
+import SubpageTemplate from '@/app/components/SubpageTemplate';
 
 export const revalidate = 10;
 
@@ -40,5 +41,9 @@ async function getCaseStudies() {
 
 export default async function CaseStudiesPage() {
   const caseStudies = await getCaseStudies();
-  return <CaseStudiesClient initialCaseStudies={caseStudies} />;
+  return (
+    <SubpageTemplate>
+      <CaseStudiesClient initialCaseStudies={caseStudies} />
+    </SubpageTemplate>
+  );
 }

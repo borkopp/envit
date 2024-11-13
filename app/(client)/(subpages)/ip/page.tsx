@@ -1,6 +1,7 @@
 import { FaFilePdf } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
+import SubpageTemplate from '@/app/components/SubpageTemplate';
 
 const documents = [
   {
@@ -32,45 +33,47 @@ const documents = [
 
 export default function Ip() {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <section className="mb-12">
-        <p className="text-lg mb-8 leading-relaxed">
-          It is prior knowledge that EDTA-based soil-washing efficiently removes
-          <strong> Pb and other toxic metals</strong> from soil. However, more
-          than 20-years of research by many groups worldwide has not resulted in
-          a feasible solution for EDTA recycling, for the problem of vast
-          amounts of generated <strong>waste waters</strong> and for toxic
-          emission due to EDTA environmental persistence.{" "}
-          <strong>ReSoil</strong> resolves all these problems. It is an
-          internationally patented, cost-efficient, soil preserving and
-          environmentally safe remediation technology.
-        </p>
-      </section>
+    <SubpageTemplate>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <section className="mb-12">
+          <p className="text-lg mb-8 leading-relaxed">
+            It is prior knowledge that EDTA-based soil-washing efficiently removes
+            <strong> Pb and other toxic metals</strong> from soil. However, more
+            than 20-years of research by many groups worldwide has not resulted in
+            a feasible solution for EDTA recycling, for the problem of vast
+            amounts of generated <strong>waste waters</strong> and for toxic
+            emission due to EDTA environmental persistence.{" "}
+            <strong>ReSoil</strong> resolves all these problems. It is an
+            internationally patented, cost-efficient, soil preserving and
+            environmentally safe remediation technology.
+          </p>
+        </section>
 
-      <section>
-        <h2 className="text-2xl text-center font-bold mb-6">
-          Patent Documents:
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {documents.map((doc) => (
-            <Link key={doc.id} href={doc.url} className="block">
-              <div className="border border-gray-300 rounded-lg p-4 text-center hover:shadow-lg transition-shadow h-full flex flex-col">
-                <span className="block text-lg font-semibold mb-4 flex-grow">
-                  {doc.title}
-                </span>
-                <Image
-                  src={doc.image}
-                  alt={`${doc.title} Thumbnail`}
-                  width={300}
-                  height={192}
-                  className="w-full h-full object-cover mb-4 rounded"
-                />
-                <FaFilePdf className="text-3xl text-red-600 mx-auto" />
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-    </div>
+        <section>
+          <h2 className="text-2xl text-center font-bold mb-6">
+            Patent Documents:
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {documents.map((doc) => (
+              <Link key={doc.id} href={doc.url} className="block">
+                <div className="border border-gray-300 rounded-lg p-4 text-center hover:shadow-lg transition-shadow h-full flex flex-col">
+                  <span className="block text-lg font-semibold mb-4 flex-grow">
+                    {doc.title}
+                  </span>
+                  <Image
+                    src={doc.image}
+                    alt={`${doc.title} Thumbnail`}
+                    width={300}
+                    height={192}
+                    className="w-full h-full object-cover mb-4 rounded"
+                  />
+                  <FaFilePdf className="text-3xl text-red-600 mx-auto" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </div>
+    </SubpageTemplate>
   );
 }

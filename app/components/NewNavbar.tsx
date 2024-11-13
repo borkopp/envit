@@ -61,7 +61,7 @@ const NewNavbar = () => {
                     {href: "/case-studies", label: "Case Studies"},
                     {href: "/ip", label: "IP"},
                     {href: "/resoil-in-brief", label: "Resoil In Brief"},
-                    {href: "/rnd", label: "RND"},
+                    {href: "/rnd", label: "R&D"},
                     {href: "/soil-washing", label: "Soil Washing"},
                   ].map((item) => (
                     <DropdownMenuItem key={item.href} onSelect={() => setDropdownOpen(false)}>
@@ -119,7 +119,7 @@ const NewNavbar = () => {
                   {href: "/case-studies", label: "CASE STUDIES"},
                   {href: "/ip", label: "IP"},
                   {href: "/resoil-in-brief", label: "RESOIL IN BRIEF"},
-                  {href: "/rnd", label: "RND"},
+                  {href: "/rnd", label: "R&D"},
                   {href: "/soil-washing", label: "SOIL WASHING"},
                 ].map((item) => (
                   <Link

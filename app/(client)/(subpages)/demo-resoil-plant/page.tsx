@@ -1,3 +1,4 @@
+import SubpageTemplate from '@/app/components/SubpageTemplate';
 import GallerySlider from "@/app/components/GallerySlider";
 
 export default function DemoResoilPlant() {
@@ -14,30 +15,28 @@ export default function DemoResoilPlant() {
   ];
 
   return (
-    <div className="container mx-auto px-6 md:px-16 lg:px-24 py-10">
-      <div className="space-y-4 items-center text-center mb-14">
-          <h3 className="text-sm font-bold uppercase tracking-wide text-primary">DEMO</h3>
-          <h2 className="text-4xl font-semibold tracking-tighter sm:text-4xl">Demo ReSoil&reg; Plant</h2>
-        </div>
+    <SubpageTemplate>
+      <div className="container mx-auto px-6 md:px-16 lg:px-24 py-10">
 
-      <section className="mb-12">
-        <p className="text-lg mb-8 leading-relaxed">
-          Small mobile <strong>ReSoil®</strong> plant (up to 300 kg of soil /
-          day) was constructed in mobile containers for POSIDON PCP H2020
-          project. In this way we were able to investigate the future lay-up of
-          the machinery, installations, and realistically simulate{" "}
-          <strong>ReSoil®</strong> working process. The demo{" "}
-          <strong>ReSoil®</strong> plant enables 3 soil remediation batches per
-          day with the average time for single remediation batch less than 3h.{" "}
-          <strong>ReSoil®</strong> technology does not generate wastewaters and
-          other emissions, and preserves soil quality and soil properties as
-          plant substrate.
-        </p>
-      </section>
+        <section className="my-12">
+          <p className="text-lg mb-8 leading-relaxed">
+            Small mobile <strong>ReSoil®</strong> plant (up to 300 kg of soil /
+            day) was constructed in mobile containers for POSIDON PCP H2020
+            project. In this way we were able to investigate the future lay-up of
+            the machinery, installations, and realistically simulate{" "}
+            <strong>ReSoil®</strong> working process. The demo{" "}
+            <strong>ReSoil®</strong> plant enables 3 soil remediation batches per
+            day with the average time for single remediation batch less than 3h.{" "}
+            <strong>ReSoil®</strong> technology does not generate wastewaters and
+            other emissions, and preserves soil quality and soil properties as
+            plant substrate.
+          </p>
+        </section>
 
-      <section className="mb-12">
-        <GallerySlider images={galleryImages} />
-      </section>
-    </div>
+        <section className="mb-12">
+          <GallerySlider images={galleryImages} />
+        </section>
+      </div>
+    </SubpageTemplate>
   );
 }

@@ -7,7 +7,7 @@ export function CircularProcessDiagram() {
         {/* Left side - Soil Types and Uses */}
         <div className="space-y-6">
           <div>
-            <Image src="/peat-soil.jpg" alt="Peat soil" width={300} height={200} className="rounded-lg mb-2" />
+            <Image src="/technology-description/peatsoil.png" alt="Peat soil" width={300} height={200} className="rounded-lg mb-2" />
             <p className="text-sm text-gray-600">Treatment of different soil types.</p>
           </div>
 
@@ -25,8 +25,8 @@ export function CircularProcessDiagram() {
         </div>
 
         {/* Center - Process Circle */}
-        <div className="relative">
-          <div className="bg-green-100 rounded-full p-8 aspect-square flex items-center justify-center">
+        <div className="relative md:-ml-12 mt-24">
+          <div className="bg-green-100 rounded-full w-[200px] h-[200px] flex items-center justify-center">
             <div className="text-center">
               <h3 className="font-bold text-xl mb-2">ReSoil®</h3>
               <p className="text-sm">Process solutions</p>
@@ -34,7 +34,7 @@ export function CircularProcessDiagram() {
           </div>
 
           {/* Results boxes */}
-          <div className="absolute top-0 right-0 bg-orange-100 p-3 rounded-lg">
+          <div className="absolute -top-20 right-0 bg-orange-100 p-4 rounded-lg">
             <p className="text-sm font-semibold">Removal of up to:</p>
             <ul className="text-sm">
               <li>95% of lead</li>
@@ -45,8 +45,8 @@ export function CircularProcessDiagram() {
             </ul>
           </div>
 
-          <div className="absolute bottom-0 right-0">
-            <Image src="/plant-growth.jpg" alt="Plant growth results" width={200} height={150} className="rounded-lg" />
+          <div className="absolute bottom-0 right-0 left-6">
+            <Image src="/technology-description/growthresult.png" alt="Plant growth results" width={300} height={200} className="rounded-lg" />
             <p className="text-sm mt-1">Plant growth is not impaired, heavy metal concentration reduced by up to 99%.</p>
           </div>
         </div>

@@ -83,14 +83,6 @@ export default function CaseStudiesClient({initialCaseStudies}: {initialCaseStud
   return (
     <section className="py-10 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-4 items-center text-center mb-14">
-          <h3 className="text-sm font-bold uppercase tracking-wide text-primary">Case Studies</h3>
-          <h2 className="text-4xl font-semibold tracking-tighter sm:text-4xl">Our Success Stories</h2>
-          <p className="text-neutral-500 text-[1rem] mx-auto my-4 text-center relative max-w-2xl">
-            Discover our success stories through these case studies. Each one highlights our innovative solutions and the real-world impact we&apos;ve
-            made for our clients.
-          </p>
-        </div>
         <div className="flex  mb-8">
           <div className="relative max-w-xs w-full">
             <Input

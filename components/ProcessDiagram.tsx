@@ -1,8 +1,8 @@
-import {motion} from "framer-motion"; // Optional - for animations
+import {motion} from "framer-motion";
 
 export function ProcessDiagram() {
   return (
-    <div className="w-full max-w-3xl mx-auto p-8 bg-white rounded-xl shadow-lg">
+    <div className="w-full max-w-3xl mx-auto bg-white rounded-xl">
       <svg viewBox="0 0 800 400" className="w-full h-auto" style={{maxHeight: "400px"}}>
         {/* Boxes */}
         <g>
@@ -18,10 +18,10 @@ export function ProcessDiagram() {
             Advanced soil washing
           </text>
 
-          {/* Recycling process */}
-          <rect x="570" y="100" width="180" height="60" rx="30" fill="#475569" />
-          <text x="660" y="138" textAnchor="middle" className="fill-white text-[16px]">
-            Recycling process
+          {/* Process solutions */}
+          <rect x="570" y="170" width="180" height="60" rx="30" fill="#475569" />
+          <text x="660" y="208" textAnchor="middle" className="fill-white text-[16px]">
+            Process solutions
           </text>
 
           {/* Clean soil */}
@@ -30,10 +30,10 @@ export function ProcessDiagram() {
             Clean soil
           </text>
 
-          {/* Process solutions */}
-          <rect x="570" y="170" width="180" height="60" rx="30" fill="#475569" />
-          <text x="660" y="208" textAnchor="middle" className="fill-white text-[16px]">
-            Process solutions
+          {/* Recycling process */}
+          <rect x="570" y="100" width="180" height="60" rx="30" fill="#475569" />
+          <text x="660" y="138" textAnchor="middle" className="fill-white text-[16px]">
+            Recycling process
           </text>
 
           {/* Solid waste */}
@@ -47,7 +47,34 @@ export function ProcessDiagram() {
         <g>
           {/* Contaminated soil to Advanced soil washing */}
           <path
-            d="M230 130 L280 130 Q290 130 290 140 L290 190 Q290 200 300 200"
+            d="M230 130 L270 130 Q280 130 280 140 L280 190 Q280 200 300 200"
+            fill="none"
+            stroke="black"
+            strokeWidth="2"
+            markerEnd="url(#arrowhead)"
+          />
+
+          {/* Advanced soil washing to Process solutions */}
+          <path
+            d="M500 200 L550 200"
+            fill="none"
+            stroke="black"
+            strokeWidth="2"
+            markerEnd="url(#arrowhead)"
+          />
+
+          {/* Advanced soil washing to Clean soil */}
+          <path
+            d="M300 200 L280 200 Q270 200 270 210 L270 270 Q270 270 230 270"
+            fill="none"
+            stroke="black"
+            strokeWidth="2"
+            markerEnd="url(#arrowhead)"
+          />
+
+          {/* Process solutions to Recycling process */}
+          <path
+            d="M660 170 L660 160"
             fill="none"
             stroke="black"
             strokeWidth="2"
@@ -63,29 +90,14 @@ export function ProcessDiagram() {
             markerEnd="url(#arrowhead)"
           />
 
-          {/* Advanced soil washing to Clean soil */}
-          <path
-            d="M300 200 L290 200 Q280 200 280 210 L280 260 Q280 270 230 270"
-            fill="none"
-            stroke="black"
-            strokeWidth="2"
-            markerEnd="url(#arrowhead)"
-          />
-
-          {/* Advanced soil washing to Process solutions */}
-          <path
-            d="M500 200 L510 200 Q520 200 520 200 L560 200 Q570 200 570 200"
-            fill="none"
-            stroke="black"
-            strokeWidth="2"
-            markerEnd="url(#arrowhead)"
-          />
-
-          {/* Process solutions to Recycling process */}
-          <path d="M660 170 L660 160" fill="none" stroke="black" strokeWidth="2" markerEnd="url(#arrowhead)" />
-
           {/* Process solutions to Solid waste */}
-          <path d="M660 230 L660 240" fill="none" stroke="black" strokeWidth="2" markerEnd="url(#arrowhead)" />
+          <path
+            d="M660 230 L660 240"
+            fill="none"
+            stroke="black"
+            strokeWidth="2"
+            markerEnd="url(#arrowhead)"
+          />
         </g>
 
         {/* Arrow marker definition */}

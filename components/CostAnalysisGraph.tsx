@@ -25,6 +25,7 @@ export function CostAnalysisGraph() {
                 position: "bottom",
                 offset: 20,
               }}
+              tickFormatter={() => ''}
             />
             <YAxis
               label={{
@@ -33,6 +34,7 @@ export function CostAnalysisGraph() {
                 position: "insideLeft",
                 offset: -10,
               }}
+              tickFormatter={() => ''}
             />
 
             {/* Investment + operation line */}
