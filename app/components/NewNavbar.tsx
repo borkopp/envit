@@ -74,6 +74,9 @@ const NewNavbar = () => {
                 <Link href="/news" className={`px-3 py-2 rounded-md text-sm ${isActive("/news")}`}>
                   News
                 </Link>
+                <Link href="/events" className={`px-3 py-2 rounded-md text-sm ${isActive("/events")}`}>
+                  Events
+                </Link>
                 <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
                   <DropdownMenuTrigger className={`px-3 py-2 rounded-md text-sm ${isActive("/technology")} flex items-center gap-1`}>
                     Technology
