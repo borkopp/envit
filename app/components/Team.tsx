@@ -107,9 +107,9 @@ const Team: React.FC<TeamProps> = ({backgroundColor = "bg-gray-100"}) => {
     <section className={`py-16 ${backgroundColor}`} id="team">
       <div className="container mx-auto px-4">
       <div className="space-y-4 items-center text-center mb-14">
-          <h3 className="text-sm font-bold uppercase tracking-wide text-primary">Team</h3>
-          <h2 className="text-4xl font-semibold tracking-tighter sm:text-4xl">The ENVIT Core Team</h2>
-          <p className="text-neutral-500 text-[1rem] max-w-2xl mx-auto my-4 text-center relative">
+          <h3 data-aos="fade-up" className="text-sm font-bold uppercase tracking-wide text-primary">Team</h3>
+          <h2 data-aos="fade-up" data-aos-delay="100" className="text-4xl font-semibold tracking-tighter sm:text-4xl">The ENVIT Core Team</h2>
+          <p data-aos="fade-up" data-aos-delay="200" className="text-neutral-500 text-[1rem] max-w-2xl mx-auto my-4 text-center relative">
             Meet our dedicated team of experts who are passionate about creating a sustainable future through innovative environmental solutions.
           </p>
         </div>

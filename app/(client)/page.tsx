@@ -14,6 +14,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import HeroTest3 from "../components/HeroTest3";
 import VideoSection from "../components/VideoSection";
+import RecognitionAndAwards from "@/app/components/RecognitionAndAwards";
 export default function Home() {
   useEffect(() => {
     AOS.init({
@@ -40,6 +41,7 @@ export default function Home() {
         <LatestNews />
         <Testimonials />
         <DemoSoilPlant />
+        <RecognitionAndAwards />
         <Team />
         <CaseStudies />
       </main>

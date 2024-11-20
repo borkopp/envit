@@ -85,13 +85,13 @@ export default function LatestNews() {
     <section className="py-16 bg-gray-100" id="blog">
       <div className="container mx-auto px-4">
         <div className="space-y-4 items-center text-center mb-14">
-          <h3 className="text-sm font-bold uppercase tracking-wide text-primary">
+          <h3 data-aos="fade-up" className="text-sm font-bold uppercase tracking-wide text-primary">
             News
           </h3>
-          <h2 className="text-4xl font-semibold tracking-tighter sm:text-4xl">
+          <h2 data-aos="fade-up" data-aos-delay="100" className="text-4xl font-semibold tracking-tighter sm:text-4xl">
             Latest News
           </h2>
-          <p className="text-neutral-500 text-[1rem] mx-auto my-4 text-center relative">
+          <p data-aos="fade-up" data-aos-delay="200" className="text-neutral-500 text-[1rem] mx-auto my-4 text-center relative">
             The latest news and insights from our blog. To see all the news{" "}
             <Link href="/news">
               <span className="underline">click here</span>

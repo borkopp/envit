@@ -7,15 +7,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const TestimonialItem = ({content, question, image}: {content: string; question: string; image: string}) => (
-  <div className="bg-white p-8 rounded-lg shadow-md h-full flex flex-col justify-between">
+  <div className="bg-black/20 p-8 rounded-lg shadow-md h-full flex flex-col justify-between backdrop-blur-sm">
     <div>
       <div className="flex items-center mb-4">
-        {/* <Image src={image} alt="User" width={40} height={40} className="rounded-full mr-4" /> */}
-        <h3 className="font-semibold text-primary text-lg">{question}</h3>
+        <h3 className="font-semibold text-white text-lg">{question}</h3>
       </div>
-      <p className="text-gray-600">{content}</p>
+      <p className="text-gray-100">{content}</p>
     </div>
-    <div className=""></div> {/* Spacer for consistent bottom padding */}
+    <div className=""></div>
   </div>
 );
 
@@ -60,9 +59,16 @@ const Testimonials = () => {
   ];
 
   return (
-    // <section className="py-24 bg-cover bg-center relative" style={{backgroundImage: "url('/bg-hero.webp')"}} id="testimonials">
-    <section className="py-24 bg-gradient-to-b from-gray-900 to-gray-800" id="testimonials">
-      <div className="absolute inset-0"></div>
+    <section className="relative py-24" id="testimonials">
+      {/* Background Image Layer */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center" 
+        style={{backgroundImage: "url('/hero-bg.jpeg')"}}
+      />
+      {/* Overlay Layer */}
+      <div className="absolute inset-0 bg-primary opacity-60"></div>
+
+      {/* Content Layer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <Swiper
           data-aos="fade-up"
@@ -109,7 +115,7 @@ const Testimonials = () => {
       </div>
       <style jsx>{`
         .testimonials-swiper {
-          padding-bottom: 50px; /* Add space for pagination dots */
+          padding-bottom: 50px;
         }
         .swiper-button-next,
         .swiper-button-prev {
