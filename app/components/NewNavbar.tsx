@@ -3,7 +3,7 @@ import {useState, useEffect} from "react";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import Image from "next/image";
-import {ArrowRight, Menu, X} from "lucide-react";
+import {ArrowRight, Menu, X, ChevronDown} from "lucide-react";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 
 const NewNavbar = () => {
@@ -35,7 +35,7 @@ const NewNavbar = () => {
 
   return (
     <nav
-      className={`bg-white bg-opacity-90 shadow-lg fixed top-5 left-0 right-0 rounded-full w-10/12 mx-auto items-center z-50 font-lato transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-[140%]"}`}>
+      className={`bg-white bg-opacity-90 shadow-lg fixed top-5 left-0 right-0 rounded-full w-9/12 mx-auto items-center z-50 font-lato transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-[140%]"}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -52,7 +52,14 @@ const NewNavbar = () => {
                 News
               </Link>
               <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
-                <DropdownMenuTrigger className={`px-3 py-2 rounded-md text-sm ${isActive("/technology")}`}>Technology</DropdownMenuTrigger>
+                <DropdownMenuTrigger className={`px-3 py-2 rounded-md text-sm ${isActive("/technology")} flex items-center gap-1`}>
+                  Technology
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      dropdownOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </DropdownMenuTrigger>
                 <DropdownMenuContent className="flex flex-col">
                   {[
                     {href: "/technology-description", label: "Technology Description"},
@@ -109,7 +116,9 @@ const NewNavbar = () => {
               <summary
                 className={`list-none px-3 py-2 rounded-md text-base flex items-center justify-between cursor-pointer ${isActive("/technology")}`}>
                 Technology
-                <ArrowRight className="w-4 h-4 transform group-open:rotate-90 transition-transform" />
+                <ChevronDown 
+                  className="w-4 h-4 transition-transform duration-200 group-open:rotate-180" 
+                />
               </summary>
               <div className="pl-4 space-y-2 mt-2">
                 {[
