@@ -45,21 +45,19 @@ const NewNavbar = () => {
         ${visible ? "top-5" : "-top-[140%]"}
         ${mounted ? "opacity-100" : "opacity-0"}
       `}>
-      <div 
+      <div
         className={`
           bg-white bg-opacity-90 shadow-lg
           transition-all duration-700 ease-in-out
           ${mounted ? "w-[75vw] rounded-full" : "w-0 rounded-none"}
           origin-center overflow-hidden
-        `}
-      >
-        <div 
+        `}>
+        <div
           className={`
             max-w-7xl mx-auto px-4 sm:px-6 lg:px-4
             transition-all duration-700 ease-in-out
             ${mounted ? "opacity-100" : "opacity-0"}
-          `}
-        >
+          `}>
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0">
@@ -80,11 +78,7 @@ const NewNavbar = () => {
                 <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
                   <DropdownMenuTrigger className={`px-3 py-2 rounded-md text-sm ${isActive("/technology")} flex items-center gap-1`}>
                     Technology
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${
-                        dropdownOpen ? "rotate-180" : ""
-                      }`}
-                    />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="flex flex-col">
                     {[
@@ -128,15 +122,14 @@ const NewNavbar = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Mobile menu with animation */}
-        <div 
+        <div
           className={`
             md:hidden absolute w-full top-full left-0 shadow-lg
             transition-all duration-300 ease-in-out
             ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"}
-          `}
-        >
+          `}>
           <div className="bg-white rounded-b-2xl">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <Link href="/" className={`block px-3 py-2 rounded-md text-base ${isActive("/")}`} onClick={() => setIsOpen(false)}>
@@ -149,9 +142,7 @@ const NewNavbar = () => {
                 <summary
                   className={`list-none px-3 py-2 rounded-md text-base flex items-center justify-between cursor-pointer ${isActive("/technology")}`}>
                   Technology
-                  <ChevronDown 
-                    className="w-4 h-4 transition-transform duration-200 group-open:rotate-180" 
-                  />
+                  <ChevronDown className="w-4 h-4 transition-transform duration-200 group-open:rotate-180" />
                 </summary>
                 <div className="pl-4 space-y-2 mt-2">
                   {[

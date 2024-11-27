@@ -1,17 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { client } from "@/sanity/lib/client";
-import { Event } from "@/app/utils/interface";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, Calendar } from "lucide-react";
-import SubpageTemplate from '@/app/components/SubpageTemplate';
-import { Badge } from "@/components/ui/badge";
+import {client} from "@/sanity/lib/client";
+import {Event} from "@/app/utils/interface";
+import {Input} from "@/components/ui/input";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
+import {Search, Calendar} from "lucide-react";
+import SubpageTemplate from "@/app/components/SubpageTemplate";
+import {Badge} from "@/components/ui/badge";
 
-const EventItem = ({ title, startDate, endDate, eventType, slug, thumbnail, address }: Event) => (
+const EventItem = ({title, startDate, endDate, eventType, slug, thumbnail, address}: Event) => (
   <div className="w-full md:w-1/2 lg:w-1/3 p-4">
     <div className="bg-white rounded-lg shadow-md overflow-hidden group hover:scale-[0.98] transition-all duration-300 h-full flex flex-col">
       <Image
@@ -128,4 +128,4 @@ export default function EventsPage() {
       </section>
     </SubpageTemplate>
   );
-} 
+}

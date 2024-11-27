@@ -45,4 +45,8 @@ export const subpageConfigs: Record<string, SubpageConfig> = {
     title: 'News',
     description: 'Stay up to date with the latest news and announcements from our company.',
   },
+  'events': {
+    title: 'Events',
+    description: 'Discover our upcoming events and join us for our latest events.',
+  },
 }; 
