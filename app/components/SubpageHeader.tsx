@@ -11,10 +11,9 @@ export default function SubpageHeader({
 }: SubpageHeaderProps) {
   return (
     <section 
-      className="relative h-[50vh] bg-cover bg-center font-montserrat" 
+      className="relative h-[50vh] bg-cover bg-center font-montserrat bg-[#1B4B2A] bg-gradient-to-br from-[hsl(141.13,59.66%,23.33%)] via-[hsl(141.13,59.66%,28%)] to-[hsl(141.13,59.66%,33%)]" 
       // style={{backgroundImage: `url('${backgroundImage}')`}}
     >
-      <div className="absolute inset-0 bg-primary"></div>
       <div className="relative z-10 h-full flex flex-col justify-center container mx-auto px-6 md:px-16 lg:px-24 pt-24">
         <div className="max-w-3xl">
           <h1 className="text-6xl font-semibold text-white mb-6">

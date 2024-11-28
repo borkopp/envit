@@ -3,9 +3,8 @@ import Link from "next/link";
 
 const NewHero = () => {
   return (
-    // <section className="relative h-[90vh] bg-cover bg-center font-montserrat" style={{backgroundImage: "url('/hero-bg.jpeg')"}}>
-    <section className="relative h-[90vh] bg-cover bg-center font-montserrat" >
-      <div className="absolute inset-0 bg-primary"></div>
+    <section className="relative h-[90vh] bg-cover bg-center font-montserrat">
+      <div className="absolute inset-0 bg-[#1B4B2A] bg-gradient-to-br from-[hsl(141.13,59.66%,23.33%)] via-[hsl(141.13,59.66%,28%)] to-[hsl(141.13,59.66%,33%)]" />
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-4">
         <div data-aos="fade-up" data-aos-delay="100" className="mb-12 border-2 border-white/30 rounded-full px-4 py-2">
           <Link href="/technology-description" className="text-white/60 text-sm hover:text-green-300 transition duration-300">

@@ -49,10 +49,10 @@ export default function RecognitionAndAwards() {
   return (
     <section className="relative py-24">
       <div 
-        className="absolute inset-0 bg-cover bg-center" 
+        className="absolute inset-0 bg-cover bg-center bg-[#1B4B2A] bg-gradient-to-br from-[hsl(141.13,59.66%,23.33%)] via-[hsl(141.13,59.66%,28%)] to-[hsl(141.13,59.66%,33%)]" 
         // style={{backgroundImage: "url('/hero-bg.jpeg')"}}
       />
-      <div className="absolute inset-0 bg-primary"></div>
+
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="space-y-4 items-center text-center mb-14">

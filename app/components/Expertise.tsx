@@ -10,7 +10,7 @@ export default function Expertise() {
     >
       {/* Background Image Layer */}
       <div 
-        className="absolute inset-0 bg-cover bg-center" 
+        className="absolute inset-0 bg-cover bg-center " 
         // style={{backgroundImage: "url('/hero-bg.jpeg')"}}
       />
       {/* Overlay Layer */}

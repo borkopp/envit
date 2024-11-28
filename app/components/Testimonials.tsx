@@ -62,11 +62,9 @@ const Testimonials = () => {
     <section className="relative py-24" id="testimonials">
       {/* Background Image Layer */}
       <div 
-        className="absolute inset-0 bg-cover bg-center" 
+        className="absolute inset-0 bg-cover bg-center bg-[#1B4B2A] bg-gradient-to-br from-[hsl(141.13,59.66%,23.33%)] via-[hsl(141.13,59.66%,28%)] to-[hsl(141.13,59.66%,33%)]" 
         // style={{backgroundImage: "url('/hero-bg.jpeg')"}}
       />
-      {/* Overlay Layer */}
-      <div className="absolute inset-0 bg-primary"></div>
 
       {/* Content Layer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
