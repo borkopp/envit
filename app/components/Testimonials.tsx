@@ -63,10 +63,10 @@ const Testimonials = () => {
       {/* Background Image Layer */}
       <div 
         className="absolute inset-0 bg-cover bg-center" 
-        style={{backgroundImage: "url('/hero-bg.jpeg')"}}
+        // style={{backgroundImage: "url('/hero-bg.jpeg')"}}
       />
       {/* Overlay Layer */}
-      <div className="absolute inset-0 bg-primary opacity-60"></div>
+      <div className="absolute inset-0 bg-primary"></div>
 
       {/* Content Layer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

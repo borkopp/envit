@@ -50,9 +50,9 @@ export default function RecognitionAndAwards() {
     <section className="relative py-24">
       <div 
         className="absolute inset-0 bg-cover bg-center" 
-        style={{backgroundImage: "url('/hero-bg.jpeg')"}}
+        // style={{backgroundImage: "url('/hero-bg.jpeg')"}}
       />
-      <div className="absolute inset-0 bg-primary opacity-60"></div>
+      <div className="absolute inset-0 bg-primary"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="space-y-4 items-center text-center mb-14">
