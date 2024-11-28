@@ -7,7 +7,7 @@ const NewHero = () => {
       <div className="absolute inset-0 bg-[#1B4B2A] bg-gradient-to-br from-[hsl(141.13,59.66%,23.33%)] via-[hsl(141.13,59.66%,28%)] to-[hsl(141.13,59.66%,33%)]" />
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-4">
         <div data-aos="fade-up" data-aos-delay="100" className="mb-12 border-2 border-white/30 rounded-full px-4 py-2">
-          <Link href="/technology-description" className="text-white/60 text-sm hover:text-green-300 transition duration-300">
+          <Link href="/technology-description" className="text-white/60 text-xs md:text-sm hover:text-green-300 transition duration-300">
             Explore our groundbreaking technology. <span className=" text-white">Learn More</span>
           </Link>
         </div>
