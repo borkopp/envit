@@ -1,31 +1,42 @@
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+
 type SubpageHeaderProps = {
   title: string;
   description?: string;
-  backgroundImage?: string;
 };
 
 export default function SubpageHeader({ 
   title, 
   description,
-  // backgroundImage = "/hero-bg.jpeg" 
 }: SubpageHeaderProps) {
   return (
-    <section 
-      className="relative h-[50vh] bg-cover bg-center font-montserrat bg-[#1B4B2A] bg-gradient-to-br from-[hsl(141.13,59.66%,23.33%)] via-[hsl(141.13,59.66%,28%)] to-[hsl(141.13,59.66%,33%)]" 
-      // style={{backgroundImage: `url('${backgroundImage}')`}}
-    >
-      <div className="relative z-10 h-full flex flex-col justify-center container mx-auto px-6 md:px-16 lg:px-24 pt-24">
-        <div className="max-w-3xl">
-          <h1 className="text-6xl font-semibold text-white mb-6">
-            {title}
-          </h1>
-          {description && (
-            <p className="text-2xl text-gray-200 leading-relaxed font-lato max-w-5xl">
-              {description}
-            </p>
-          )}
+    <div className="h-[50vh]">
+      <BackgroundGradientAnimation
+        gradientBackgroundStart="rgb(236, 253, 245)" // Light mint green
+        gradientBackgroundEnd="rgb(209, 250, 229)" // Slightly darker mint
+        firstColor="34, 197, 94"    // Green-500
+        secondColor="16, 185, 129"  // Emerald-500
+        thirdColor="52, 211, 153"   // Green-400
+        fourthColor="110, 231, 183" // Emerald-300
+        fifthColor="167, 243, 208"  // Green-200
+        pointerColor="20, 184, 166" // Teal-500
+        blendingValue="screen"      // Changed for better light color blending
+        size="50%"                  // Smaller size for subpage header
+        containerClassName="h-[50vh]"
+      >
+        <div className="absolute z-10 inset-0 flex items-center justify-start px-4">
+          <div className="max-w-4xl mx-auto flex flex-col items-start space-y-4">
+            <h1 className="text-4xl md:text-5xl font-semibold text-left text-emerald-900">
+              {title}
+            </h1>
+            {description && (
+              <p className="text-lg md:text-xl text-emerald-800/80 font-lato max-w-3xl">
+                {description}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
-    </section>
+      </BackgroundGradientAnimation>
+    </div>
   );
-} 
+}

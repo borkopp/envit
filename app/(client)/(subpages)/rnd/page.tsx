@@ -46,17 +46,24 @@ export default function RnD() {
         {/* Scientific Papers Section */}
         <section className="mb-12">
           <h2 className="text-xl md:text-2xl font-bold mb-4">
-            Scientific Papers
+            ReSoil® Scientific Papers
           </h2>
-          <ul className="list-disc pl-5">
+          <ul className="list-disc pl-5 space-y-3">
             <li>
               <strong>
                 MORALES ARTEAGA, Juan, Francisco, ZUPANC, Mojca, DULAR, Matevz,
                 LESTAN, Domen, and KAURIN, Anela.
               </strong>{" "}
-              Removal of Toxic Metals from Sewage Sludge by Acid Hydrolysis
-              Coupled with EDTA Washing in a Closed-Loop Process. International
-              journal of environmental research and public health, 2023, 20(3),
+              <a
+                href="https://doi.org/10.3390/ijerph20032544"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Removal of Toxic Metals from Sewage Sludge by Acid Hydrolysis
+                Coupled with EDTA Washing in a Closed-Loop Process
+              </a>
+              . International journal of environmental research and public health, 2023, 20(3),
               p.2544.
             </li>
             <li>
@@ -64,20 +71,214 @@ export default function RnD() {
                 MACEK, Irena, PINTARIC, Sara, SIBANC, Natasa, RAJNIS, Tatjana,
                 KASTELEC, Damijana, LESTAN, Domen and SUHADOLC, Metka.
               </strong>{" "}
-              Plants play a crucial role in the development of soil fungal
-              communities in the remediated substrate after EDTA washing of
-              metal-contaminated soils. Frontiers in Environmental Science, 2022,
-              10, p.978850.
+              <a
+                href="https://doi.org/10.3389/fenvs.2022.978850"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Plants play a crucial role in the development of soil fungal
+                communities in the remediated substrate after EDTA washing of
+                metal-contaminated soils
+              </a>
+              . Frontiers in Environmental Science, 2022, 10, p.978850.
             </li>
             <li>
               <strong>
                 NOLLER, Christoph, FRIESL-HANL, Wolfgang, HOOD-NOWOTNY, Rebecca
                 and WATRZINGER, Andrea.
               </strong>{" "}
-              Remediating Garden Soils: EDTA-Soil Washing and Safe Vegetable
-              Production in Raised Bed Gardens. Toxics, 2022, 10(11), p.652.
+              <a
+                href="https://doi.org/10.3390/toxics10110652"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Toxics, 2022, 10(11), p.652.
+              </a>
             </li>
-            {/* Add more papers as needed */}
+            <li>
+              <strong>
+                MORALES-ARTEAGA, Juan, Francisco, KAURIN, Anela and LESTAN, Domen.
+              </strong>{" "}
+              <a
+                href="https://doi.org/10.1016/j.chemosphere.2022.135917"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Removal of toxic metals from sewage sludge by EDTA in a closed-loop washing process
+              </a>
+              . Chemosphere, 2022, p.135917.
+            </li>
+            <li>
+              <strong>
+                MORALES-ARTEAGA, Juan, Francisco, GLUHAR, Simon, KAURIN, Anela and LEŠTAN, Domen.
+              </strong>{" "}
+              <a
+                href="https://doi.org/10.1016/j.envpol.2022.118656"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Simultaneous removal of arsenic and toxic metals from contaminated soil: Laboratory development and pilot scale demonstration
+              </a>
+              . Environmental Pollution, 2022, 294, p.118656.
+            </li>
+            <li>
+              <strong>
+                NOLLER, Christoph, FRIESL-HANL, Wolfgang, HOOD-NOWOTNY, Rebecca, PUSCHENREITER, Markus and WATRZINGER, Andrea.
+              </strong>{" "}
+              <a
+                href="https://link.springer.com/article/10.1007/s11270-021-05356-0"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Effect of Chelant-Based Soil Washing and Post-Treatment on Pb, Cd, and Zn Bioavailability and Plant Uptake
+              </a>
+              . Water, Air, & Soil Pollution, 2021, 232(10), pp.1-14.
+            </li>
+            <li>
+              <strong>
+                GLUHAR, Simon, KAURIN, Anela, VODNIK, Dominik, KASTELEC, Damjana, ZUPANC, Vesna and LEŠTAN, Domen.
+              </strong>{" "}
+              <a
+                href="https://doi.org/10.1016/j.scitotenv.2021.148521"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Demonstration gardens with EDTA-washed soil. Part III: Plant growth, soil physical properties and production of safe vegetables
+              </a>
+              . Science of The Total Environment, 2021, p.148521.
+            </li>
+            <li>
+              <strong>
+                KAURIN, Anela, GLUHAR, Simon, MAČEK, Irena, KASTELEC, Damjana and LEŠTAN, Domen.
+              </strong>{" "}
+              <a
+                href="https://doi.org/10.1016/j.scitotenv.2021.148522"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Demonstrational gardens with EDTA-washed soil. Part II: Soil quality assessment using biological indicators
+              </a>
+              . Science of The Total Environment, 2021, p.148522.
+            </li>
+            <li>
+              <strong>
+                GLUHAR, Simon, KAURIN, Anela, FINŽGAR, Neža, GERL, Marko, KASTELEC, Damjana and LEŠTAN, Domen.
+              </strong>{" "}
+              <a
+                href="https://doi.org/10.1016/j.scitotenv.2021.149060"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Demonstrational gardens with EDTA-washed soil. Part I: Remediation efficiency, effect on soil properties and toxicity hazards
+              </a>
+              . Science of The Total Environment, 2021, p.149060.
+            </li>
+            <li>
+              <strong>
+                JEŽ, Erika, BRAVO, Carlo, LESTAN, Domen, GLUHAR, Simon, MARTIN-NETO, Ladislau, De NOBILI, Maria and CONTIN, Marco.
+              </strong>{" "}
+              <a
+                href="https://link.springer.com/article/10.1007%2Fs11356-021-15406-z"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Changes in Organic Matter Composition Caused by EDTA Washing of two Soils Contaminated with Toxic Metals
+              </a>
+              . Environmental Science and Pollution Research, 2021.
+            </li>
+            <li>
+              <strong>
+                KAURIN, Anela, GLUHAR, Simon, TILIKJ, Natasha, LEŠTAN, Domen.
+              </strong>{" "}
+              <a
+                href="https://www.sciencedirect.com/science/article/abs/pii/S0045653520318683"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Soil washing with biodegradable chelating agents and EDTA: Effect on soil properties and plant growth
+              </a>
+              . Chemosphere, 2020, 260, 127673.
+            </li>
+            <li>
+              <strong>
+                GLUHAR, Simon, KAURIN, Anela, LEŠTAN, Domen.
+              </strong>{" "}
+              <a
+                href="https://www.sciencedirect.com/science/article/abs/pii/S0045653520314193"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Soil washing with biodegradable chelating agents and EDTA: Technological feasibility, remediation efficiency and environmental sustainability
+              </a>
+              . Chemosphere, 2020, vol. 257, 127226.
+            </li>
+            <li>
+              <strong>
+                GLUHAR, Simon, JEŽ, Erika, LEŠTAN, Domen.
+              </strong>{" "}
+              <a
+                href="http://www.envit.si/uploads/JKlRWLtA/PagesfromChemosphere2019Useofzerovalentironforemissioncurbing.pdf"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                The use of zero-valent Fe for curbing toxic emissions after EDTA-based washing of Pb, Zn and CD contaminated calcareous and acidic soil
+              </a>
+              . Chemosphere, 2018, vol. 215, p-482-489.
+            </li>
+            <li>
+              <strong>
+                KAURIN, Anela and LEŠTAN, Domen.
+              </strong>{" "}
+              <a
+                href="https://doi.org/10.1016/j.chemosphere.2017.11.082"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Multi-substrate induced microbial respiration, nitrification potential and enzyme activities in metal-polluted, EDTA-washed soils
+              </a>
+              . Environmental pollution, 2018, vol 243, p- 238-245.
+            </li>
+            <li>
+              <strong>
+                KAURIN, Anela, CERNILOGAR, Zarja, LEŠTAN Domen.
+              </strong>{" "}
+              <a
+                href="http://www.envit.si/uploads/orrZSlYW/PagesfromChemosphere2018vol193726-736.Revitalisationbycompostsoilandbiocharaddition.pdf"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Revitalisation of metal-contaminated, EDTA-washed soil by addition of unpolluted soil, compost and biochar: Effects on soil enzyme activity, microbial community composition and abundance
+              </a>
+              . Chemosphere, 2017, vol 193, p- 726-736.
+            </li>
+            <li>
+              <strong>
+                LEŠTAN, Domen.
+              </strong>{" "}
+              <a
+                href="http://www.envit.si/uploads/Fg8g7duP/PagesfromLanddegraddevelop2017.pdf"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Novel chelant-based washing method for soil contaminated with Pb and other metals: A pilot-scale study
+              </a>
+              . Land Degrad Develop., 2017, vol. 28,p. 2585-2595.
+            </li>
           </ul>
         </section>
 

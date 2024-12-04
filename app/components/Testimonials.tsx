@@ -7,12 +7,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const TestimonialItem = ({content, question, image}: {content: string; question: string; image: string}) => (
-  <div className="bg-black/20 p-8 rounded-lg shadow-md h-full flex flex-col justify-between backdrop-blur-sm">
+  <div className="bg-white/40 p-8 rounded-lg shadow-md h-full flex flex-col justify-between backdrop-blur-sm border border-emerald-600/20">
     <div>
       <div className="flex items-center mb-4">
-        <h3 className="font-semibold text-white text-lg">{question}</h3>
+        <h3 className="font-semibold text-emerald-900 text-lg">{question}</h3>
       </div>
-      <p className="text-gray-100">{content}</p>
+      <p className="text-emerald-800/90">{content}</p>
     </div>
     <div className=""></div>
   </div>
@@ -60,11 +60,8 @@ const Testimonials = () => {
 
   return (
     <section className="relative py-24" id="testimonials">
-      {/* Background Image Layer */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-[#1B4B2A] bg-gradient-to-br from-[hsl(141.13,59.66%,23.33%)] via-[hsl(141.13,59.66%,28%)] to-[hsl(141.13,59.66%,33%)]" 
-        // style={{backgroundImage: "url('/hero-bg.jpeg')"}}
-      />
+      {/* Background Gradient Layer - Darker version */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[rgb(220,242,232)] via-[rgb(200,238,220)] to-[rgb(180,235,208)]" />
 
       {/* Content Layer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -117,7 +114,7 @@ const Testimonials = () => {
         }
         .swiper-button-next,
         .swiper-button-prev {
-          color: white;
+          color: rgb(6, 95, 70);
           padding: 8px 16px;
           border-radius: 50%;
           display: none;

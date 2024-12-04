@@ -5,6 +5,7 @@ import {CostAnalysisGraph} from "@/components/CostAnalysisGraph";
 import { RemediationTable } from "@/components/RemediationTable";
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 export default function TechnologyDescription() {
   return (
@@ -19,7 +20,7 @@ export default function TechnologyDescription() {
                 The ReSoil® process combines innovative soil washing techniques with advanced
                 recycling solutions to effectively remove heavy metals while preserving soil quality.
               </p>
-              <ProcessDiagram />
+              <Image src={"/technology-description/process-diagram.png"} alt="Process Diagram" width={1000} height={1000} className="w-full h-auto" />
             </div>
             <div className="space-y-6">
               <div className="bg-gray-50 p-6 rounded-lg">
@@ -42,35 +43,42 @@ export default function TechnologyDescription() {
 
       {/* Circular Process Section */}
       <section className="bg-gray-50 py-20">
-        <div className="container mx-auto px-6 md:px-16 lg:px-24">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <CircularProcessDiagram />
-            </div>
-            <div className="order-1 lg:order-2">
+        <div className="container mx-auto px-6 md:px-16 lg:px-32">
+          <div className="space-y-12 flex flex-col items-center">
+            <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl font-semibold mb-6">Sustainable Soil Restoration</h2>
-              <div className="space-y-6">
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  ReSoil® enables the restoration of soils across various land uses, including agricultural lands,
-                  paddy fields, brownfields, military sites, and urban areas.
-                </p>
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <h3 className="text-xl font-semibold mb-4">Key Benefits</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-center gap-3">
-                      <span className="text-green-500">✓</span>
-                      Preserves soil&apos;s chemical, physical, and biological properties
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="text-green-500">✓</span>
-                      Reduces heavy metal concentrations by up to 99%
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="text-green-500">✓</span>
-                      Ensures unaffected plant growth
-                    </li>
-                  </ul>
-                </div>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                ReSoil® enables the restoration of soils across various land uses, including agricultural lands,
+                paddy fields, brownfields, military sites, and urban areas.
+              </p>
+            </div>
+            <div>
+              <Image 
+                src={"/technology-description/diagram2.png"} 
+                alt="Circular Process Diagram" 
+                width={800} 
+                height={800} 
+                objectFit="contain" 
+                quality={100} 
+              />
+            </div>
+            <div className="w-full">
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <h3 className="text-xl font-semibold mb-4">Key Benefits</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-3">
+                    <span className="text-green-500">✓</span>
+                    Preserves soil&apos;s chemical, physical, and biological properties
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-green-500">✓</span>
+                    Reduces heavy metal concentrations by up to 99%
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-green-500">✓</span>
+                    Ensures unaffected plant growth
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
