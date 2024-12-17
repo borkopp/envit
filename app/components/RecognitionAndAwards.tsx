@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import {Card, CardContent} from "@/components/ui/card";
 import {
@@ -10,42 +11,42 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import {Trophy} from "lucide-react";
+import { client } from "@/sanity/lib/client";
 
-const awards = [
-  {
-    title: "ScholarGPS™ Lifetime Recognition",
-    description: "Top 0.05% of global scholars",
-    image: "/awards/test.png",
-    year: "2023"
-  },
-  {
-    title: "Environmental Technology Innovation",
-    description: "For groundbreaking technology",
-    image: "/awards/test.png",
-    year: "2022"
-  },
-  {
-    title: "Sustainable Solution Award",
-    description: "Excellence in eco-friendly remediation",
-    image: "/awards/test.png",
-    year: "2022"
-  },
-  {
-    title: "Sustainable Solution Award",
-    description: "Excellence in eco-friendly remediation",
-    image: "/awards/test.png",
-    year: "2022"
-  },
-  {
-    title: "Sustainable Solution Award",
-    description: "Excellence in eco-friendly remediation",
-    image: "/awards/test.png",
-    year: "2022"
-  },
-];
+interface Award {
+  title: string;
+  description: string;
+  image: {
+    asset: {
+      url: string;
+    };
+  };
+  year: string;
+}
 
 export default function RecognitionAndAwards() {
+  const [awards, setAwards] = useState<Award[]>([]);
+
+  useEffect(() => {
+    async function fetchAwards() {
+      const query = `
+      *[_type == "award"] | order(year desc) {
+        title,
+        description,
+        year,
+        image {
+          asset-> {
+            url
+          }
+        }
+      }
+      `;
+      const data = await client.fetch(query);
+      setAwards(data);
+    }
+    fetchAwards();
+  }, []);
+
   return (
     <section className="relative py-12 sm:py-16 md:py-24">
       <div className="absolute inset-0 bg-gradient-to-br from-[rgb(220,242,232)] via-[rgb(200,238,220)] to-[rgb(180,235,208)]" />
@@ -86,7 +87,7 @@ export default function RecognitionAndAwards() {
                       <CardContent className="flex flex-col items-center p-4 sm:p-6">
                         <div className="relative w-24 h-24 sm:w-32 sm:h-32 mb-4">
                           <Image
-                            src={award.image}
+                            src={award.image.asset.url}
                             alt={award.title}
                             fill
                             className="object-contain"
@@ -103,21 +104,11 @@ export default function RecognitionAndAwards() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="hidden sm:block">
-              <CarouselPrevious 
-                data-aos="fade-right"
-                data-aos-delay="500"
-                className="text-emerald-800 border-emerald-600 hover:bg-emerald-100/20 bg-white/60" 
-              />
-              <CarouselNext 
-                data-aos="fade-left"
-                data-aos-delay="500"
-                className="text-emerald-800 border-emerald-600 hover:bg-emerald-100/20 bg-white/60" 
-              />
-            </div>
+            <CarouselPrevious className="hidden sm:flex" />
+            <CarouselNext className="hidden sm:flex" />
           </Carousel>
         </div>
       </div>
     </section>
   );
-} 
+}
