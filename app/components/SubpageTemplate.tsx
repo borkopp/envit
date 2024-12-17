@@ -22,7 +22,6 @@ export default function SubpageTemplate({
       <SubpageHeader
         title={config.title}
         description={config.description}
-        backgroundImage={config.backgroundImage}
       />
       {children}
     </div>
