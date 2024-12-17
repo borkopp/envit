@@ -15,7 +15,7 @@ const NewsItem = ({title, publishedAt, excerpt, slug, thumbnail}: Post) => (
     <div className="bg-white rounded-lg shadow-md overflow-hidden group hover:scale-[0.98] transition-all duration-300 h-full flex flex-col">
       <Image
         className="w-full h-56 object-cover"
-        src={thumbnail?.asset?.url || "/logo-resoil.png"}
+        src={thumbnail?.asset?.url || "/logo2.png"}
         alt={title}
         width={400}
         height={200}

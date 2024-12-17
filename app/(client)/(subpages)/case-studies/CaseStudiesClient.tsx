@@ -31,7 +31,7 @@ const CaseStudyItem = ({title, date, description, thumbnail, primaryLink, second
     <div className="bg-white rounded-lg shadow-md overflow-hidden group hover:scale-[0.98] transition-all duration-300 h-full flex flex-col">
       <div className="relative w-full h-0 pb-[56.25%]">
         <Image
-          src={thumbnail?.asset?.url || "/logo-resoil.png"}
+          src={thumbnail?.asset?.url || "/logo2.png"}
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

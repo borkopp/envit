@@ -59,9 +59,9 @@ const NewNavbar = () => {
             ${mounted ? "opacity-100" : "opacity-0"}
           `}>
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
+            <div className="flex items-center ">
               <Link href="/" className="flex-shrink-0">
-                <Image src="/logo-black.png" alt="Envit Logo" width={100} height={40} objectFit="contain" />
+                <Image src="/logo2.png" alt="Envit Logo" width={100} height={40} objectFit="contain" />
               </Link>
             </div>
             <div className="hidden md:flex items-center">

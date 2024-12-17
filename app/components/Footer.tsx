@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Logo */}
           <div className="w-full md:w-1/4 flex justify-center md:justify-start">
             <Link href="/">
-              <Image src="/logo.png" alt="ENVIT Logo" className="h-15 w-30" width={150} height={70} />
+              <Image src="/logo2.png" alt="ENVIT Logo" className="h-15 w-30" width={150} height={70} />
             </Link>
           </div>
 
