@@ -78,7 +78,7 @@ const remediationData = [
     cost: "?",
   },
   {
-    technology: "",
+    technology: "ReSoil®",
     inUseBy: "Remediation companies",
     effectiveForRemoval: "YES (up to 95 %)",
     applicableHighlyContaminated: "YES",
@@ -110,30 +110,45 @@ export function RemediationTable() {
         <TableBody>
           {remediationData.map((row, index) => (
             <TableRow key={row.technology}>
-              <TableCell className="font-medium">{row.technology}</TableCell>
               <TableCell className={cn(
-                index === remediationData.length - 1 ? "bg-[#90EE90]" : ""
+                "font-bold",
+                index === remediationData.length - 1 ? "bg-[#90EE90]/60" : ""
+              )}>{row.technology}</TableCell>
+              <TableCell className={cn(
+                index === remediationData.length - 1 ? "bg-[#90EE90]/60" : ""
               )}>{row.inUseBy}</TableCell>
               <TableCell className={cn(
-                index === remediationData.length - 1 ? "bg-[#90EE90]" : ""
+                index === remediationData.length - 1 ? "bg-[#90EE90]/60" : "",
+                index !== remediationData.length - 1 && row.effectiveForRemoval.includes("YES") ? "bg-[#90EE90]/20" : "",
+                index !== remediationData.length - 1 && row.effectiveForRemoval === "NO" ? "bg-[#FFB6B6]/20" : ""
               )}>{row.effectiveForRemoval}</TableCell>
               <TableCell className={cn(
-                index === remediationData.length - 1 ? "bg-[#90EE90]" : ""
+                index === remediationData.length - 1 ? "bg-[#90EE90]/60" : "",
+                index !== remediationData.length - 1 && row.applicableHighlyContaminated === "YES" ? "bg-[#90EE90]/20" : "",
+                index !== remediationData.length - 1 && row.applicableHighlyContaminated === "NO" ? "bg-[#FFB6B6]/20" : ""
               )}>{row.applicableHighlyContaminated}</TableCell>
               <TableCell className={cn(
-                index === remediationData.length - 1 ? "bg-[#90EE90]" : ""
+                index === remediationData.length - 1 ? "bg-[#90EE90]/60" : "",
+                index !== remediationData.length - 1 && row.applicableAllSoils === "YES" ? "bg-[#90EE90]/20" : "",
+                index !== remediationData.length - 1 && row.applicableAllSoils === "NO" ? "bg-[#FFB6B6]/20" : ""
               )}>{row.applicableAllSoils}</TableCell>
               <TableCell className={cn(
-                index === remediationData.length - 1 ? "bg-[#90EE90]" : ""
+                index === remediationData.length - 1 ? "bg-[#90EE90]/60" : "",
+                index !== remediationData.length - 1 && row.applicableMultiContaminated === "YES" ? "bg-[#90EE90]/20" : "",
+                index !== remediationData.length - 1 && row.applicableMultiContaminated === "NO" ? "bg-[#FFB6B6]/20" : ""
               )}>{row.applicableMultiContaminated}</TableCell>
               <TableCell className={cn(
-                index === remediationData.length - 1 ? "bg-[#90EE90]" : ""
+                index === remediationData.length - 1 ? "bg-[#90EE90]/60" : "",
+                index !== remediationData.length - 1 && row.preservesSoil === "YES" ? "bg-[#90EE90]/20" : "",
+                index !== remediationData.length - 1 && row.preservesSoil === "NO" ? "bg-[#FFB6B6]/20" : ""
               )}>{row.preservesSoil}</TableCell>
               <TableCell className={cn(
-                index === remediationData.length - 1 ? "bg-[#90EE90]" : ""
+                index === remediationData.length - 1 ? "bg-[#90EE90]/60" : "",
+                index !== remediationData.length - 1 && row.noEmissions === "YES" ? "bg-[#90EE90]/20" : "",
+                index !== remediationData.length - 1 && row.noEmissions === "NO" ? "bg-[#FFB6B6]/20" : ""
               )}>{row.noEmissions}</TableCell>
               <TableCell className={cn(
-                index === remediationData.length - 1 ? "bg-[#90EE90]" : ""
+                index === remediationData.length - 1 ? "bg-[#90EE90]/60" : ""
               )}>{row.cost}</TableCell>
             </TableRow>
           ))}
