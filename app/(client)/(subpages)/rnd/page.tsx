@@ -5,11 +5,6 @@ import Image from "next/image";
 import SubpageTemplate from '@/app/components/SubpageTemplate';
 
 export default function RnD() {
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
 
   return (
     <SubpageTemplate>
@@ -287,7 +282,7 @@ export default function RnD() {
           <h2 className="text-xl md:text-2xl font-bold mb-4">
             Scientific Conference Contributions
           </h2>
-          <ul className="list-disc pl-5">
+          <ul className="list-disc pl-5 space-y-3">
             <li>
               <strong>
                 GLUHAR, Simon, KAURIN, Anela, VOGLAR, Grega E., FINŽGAR, Neža,
@@ -301,7 +296,7 @@ export default function RnD() {
               environment. Human health. Our future. [S. l.: s. n., 2023]. p. 443.{" "}
               <a
                 href="https://icobte-ichmet-2023.com/custom/media/ICOBTE23/Abstract_Book_Final_3.pdf"
-                className="text-blue-500 underline"
+                className="text-blue-500 "
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -319,73 +314,315 @@ export default function RnD() {
               Society of Agronomy.{" "}
               <a
                 href="https://scisoc.confex.com/scisoc/2023am/meetingapp.cgi/Paper/153960"
-                className="text-blue-500 underline"
+                className="text-blue-500 "
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Link
               </a>
             </li>
-            {/* Add more conference contributions as needed */}
+            <li>
+              <strong>
+                GLUHAR, Simon, KAURIN, Anela, MORALES ARTEAGA, Juan Francisco, LEŠTAN, Domen
+              </strong>{" "}
+              Simultaneous removal of arsenic and toxic metals from contaminated soil: Laboratory development and pilot scale demonstration. V: ICOBTE & ICHMET 2023: Book of abstracts: 1st Joint International Conference of Biochemistry of Trace Elements & 21st International Conference of Heavy Metals: 6-10 September 2023, Wuppertal: Clean environment. Human health. Our future. [S. l.: s. n., 2023]. p. 148.{" "}
+              <a
+                href="https://icobte-ichmet-2023.com/custom/media/ICOBTE23/Abstract_Book_Final_3.pdf"
+                className="text-blue-500 "
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Link
+              </a>
+            </li>
+            <li>
+              <strong>
+                SHEN, Jian, VOGLAR, Grega E., GLUHAR, Simon, KAURIN, Anela, LEŠTAN, Domen
+              </strong>{" "}
+              Current trends and Chinese perspective of the soil remediation methods using remediation trains. V: DI MARCELLO, Sara (ur.). L&#39;innovazione per la sostenibilità ambientale nell&#39;epoca della multitransizione : RemTech Expo 2023 : Libro degli abstract. Roma: Consiglio Nazionale delle Ricerche, 2023. p. 514-517. ISBN 978-88-8080-574-8.
+            </li>
+            <li>
+              <strong>
+                LEŠTAN, Domen, MORALES ARTEAGA, Juan Francisco, GLUHAR, Simon, KAURIN, Anela
+              </strong>{" "}
+              Simultaneous removal of toxic metalloids and metals from soil using ReSoil® technology. V: DI MARCELLO, Sara (ur.). L&#39;innovazione per la sostenibilità ambientale nell&#39;epoca della multitransizione : RemTech Expo 2023 : Libro degli abstract. Roma: Consiglio Nazionale delle Ricerche, 2023. p. 475-477. ISBN 978-88-8080-574-8.
+            </li>
+            <li>
+              <strong>
+                LEŠTAN, Domen, VOGLAR, Grega E.
+              </strong>{" "}
+              Can we clean up contaminated soils? : 7th Annual Urban Soils Symposium, Metabolism of Cities. Developing mutualistic relationships between built & natural systems. November 16-17, 2022, New York.{" "}
+              <a
+                href="https://www.facebook.com/NYCUSI/photos/a.175889624"
+                className="text-blue-500 "
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Link
+              </a>
+            </li>
+            <li>
+              <strong>
+                LEŠTAN, Domen, VOGLAR, Grega E., GLUHAR, Simon, KAURIN, Anela, FINŽGAR, Neža
+              </strong>{" "}
+              ReSoil - novel technology for efficient and sustainable removal of heavy metals from contaminated soils. V: Communication and public engagement for healthy people and a healthy planet: 2022 ASA, CSSA, SSSA International annual meeting: November 6-9, 2022, Baltimore, Maryland and limited virtual. Madison: American Society of Agronomy.{" "}
+              <a
+                href="https://scisoc.confex.com/scisoc/2022am/meetingapp"
+                className="text-blue-500 "
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Link
+              </a>
+            </li>
+            <li>
+              <strong>
+                VOGLAR, Grega E., GLUHAR, Simon, KAURIN, Anela, LEŠTAN, Domen
+              </strong>{" "}
+              Large-scale demonstration of ReSoil, a sustainable technology for soil washing of metal contaminated soil. In: SUITMA 11, in Berlin (Germany), September 5-9, 2022.
+            </li>
+            <li>
+              <strong>
+                GLUHAR, Simon, VOGLAR, Grega E., FINŽGAR, Neža, GERL, Marko, LEŠTAN, Domen
+              </strong>{" "}
+              Large-scale demonstration of RESOIL, a sustainable technology for soil washing of metal contaminated soil: Remtech EXPO international event, 20.-24.09. 2021.{" "}
+              <a
+                href="https://www.facebook.com/watch/?v=603552011096332"
+                className="text-blue-500 "
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Link
+              </a>
+            </li>
+            <li>
+              <strong>
+                GLUHAR, Simon, KAURIN, Anela, ZUPANC, Vesna, VODNIK, Dominik, MAČEK, Irena, KASTELEC, Damijana, FINŽGAR, Neža, GERL, Marko, LEŠTAN, Domen
+              </strong>{" "}
+              <a
+                href=""
+                className="text-blue-500"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+              Large-scale demonstration of ReSoil, a sustainable technology for soil washing of metal contaminated soil.
+              </a>
+              In: EUROSOIL 2020, in Geneva (Switzerland), August 23-27, 2021.
+            </li>
+            <li>
+              <strong>
+                KAMMERER, Gerhard, ZUPANC, Vesna, GLUHAR, Simon, LEŠTAN, Domen
+              </strong>{" "}
+              <a
+                href="https://meetingorganizer.copernicus.org/EGU2017/EGU2017-16530.pdf"
+                className="text-blue-500"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Effect of soil washing for lead and zinc removal on soil hydraulic properties
+              </a>
+              . In: European Geosciences Union, General Assembly 2017, Vienna, Austria, 23-28 April 2017. München: European Geosciences Union, 2017. Geophysical research abstracts, vol. 19. ISSN 1607-7962.
+            </li>
+            <li>
+              <strong>
+                GLUHAR, Simon, LEŠTAN, Domen
+              </strong>{" "}
+              <a
+                href="https://icobte.github.io/abstracts/Abstracts/S12/535-Gluhar-S-S12.docx.html"
+                className="text-blue-500"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Combined EDTA soil washing and stabilization of residual toxic metals
+              </a>
+              . In: Abstracts. 14th International Conference on the Biogeochemistry of Trace Elements, 16-20 July, 2017 - ETH Zurich, Switzerland.
+            </li>
+            <li>
+              <strong>
+                GLUHAR, Simon, JEŽ, Erika, LEŠTAN, Domen
+              </strong>{" "}
+              <a
+                href="http://liferesoil.envit.si/wp-content/uploads/ZBORNIK-RESOIL1.pdf"
+                className="text-blue-500"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Elimination of harmful emissions from remediated soil by adding zero valant Fe = Odprava škodljivih emisij iz remediranih tal z dodajanjem nič valentnega Fe
+              </a>
+              . In: FINŽGAR, Neža (ed.). Demonstracija inovativne tehnologije pranja s toksičnimi kovinami močno onesnaženih vrtnih tal : zbornik konference = Demonstration of innovative soil washing technology for removal of toxic metals from highly contaminated garden soil : proceedings of the conference. Ljubljana: Envit, 2018. Str. 60-62, ilustr. ISBN 978-961-288-861-9.
+            </li>
+            <li>
+              <strong>
+                GLUHAR, Simon, JEŽ, Erika, LEŠTAN, Domen
+              </strong>{" "}
+              <a
+                href="https://plus.si.cobiss.net/opac7/bib/COBIB/9010553"
+                className="text-blue-500"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Curbing of toxic emissions after EDTA-based washing of Pb, Zn and Cd contaminated calcareous and acidic soil
+              </a>
+              . In: 2018 ICHMET. 19th International Conference on Heavy Metals in the Environment, July 22-25, 2018 Athens, GA USA. Athens: University of Georgia, 2018. No. 163.
+            </li>
+            <li>
+              <strong>
+                GLUHAR, Simon, LEŠTAN, Domen
+              </strong>{" "}
+              <a
+                href="https://icobte.github.io/abstracts/Abstracts/S12/535-Gluhar-S-S12.docx.html"
+                className="text-blue-500"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Testing biodegradable chelators in realistic soil-washing process conditions: feasibility, efficiency and effect on soil properties
+              </a>
+              . In: ICOBTE 2019. 15th International Conference on the Biogeochemistry of Trace Elements (ICOBTE 2019) in Nanjing, May 5th - 9th, 2019. [S.l.: S.n.], 2019. p. 1.
+            </li>
+            <li>
+              <strong>
+                LEŠTAN, Domen, GLUHAR, Simon, FINŽGAR, Neža, GERL, Marko
+              </strong>{" "}
+              <a
+                href="https://icobte.github.io/abstracts/Abstracts/S12/71-Lestan-D-S12.docx.html"
+                className="text-blue-500"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Large-scale demonstration of novel, entirely sustainable chelator-based washing of heavy metals contaminated soils
+              </a>
+              . In: ICOBTE 2019. 15th International Conference on the Biogeochemistry of Trace Elements (ICOBTE 2019) in Nanjing, May 5th - 9th, 2019. [S.l.: S.n.], 2019. p. 1.
+            </li>
           </ul>
         </section>
 
         {/* Projects Section */}
         <section className="mb-12">
           <h2 className="text-xl md:text-2xl font-bold mb-4">Projects</h2>
-          <ul className="list-disc pl-5">
+          <ul className="list-disc pl-5 space-y-3">
             <li>
               <strong>
-                Achieving Remediation And GOverning Restoration of contaminated
-                soils Now - ARAGORN
+                <a href="https://cordis.europa.eu/project/id/101112723" className="text-blue-500">
+                  Achieving Remediation And GOverning Restoration of contaminated soils Now - ARAGORN
+                </a>
               </strong>
               <br />
-              Financer: ARAGORN has received funding from HORIZON-RIA - HORIZON
-              Research and Innovation Actions (2021-2027) under grant agreement No
-              101112723
+              <strong>Financer:</strong> ARAGORN has received funding from HORIZON-RIA - HORIZON Research and Innovation Actions (2021-2027) under grant agreement No 101112723
               <br />
-              Duration: 01.10.2023 – 30.09.2027
+              <strong>Duration:</strong> 01.10.2023 – 30.09.2027
             </li>
             <li>
               <strong>
-                Remediation with toxic metals and metalloids and organic
-                pollutants of contaminated soil at a model military shooting range
-                - demonstration and recommendations for further measures
+                <a href="http://www.envit.si/uploads/Im8mGA5d/Objavazaspletnostran_ProjektV1-2280.pdf" className="text-blue-500">
+                  Remediation with toxic metals and metalloids and organic pollutants of contaminated soil at a model military shooting range - demonstration and recommendations for further measures
+                </a>
               </strong>
               <br />
-              Financer: Ministry of Defence of the Republic of Slovenia &
-              Slovenian Research and Innovation Agency
+              <strong>Financer:</strong> Ministry of Defence of the Republic of Slovenia & Slovenian Research and Innovation Agency
               <br />
-              Duration: 01.10.2022 – 01.10.2024
+              <strong>Duration:</strong> 01.10.2022 – 01.10.2024
             </li>
-            {/* Add more projects as needed */}
+            <li>
+              <strong>
+                <a href="https://cris.cobiss.net/ecris/si/sl/project/18649" className="text-blue-500">
+                  Remediation of soil contaminated with toxic metals, metalloids and organic pollutants
+                </a>
+              </strong>
+              <br />
+              <strong>Financer:</strong> Slovenian Research and Innovation Agency
+              <br />
+              <strong>Duration:</strong> 01.10.2021 – 30.09.2023
+            </li>
+            <li>
+              <strong>
+                <a href="https://cordis.europa.eu/project/id/776838" className="text-blue-500">
+                  POlluted SIte DecontaminatiON - Pre-commercial procurement (PCP)
+                </a>
+              </strong>
+              <br />
+              <strong>Financer:</strong> European Union&#39;s Horizon 2020 research and innovation programme under grant agreement N. 776838.
+              <br />
+              <strong>Duration:</strong> 01.02.2018 – 28.08.2021
+            </li>
+            <li>
+              <strong>
+                <a href="https://www.sicris.si/public/jqm/prj.aspx?lang=eng&opdescr=search&opt=2&subopt=400&code1=prj&code2=auto&psize=1&hits=1&page=1&count=&search_term=1763&id=12501&slng=&order_by=" className="text-blue-500">
+                  Gardens with remediated soils: hazard mitigation and safe food production
+                </a>
+              </strong>
+              <br />
+              <strong>Co-financer:</strong> Slovenian Research and Innovation Agency
+              <br />
+              <strong>Duration:</strong> 01.06.2017 – 31.05.2020
+            </li>
+            <li>
+              <strong>
+                <a href="https://www.sicris.si/public/jqm/prj.aspx?lang=eng&opdescr=search&opt=2&subopt=400&code1=prj&code2=auto&psize=1&hits=1&page=1&count=&search_term=1763&id=9300&slng=&order_by=" className="text-blue-500">
+                  Green and sustainable remediation of contaminated soils for urban land use
+                </a>
+              </strong>
+              <br />
+              <strong>Co-financer:</strong> Slovenian Research and Innovation Agency
+              <br />
+              <strong>Duration:</strong> 01.07.2014 – 30.06.2017
+            </li>
+            <li>
+              <strong>Life ReSoil: </strong>
+              <strong>
+
+                <a href="http://liferesoil.envit.si/" className="text-blue-500">
+                  Demonstration of innovative soil washing technology for removal of toxic metals from highly contaminated garden soil
+                </a>
+              </strong>
+              <br />
+              <strong>Co-financer:</strong> LIFE, reference: LIFE12 ENV/SI/000969
+              <br />
+              <strong>Duration:</strong> 01.07.2013 – 31.12.2017
+            </li>
+            <li>
+              <strong>
+                <a href="https://www.sicris.si/public/jqm/prj.aspx?lang=eng&opdescr=search&opt=2&subopt=400&code1=prj&code2=auto&psize=1&hits=1&page=1&count=&search_term=1763&id=8698&slng=&order_by=" className="text-blue-500">
+                  Control of harmful cyanobacteria bloom in fresh-water bodies
+                </a>
+              </strong>
+              <br />
+              <strong>Co-financer:</strong> Slovenian Research and Innovation Agency
+              <br />
+              <strong>Duration:</strong> 01.08.2013 – 31.07.2016
+            </li>
+            <li>
+              <strong>
+                <a href="http://www.sicris.si/public/jqm/prj.aspx?lang=eng&opdescr=search&opt=2&subopt=400&code1=cmn&code2=auto&psize=1&hits=1&page=1&count=&search_term=V4-1648&id=6686&slng=&order_by=" className="text-blue-500">
+                  Quality and functioning of contaminated garden soil as a plant substrate after remediation
+                </a>
+              </strong>
+              <br />
+              <strong>Co-financer:</strong> Slovenian Research and Innovation Agency
+              <br />
+              <strong>Duration:</strong> 01.01.2010 – 30.04.2013
+            </li>
+            <li>
+              <strong>
+                <a href="https://www.sicris.si/public/jqm/prj.aspx?lang=eng&opdescr=search&opt=2&subopt=400&code1=cmn&code2=auto&psize=1&hits=1&page=1&count=&search_term=univerza%20na%20primorskem&id=7122&slng=&order_by=" className="text-blue-500">
+                  Remediation model for garden soils in Upper Meža valley
+                </a>
+              </strong>
+              <br />
+              <strong>Co-financer:</strong> Slovenian Research and Innovation Agency
+              <br />
+              <strong>Duration:</strong> 01.07.2011 – 30.06.2013
+            </li>
+            <li>
+              <strong>
+                <a href="https://www.sicris.si/public/jqm/prj.aspx?lang=eng&opdescr=search&opt=2&subopt=410&code1=prj&code2=auto&psize=1&hits=1&page=1&count=&search_term=1763&id=6505&slng=&order_by=&signific=home&period=final&year=2013" className="text-blue-500">
+                  Development of electrolytic cell for recycling of EDTA in solution after the washing of polluted soil
+                </a>
+              </strong>
+              <br />
+              <strong>Co-financer:</strong> The Slovene Enterprise Fund
+            </li>
           </ul>
         </section>
-
-        {/* Image Modal */}
-        {selectedImage && (
-          <div
-            className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-            onClick={closeModal}
-          >
-            <div className="relative bg-white p-4">
-              <Image
-                src={selectedImage}
-                alt="Selected Image"
-                layout="intrinsic"
-                width={1000}
-                height={1000}
-                className="object-contain"
-              />
-              <button
-                className="absolute top-2 right-2 text-white text-2xl font-bold"
-                onClick={closeModal}
-              >
-                X
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </SubpageTemplate>
   );
