@@ -23,11 +23,10 @@ const NewHero = () => {
             </Link>
           </div>
           <h1 data-aos="fade-up" data-aos-delay="100" className="text-4xl md:text-6xl font-semibold text-emerald-900 text-center">
-            Revitalize the Earth <br /> with Envit&apos;s ReSoil
+            Soil Washing Plant
           </h1>
           <p data-aos="fade-up" data-aos-delay="200" className="text-lg md:text-lg max-w-2xl mx-auto font-lato text-emerald-800/80 text-center">
-            Discover the future of soil remediation with our sustainable and innovative solutions, designed to restore and rejuvenate contaminated
-            environments for a healthier planet.
+            Our ReSoil® technology plant in Prevalje, Slovenia demonstrates scalable soil remediation at TRL 7, processing 6t/day to clean the contaminated Meža Valley and showcase our innovative solution to stakeholders.
           </p>
           <div data-aos="fade-up" data-aos-delay="300" className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

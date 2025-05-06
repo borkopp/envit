@@ -35,19 +35,28 @@ export default function Footer() {
 
           {/* Social Media Links */}
           <div className="w-full md:w-1/4 flex justify-center md:justify-end space-x-4">
-            <Link href="https://x.com/envitltd" className="hover:text-blue-400 transition-colors " aria-label="Follow us on Twitter">
+            <Link 
+              href="https://x.com/envitltd" 
+              className="hover:text-blue-400 transition-colors" 
+              aria-label="Follow us on Twitter"
+              target="_blank"
+              rel="noopener noreferrer">
               <BsTwitterX size={22} />
             </Link>
             <Link
               href="https://www.youtube.com/channel/UCNoq64TvmGHiUs1mku-6wIg"
               className="hover:text-red-500 transition-colors"
-              aria-label="Subscribe to our YouTube channel">
+              aria-label="Subscribe to our YouTube channel"
+              target="_blank"
+              rel="noopener noreferrer">
               <Youtube size={25} />
             </Link>
             <Link
               href="https://www.linkedin.com/company/envit/?originalSubdomain=si"
               className="hover:text-blue-600 transition-colors"
-              aria-label="Connect with us on LinkedIn">
+              aria-label="Connect with us on LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer">
               <Linkedin size={24} />
             </Link>
           </div>

@@ -1,8 +1,9 @@
 import SubpageTemplate from '@/app/components/SubpageTemplate';
 import ImageGallery from "@/app/components/image-gallery";
+import GallerySlider from "@/app/components/GallerySlider";
 
 export default function SoilWashing() {
-  const images = [
+  const stationaryImages = [
     { asset: { url: "/washing/1.jpg" } },
     { asset: { url: "/washing/2.jpeg" } },
     { asset: { url: "/washing/3.jpeg" } },
@@ -13,11 +14,24 @@ export default function SoilWashing() {
     { asset: { url: "/washing/8.jpg" } },
   ];
 
+  const mobileImages = [
+    { asset: { url: "/demo-resoil-plant/demo1.png" } },
+    { asset: { url: "/demo-resoil-plant/demo2.jpg" } },
+    { asset: { url: "/demo-resoil-plant/demo3.jpeg" } },
+    { asset: { url: "/demo-resoil-plant/demo4.jpg" } },
+    { asset: { url: "/demo-resoil-plant/demo5.jpg" } },
+    { asset: { url: "/demo-resoil-plant/demo6.jpg" } },
+    { asset: { url: "/demo-resoil-plant/demo7.jpeg" } },
+    { asset: { url: "/demo-resoil-plant/demo8.jpg" } },
+    { asset: { url: "/demo-resoil-plant/demo9.jpg" } },
+  ];
+
   return (
     <SubpageTemplate>
       <div className="container mx-auto px-6 md:px-16 lg:px-24 py-10">
-        {/* Two Paragraphs with Gap */}
+        {/* ReSoil® Stationary Remediation Plant Section */}
         <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-6">ReSoil® Stationary Remediation Plant</h2>
           <p className="text-lg mb-6">
             The <strong>soil-washing plant</strong> with <strong>ReSoil</strong>{" "}
             technology was constructed in city of Prevalje which sits in a{" "}
@@ -29,7 +43,7 @@ export default function SoilWashing() {
             <strong>Technology Readiness Level</strong> of plant operation is{" "}
             <strong>TRL 7</strong> (EU, NASA methodology).
           </p>
-          <p className="text-lg">
+          <p className="text-lg mb-8">
             The permit for construction of this soil washing plant was granted by
             Slovenian Environmental Protection Agency in 2017. The permit was
             based on proofs of <strong>ReSoil</strong>&reg; closed process cycles
@@ -45,8 +59,26 @@ export default function SoilWashing() {
             be controlled automatically by the <strong>SCADA</strong>{" "}
             (supervisory, control and data acquisition) system.
           </p>
+          <GallerySlider images={stationaryImages} />
         </div>
-        <ImageGallery images={images} />
+
+        {/* Mobile Pilot Remediation Plant with ReSoil® technology Section */}
+        <div className="mt-16 mb-12">
+          <h2 className="text-2xl font-bold mb-6">Mobile Pilot Remediation Plant with ReSoil® technology</h2>
+          <p className="text-lg mb-8 leading-relaxed">
+            Small mobile <strong>ReSoil®</strong> plant (up to 300 kg of soil /
+            day) was constructed in mobile containers for POSIDON PCP H2020
+            project. In this way we were able to investigate the future lay-up of
+            the machinery, installations, and realistically simulate{" "}
+            <strong>ReSoil®</strong> working process. The demo{" "}
+            <strong>ReSoil®</strong> plant enables 3 soil remediation batches per
+            day with the average time for single remediation batch less than 3h.{" "}
+            <strong>ReSoil®</strong> technology does not generate wastewaters and
+            other emissions, and preserves soil quality and soil properties as
+            plant substrate.
+          </p>
+          <GallerySlider images={mobileImages} />
+        </div>
       </div>
     </SubpageTemplate>
   );

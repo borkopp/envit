@@ -25,13 +25,12 @@ function Navbar({className}: {className?: string}) {
         <MenuItem setActive={setActive} active={active} item="Technology">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/technology-description">Technology Description</HoveredLink>
-            <HoveredLink href="/demo-resoil-plant">Demo Resoil Plant</HoveredLink>
             <HoveredLink href="/sales-program">Sales Program</HoveredLink>
             <HoveredLink href="/case-studies">Case Studies</HoveredLink>
             <HoveredLink href="/ip">IP</HoveredLink>
             <HoveredLink href="/resoil-in-brief">Resoil In Brief</HoveredLink>
             <HoveredLink href="/rnd">RND</HoveredLink>
-            <HoveredLink href="/soil-washing">Soil Washing</HoveredLink>
+            <HoveredLink href="/soil-washing">Soil Washing with ReSoil®</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="About Us">

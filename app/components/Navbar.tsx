@@ -35,13 +35,12 @@ const Navbar = () => {
 
   const technologyItems = [
     {href: "/technology-description", label: "TECHNOLOGY DESCRIPTION"},
-    {href: "/demo-resoil-plant", label: "DEMO RESOIL PLANT"},
     {href: "/sales-program", label: "SALES PROGRAM"},
     {href: "/case-studies", label: "CASE STUDIES"},
     {href: "/ip", label: "IP"},
     {href: "/resoil-in-brief", label: "RESOIL IN BRIEF"},
     {href: "/rnd", label: "R&D"},
-    {href: "/soil-washing", label: "SOIL WASHING"},
+    {href: "/soil-washing", label: "SOIL WASHING WITH RESOIL®"},
   ];
 
   const handleNavigation = (href: string) => {

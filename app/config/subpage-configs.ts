@@ -6,12 +6,8 @@ export const subpageConfigs: Record<string, SubpageConfig> = {
     description: 'A novel and innovative remediation solution that enables the removal of heavy metals from contaminated soils in a closed cycle through an emission-free process without wastewater, while preserving the soil as a natural substrate.',
   },
   'soil-washing': {
-    title: 'Soil Washing',
-    description: 'Discover our advanced soil washing technology and its applications.',
-  },
-  'demo-resoil-plant': {
-    title: 'Demo ReSoil® Plant',
-    description: 'Explore our demonstration facility and see our technology in action.',
+    title: 'Soil Washing with ReSoil®',
+    description: 'Discover our advanced soil remediation solutions, including both stationary and mobile ReSoil® plants.',
   },
   'case-studies': {
     title: 'Case Studies',

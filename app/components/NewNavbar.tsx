@@ -83,13 +83,12 @@ const NewNavbar = () => {
                   <DropdownMenuContent className="flex flex-col">
                     {[
                       {href: "/technology-description", label: "Technology Description"},
-                      {href: "/demo-resoil-plant", label: "Demo Resoil Plant"},
                       {href: "/sales-program", label: "Sales Program"},
                       {href: "/case-studies", label: "Case Studies"},
                       {href: "/ip", label: "IP"},
                       {href: "/resoil-in-brief", label: "Resoil In Brief"},
                       {href: "/rnd", label: "R&D"},
-                      {href: "/soil-washing", label: "Soil Washing"},
+                      {href: "/soil-washing", label: "Soil Washing with ReSoil®"},
                     ].map((item) => (
                       <DropdownMenuItem key={item.href} onSelect={() => setDropdownOpen(false)}>
                         <Link
@@ -147,13 +146,12 @@ const NewNavbar = () => {
                 <div className="pl-4 space-y-2 mt-2">
                   {[
                     {href: "/technology-description", label: "TECHNOLOGY DESCRIPTION"},
-                    {href: "/demo-resoil-plant", label: "DEMO RESOIL PLANT"},
                     {href: "/sales-program", label: "SALES PROGRAM"},
                     {href: "/case-studies", label: "CASE STUDIES"},
                     {href: "/ip", label: "IP"},
                     {href: "/resoil-in-brief", label: "RESOIL IN BRIEF"},
                     {href: "/rnd", label: "R&D"},
-                    {href: "/soil-washing", label: "SOIL WASHING"},
+                    {href: "/soil-washing", label: "SOIL WASHING WITH RESOIL®"},
                   ].map((item) => (
                     <Link
                       key={item.href}

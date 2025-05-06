@@ -72,18 +72,17 @@ const Team: React.FC<TeamProps> = ({backgroundColor = "bg-gray-100"}) => {
         twitter: "https://twitter.com/envitltd",
         linkedin: "https://www.linkedin.com/in/domen-lestan-083093b",
       },
-      aosdelay: 0,
+      aosdelay: 100,
     },
 
     {
-      image: "/team/grega.jpg",
-      name: "Grega E. Voglar, PhD",
-      role: "Business Developer & Project Manager",
+      image: "/team/anelakaurin.jpg",
+      name: "Anela Kaurin, PhD",
+      role: "Project Manager & Researcher",
       social: {
-        twitter: "https://x.com/yamamaartmuzik",
-        linkedin: "https://www.linkedin.com/in/grega-e-voglar-bab60963",
+        linkedin: "https://www.linkedin.com/in/dragan-martinovic-3974335",
       },
-      aosdelay: 300,
+      aosdelay: 200,
     },
 
     {
@@ -94,16 +93,18 @@ const Team: React.FC<TeamProps> = ({backgroundColor = "bg-gray-100"}) => {
         twitter: "https://twitter.com/envitltd",
         linkedin: "https://www.linkedin.com/in/neza-finzgar-6b791b18",
       },
-      aosdelay: 100,
+      aosdelay: 300,
     },
+    
     {
-      image: "/team/anelakaurin.jpg",
-      name: "Anela Kaurin, PhD",
-      role: "Project Manager & Researcher",
+      image: "/team/grega.jpg",
+      name: "Grega E. Voglar, PhD",
+      role: "Business Developer & Project Manager",
       social: {
-        linkedin: "https://www.linkedin.com/in/dragan-martinovic-3974335",
+        twitter: "https://x.com/yamamaartmuzik",
+        linkedin: "https://www.linkedin.com/in/grega-e-voglar-bab60963",
       },
-      aosdelay: 200,
+      aosdelay: 400,
     },
   ];
 
@@ -112,9 +113,9 @@ const Team: React.FC<TeamProps> = ({backgroundColor = "bg-gray-100"}) => {
       <div className="container mx-auto px-4">
         <div className="space-y-4 items-center text-center mb-14">
           <h3 data-aos="fade-up" className="text-sm font-bold uppercase tracking-wide text-primary">Team</h3>
-          <h2 data-aos="fade-up" data-aos-delay="100" className="text-4xl font-semibold tracking-tighter sm:text-4xl">The ENVIT Core Team</h2>
+          <h2 data-aos="fade-up" data-aos-delay="100" className="text-4xl font-semibold tracking-tighter sm:text-4xl">The Envit Core Team</h2>
           <p data-aos="fade-up" data-aos-delay="200" className="text-neutral-500 text-[1rem] max-w-2xl mx-auto my-4 text-center relative">
-            Meet our dedicated team of experts who are passionate about creating a sustainable future through innovative environmental solutions.
+          The core team of five, all with PhDs, have experience in science, technology, project management, and business development.
           </p>
         </div>
         <div className="flex flex-wrap justify-center -mx-4">
