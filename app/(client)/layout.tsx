@@ -1,14 +1,22 @@
-import type {Metadata} from "next";
-import {Inter, Montserrat, Lato} from "next/font/google";
+import type { Metadata } from "next";
+import { Inter, Poppins, Lato } from "next/font/google";
 import "./globals.css";
 import NewNavbar from "../components/NewNavbar";
 import Footer from "../components/Footer";
 import ScrollToTopButton from "../components/ScrollToTopButton";
-import {FloatingNavDemo} from "../components/FloatingNavbar";
-import {NavbarDemo} from "../components/NewestNavbar";
+import { FloatingNavDemo } from "../components/FloatingNavbar";
+import { NavbarDemo } from "../components/NewestNavbar";
 
-const montserrat = Montserrat({subsets: ["latin"], variable: "--font-montserrat"});
-const lato = Lato({weight: ["400", "700"], subsets: ["latin"], variable: "--font-lato"});
+const montserrat = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-montserrat",
+});
+const lato = Lato({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-lato",
+});
 
 export const metadata: Metadata = {
   title: "ENVIT",

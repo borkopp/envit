@@ -9,12 +9,13 @@ import Testimonials from "@/app/components/Testimonials";
 import CaseStudies from "@/app/components/CaseStudies";
 import HeroTest from "../components/HeroTest";
 import HeroTest2 from "../components/HeroTest2";
-import {useEffect} from "react";
+import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import HeroTest3 from "../components/HeroTest3";
 import VideoSection from "../components/VideoSection";
 import RecognitionAndAwards from "@/app/components/RecognitionAndAwards";
+import Hero from "../components/Hero";
 export default function Home() {
   useEffect(() => {
     AOS.init({
@@ -38,12 +39,12 @@ export default function Home() {
         {/* <HeroTest3 /> */}
         <VideoSection />
         <Expertise />
-        <LatestNews />
-        <Testimonials />
         <DemoSoilPlant />
-        <RecognitionAndAwards />
-        <Team />
         <CaseStudies />
+        <Testimonials />
+        <RecognitionAndAwards />
+        <LatestNews />
+        <Team />
       </main>
     </div>
   );
