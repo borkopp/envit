@@ -12,6 +12,8 @@ import "aos/dist/aos.css";
 import RecognitionAndAwards from "@/app/components/RecognitionAndAwards";
 import { Hero } from "@/components/hero";
 import VideoSection from "@/app/components/VideoSection";
+import { CarouselDemo } from "@/components/demo-resoil";
+import { ExpandableCardDemo } from "@/components/case-studies";
 export default function Home() {
   useEffect(() => {
     AOS.init({
@@ -28,13 +30,15 @@ export default function Home() {
       </Head>
       <Hero />
       <VideoSection />
+      <CarouselDemo />
+      <ExpandableCardDemo />
       {/* <Expertise /> */}
-      <DemoSoilPlant />
-      <CaseStudies />
-      <Testimonials />
-      <RecognitionAndAwards />
-      <LatestNews />
-      <Team />
+      {/* <DemoSoilPlant /> */}
+      {/* <CaseStudies /> */}
+      {/* <Testimonials /> */}
+      {/* <RecognitionAndAwards /> */}
+      {/* <LatestNews /> */}
+      {/* <Team /> */}
     </div>
   );
 }
