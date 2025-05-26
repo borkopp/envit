@@ -26,11 +26,9 @@ export default function Home() {
         <meta name="description" content="ENVIT ReSoil Technology" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <NewHero /> */}
-      {/* <HeroSection /> */}
       <Hero />
       <VideoSection />
-      <Expertise />
+      {/* <Expertise /> */}
       <DemoSoilPlant />
       <CaseStudies />
       <Testimonials />

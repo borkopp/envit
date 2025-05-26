@@ -1,9 +1,10 @@
 import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
 import Image from "next/image";
+import { Quote } from "lucide-react";
 export default function VideoSection() {
   return (
     <section id="technology" className="w-full py-24">
-      <div className="container px-4 md:px-6 bg-background">
+      <div className="container ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Video on the left */}
 
@@ -17,74 +18,37 @@ export default function VideoSection() {
               >
                 Pioneering Soil Remediation
               </p> */}
-              <h2
-                className="text-3xl font-semibold font-lato tracking-tighter sm:text-4xl md:text-5xl"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                Innovative Techniques for a Greener Tomorrow
-              </h2>
-              <p
-                className="text-neutral-600 dark:text-neutral-400 text-lg mt-4"
-                data-aos="fade-up"
-                data-aos-delay="300"
-              >
-                Our advanced soil remediation technology offers unparalleled
-                benefits, transforming contaminated sites into vibrant
-                ecosystems.
+              <div className="pt-12">
+                <p
+                  className="text-neutral-600 dark:text-neutral-400 text-xl"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                >
+                  CEO @ ENVIT
+                </p>
+                <p
+                  className="text-green-500 text-xl "
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  Prof. Dr. Domen Leštan
+                </p>
+              </div>
+            </div>
+
+            <div
+              data-aos="fade-up"
+              data-aos-delay="300"
+              className="text-3xl md:text-5xl tracking-tighter relative"
+            >
+              <Quote className="absolute -top-4 -right-2 md:-top-8 md:-right-12 w-16 h-16 md:w-24 md:h-24 text-green-500/20 dark:text-green-400/20 rotate-12 z-0" />
+              <p className="relative z-10">
+                Today, the soil polution is affecting more than 2 billion people
+                worldwide.
               </p>
             </div>
-
-            <div className="space-y-6">
-              <div
-                className="flex items-start gap-3"
-                data-aos="fade-up"
-                data-aos-delay="400"
-              >
-                <span className="text-green-600 text-xl">🌱</span>
-                <div>
-                  <h3 className="font-semibold text-xl">
-                    Sustainable Practices
-                  </h3>
-                  <p className="text-neutral-600 dark:text-neutral-400">
-                    Implement eco-friendly methods to ensure long-lasting soil
-                    health.
-                  </p>
-                </div>
-              </div>
-
-              <div
-                className="flex items-start gap-3"
-                data-aos="fade-up"
-                data-aos-delay="500"
-              >
-                <span className="text-green-600 text-xl">⚡</span>
-                <div>
-                  <h3 className="font-semibold text-xl">Advanced Technology</h3>
-                  <p className="text-neutral-600 dark:text-neutral-400">
-                    Utilize state-of-the-art technology for effective soil
-                    restoration.
-                  </p>
-                </div>
-              </div>
-
-              <div
-                className="flex items-start gap-3"
-                data-aos="fade-up"
-                data-aos-delay="600"
-              >
-                <span className="text-green-600 text-xl">🤝</span>
-                <div>
-                  <h3 className="font-semibold text-xl">Community Impact</h3>
-                  <p className="text-neutral-600 dark:text-neutral-400">
-                    Enhance local environments and contribute to community
-                    well-being.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
-          <div className="w-full h-full flex items-center justify-center">
+          <div className="w-full h-full flex items-center justify-end">
             <HeroVideoDialog
               className="w-[350px]"
               videoSrc="https://www.youtube.com/embed/your-video-id"
