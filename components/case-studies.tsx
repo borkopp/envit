@@ -191,7 +191,7 @@ export function ExpandableCardDemo() {
           {/* Left Title Section - 40% */}
           <div className="w-full lg:w-[40%]">
             <div className="sticky top-20">
-              <h2 className="text-3xl text-center lg:text-left md:text-6xl bg-gradient-to-b from-neutral-800 to-neutral-600 bg-clip-text text-transparent leading-tight">
+              <h2 className="text-4xl font-medium tracking-tight text-center lg:text-left md:text-7xl bg-gradient-to-b from-neutral-800 to-neutral-600 bg-clip-text text-transparent leading-tight">
                 Our Success <br />
                 Stories
               </h2>

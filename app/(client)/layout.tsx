@@ -41,13 +41,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`${montserrat.className} ${lato.variable}`}>
-        <ThemeProvider>
-          <div className="max-w-7xl mx-auto relative">
-            {/* <NewNavbar /> */}
-            <Navbar />
-            {children}
-          </div>
-        </ThemeProvider>
+        <div className="max-w-7xl mx-auto bg-background relative">
+          {/* <NewNavbar /> */}
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );
