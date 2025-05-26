@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import { FloatingNavDemo } from "../components/FloatingNavbar";
 import { NavbarDemo } from "../components/NewestNavbar";
+import { ThemeProvider } from "../components/theme-provider";
+import { Navbar } from "@/components/navbar";
 
 const montserrat = Poppins({
   subsets: ["latin"],
@@ -29,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link
           rel="stylesheet"
@@ -39,11 +41,13 @@ export default function RootLayout({
         />
       </head>
       <body className={`${montserrat.className} ${lato.variable}`}>
-        <NewNavbar />
-        {/* <NavbarDemo /> */}
-        <main>{children}</main>
-        <Footer />
-        <ScrollToTopButton />
+        <ThemeProvider>
+          <div className="max-w-7xl mx-auto relative">
+            {/* <NewNavbar /> */}
+            <Navbar />
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
