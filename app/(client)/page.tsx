@@ -8,6 +8,7 @@ import VideoSection from "@/app/components/VideoSection";
 import { CarouselDemo } from "@/components/demo-resoil";
 import { ExpandableCardDemo } from "@/components/case-studies";
 import { LampDemo } from "@/components/awards";
+import LatestNews from "../components/LatestNews";
 export default function Home() {
   useEffect(() => {
     AOS.init({
@@ -28,11 +29,7 @@ export default function Home() {
       <ExpandableCardDemo />
       <LampDemo />
       {/* <Expertise /> */}
-      {/* <DemoSoilPlant /> */}
-      {/* <CaseStudies /> */}
-      {/* <Testimonials /> */}
-      {/* <RecognitionAndAwards /> */}
-      {/* <LatestNews /> */}
+      <LatestNews />
       {/* <Team /> */}
     </div>
   );

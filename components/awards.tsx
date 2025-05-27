@@ -85,8 +85,7 @@ export function LampDemo() {
 
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-md">
                 Being appreciated by the industry and environmental
-                organizations means the world to us. It also translates
-                beautifully into our official ratings and awards.
+                organizations means the world to us.
               </p>
 
               {/* Navigation Buttons */}

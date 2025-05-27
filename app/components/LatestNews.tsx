@@ -23,7 +23,11 @@ const NewsItem = ({
   });
 
   return (
-    <div className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8" data-aos="fade-up" data-aos-delay={aosDelay}>
+    <div
+      className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8"
+      data-aos="fade-up"
+      data-aos-delay={aosDelay}
+    >
       <div className="bg-white rounded-lg shadow-md overflow-hidden group hover:scale-[0.98] transition-all duration-300 h-full flex flex-col">
         <Image
           className="w-full h-48 object-cover"
@@ -82,16 +86,27 @@ export default function LatestNews() {
   }, []);
 
   return (
-    <section className="py-16 bg-gray-100" id="blog">
+    <section className="py-16 bg-background" id="blog">
       <div className="container mx-auto px-4">
         <div className="space-y-4 items-center text-center mb-14">
-          <h3 data-aos="fade-up" className="text-sm font-bold uppercase tracking-wide text-primary">
+          <h3
+            data-aos="fade-up"
+            className="text-sm font-bold uppercase tracking-wide text-primary"
+          >
             News
           </h3>
-          <h2 data-aos="fade-up" data-aos-delay="100" className="text-4xl font-semibold tracking-tighter sm:text-4xl">
+          <h2
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="text-4xl font-semibold tracking-tighter sm:text-4xl"
+          >
             Latest News
           </h2>
-          <p data-aos="fade-up" data-aos-delay="200" className="text-neutral-500 text-[1rem] mx-auto my-4 text-center relative">
+          <p
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="text-neutral-500 text-[1rem] mx-auto my-4 text-center relative"
+          >
             The latest news and insights from our blog. To see all the news{" "}
             <Link href="/news">
               <span className="underline">click here</span>

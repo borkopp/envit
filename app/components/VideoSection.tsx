@@ -18,7 +18,7 @@ export default function VideoSection() {
               >
                 Pioneering Soil Remediation
               </p> */}
-              <div className="pt-12">
+              <div className="pt-12 space-y-4">
                 <p
                   className="text-neutral-600 dark:text-neutral-400 text-xl"
                   data-aos="fade-up"
@@ -27,7 +27,7 @@ export default function VideoSection() {
                   CEO @ ENVIT
                 </p>
                 <p
-                  className="text-green-500 text-xl "
+                  className="text-green-500 text-xl"
                   data-aos="fade-up"
                   data-aos-delay="200"
                 >
