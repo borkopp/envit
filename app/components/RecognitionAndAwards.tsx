@@ -4,7 +4,7 @@ import * as React from "react";
 import {useState, useEffect} from "react";
 import Image from "next/image";
 import {Card, CardContent} from "@/components/ui/card";
-import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel-modern";
+import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel";
 import {client} from "@/sanity/lib/client";
 
 interface Award {
