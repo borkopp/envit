@@ -1,6 +1,6 @@
 "use client";
 
-import Carousel from "@/components/ui/carousel";
+import Carousel from "@/components/ui/carousel-modern";
 export function CarouselDemo() {
   const slideData = [
     {
