@@ -114,30 +114,20 @@ const DesktopNav = ({navItems, scrolled, isHomepage}: {navItems: NavItem[]; scro
 
 const NavLink = ({href, children, scrolled, isHomepage}: {href: string; children: React.ReactNode; scrolled: boolean; isHomepage: boolean}) => {
   return (
-    <Link href={href} className="relative group">
-      <motion.span
-        className={cn(
-          "text-sm font-semibold transition-colors duration-300",
-          scrolled
-            ? "text-gray-700 group-hover:text-black dark:text-gray-300 dark:group-hover:text-white"
-            : isHomepage
-              ? "text-white group-hover:text-gray-200"
-              : "text-gray-700 group-hover:text-black dark:text-gray-300 dark:group-hover:text-white"
-        )}
-        whileHover={{y: -2}}
-        transition={{duration: 0.2}}>
-        {children}
-      </motion.span>
-      <motion.div
-        className={cn(
-          "absolute -bottom-1 left-0 h-0.5 origin-left",
-          scrolled ? "bg-black dark:bg-white" : isHomepage ? "bg-white" : "bg-black dark:bg-white"
-        )}
-        initial={{scaleX: 0}}
-        whileHover={{scaleX: 1}}
-        transition={{duration: 0.3, ease: "easeInOut"}}
-        style={{width: "100%"}}
-      />
+    <Link
+      href={href}
+      className={cn(
+        "relative group inline-block text-sm font-semibold transition-colors duration-300",
+        "after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5",
+        "after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out",
+        "hover:after:scale-x-100",
+        scrolled
+          ? "text-gray-700 group-hover:text-black dark:text-gray-300 dark:group-hover:text-white after:bg-black dark:after:bg-white"
+          : isHomepage
+            ? "text-white group-hover:text-gray-200 after:bg-white"
+            : "text-gray-700 group-hover:text-black dark:text-gray-300 dark:group-hover:text-white after:bg-black dark:after:bg-white"
+      )}>
+      {children}
     </Link>
   );
 };
@@ -159,33 +149,23 @@ const DropdownItem = ({
 
   return (
     <div className="relative group" onMouseEnter={() => setActiveDropdown(item.name)} onMouseLeave={() => setActiveDropdown(null)}>
-      <motion.button
+      <button
         className={cn(
-          "flex items-center gap-1 text-sm font-semibold transition-colors duration-300",
+          "relative flex items-center gap-1 text-sm font-semibold transition-colors duration-300",
+          "after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5",
+          "after:scale-x-0 after:origin-left after:transition-transform after:duration-300 after:ease-in-out",
+          "hover:after:scale-x-100",
           scrolled
-            ? "text-gray-700 group-hover:text-black dark:text-gray-300 dark:group-hover:text-white"
+            ? "text-gray-700 group-hover:text-black dark:text-gray-300 dark:group-hover:text-white after:bg-black dark:after:bg-white"
             : isHomepage
-              ? "text-white group-hover:text-gray-200"
-              : "text-gray-700 group-hover:text-black dark:text-gray-300 dark:group-hover:text-white"
-        )}
-        whileHover={{y: -2}}
-        transition={{duration: 0.2}}>
+              ? "text-white group-hover:text-gray-200 after:bg-white"
+              : "text-gray-700 group-hover:text-black dark:text-gray-300 dark:group-hover:text-white after:bg-black dark:after:bg-white"
+        )}>
         {item.name}
         <motion.div animate={{rotate: isActive ? 180 : 0}} transition={{duration: 0.3, ease: "easeInOut"}}>
           <IconChevronDown size={16} />
         </motion.div>
-      </motion.button>
-
-      <motion.div
-        className={cn(
-          "absolute -bottom-1 left-0 h-0.5 origin-left",
-          scrolled ? "bg-black dark:bg-white" : isHomepage ? "bg-white" : "bg-black dark:bg-white"
-        )}
-        initial={{scaleX: 0}}
-        whileHover={{scaleX: 1}}
-        transition={{duration: 0.3, ease: "easeInOut"}}
-        style={{width: "100%"}}
-      />
+      </button>
 
       <AnimatePresence>
         {isActive && (
