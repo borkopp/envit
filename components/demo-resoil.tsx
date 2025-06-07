@@ -25,11 +25,7 @@ export function CarouselDemo() {
     },
   ];
   return (
-    <div
-      data-aos="fade-up"
-      data-aos-delay="100"
-      className="relative overflow-hidden w-full h-full py-20"
-    >
+    <div data-aos="fade-up" data-aos-delay="100" className="relative overflow-hidden w-full h-full py-20">
       <Carousel slides={slideData} />
     </div>
   );

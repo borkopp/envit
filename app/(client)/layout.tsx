@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import { Inter, Poppins, Lato } from "next/font/google";
+import type {Metadata} from "next";
+import {Inter, Poppins, Lato} from "next/font/google";
 import "./globals.css";
-import NewNavbar from "../components/NewNavbar";
 import ScrollToTopButton from "../components/ScrollToTopButton";
-import { FloatingNavDemo } from "../components/FloatingNavbar";
-import { NavbarDemo } from "../components/NewestNavbar";
-import { ThemeProvider } from "../components/theme-provider";
-import { Navbar } from "@/components/navbar";
-import { SimpleFooterWithFourGrids } from "@/components/footer";
+import {FloatingNavDemo} from "../components/FloatingNavbar";
+import {NavbarDemo} from "../components/NewestNavbar";
+import {ThemeProvider} from "../components/theme-provider";
+import {Navbar} from "@/components/navbar";
+import {SimpleFooterWithFourGrids} from "@/components/footer";
+import {NewNavbar} from "@/components/new-navbar";
 
 const montserrat = Poppins({
   subsets: ["latin"],
@@ -41,9 +41,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${montserrat.className} ${lato.variable}`}>
-        <div className="max-w-7xl mx-auto bg-background relative">
+        <div className="w-full bg-background relative">
           {/* <NewNavbar /> */}
-          <Navbar />
+          <NewNavbar />
           {children}
           <SimpleFooterWithFourGrids />
         </div>

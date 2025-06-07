@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import {useState, useEffect, useRef} from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { client } from "@/sanity/lib/client";
-import { Post } from "../utils/interface";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import {client} from "@/sanity/lib/client";
+import {Post} from "../utils/interface";
+import {motion, useScroll, useTransform} from "framer-motion";
 
 const NewsItem = ({
   title,
@@ -14,46 +13,48 @@ const NewsItem = ({
   excerpt,
   slug,
   thumbnail,
-  aosDelay,
-}: Post & { aosDelay: number }) => {
-  const formattedDate = new Date(publishedAt).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-
+  isHovered,
+  onHover,
+  onLeave,
+}: Post & {
+  isHovered: boolean;
+  onHover: () => void;
+  onLeave: () => void;
+}) => {
   return (
     <div
-      className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8"
-      data-aos="fade-up"
-      data-aos-delay={aosDelay}
-    >
-      <div className="bg-white rounded-lg shadow-md overflow-hidden group hover:scale-[0.98] transition-all duration-300 h-full flex flex-col">
-        <Image
-          className="w-full h-48 object-cover"
-          src={thumbnail?.asset?.url || "/logo2.png"}
-          alt={title}
-          width={400}
-          height={200}
-          quality={100}
-        />
-        <div className="p-6 flex-grow flex flex-col">
-          <p className="text-sm text-gray-500 mb-2 transition-transform duration-300 group-hover:-translate-y-1">
-            {formattedDate}
-          </p>
-          <h4 className="text-xl font-semibold mb-2 text-gray-800 transition-transform duration-300 group-hover:-translate-y-1">
-            {title}
-          </h4>
-          <p className="text-gray-600 mb-4 line-clamp-3 flex-grow transition-transform duration-300 group-hover:-translate-y-2">
-            {excerpt}
-          </p>
-          <div className="relative h-8 mt-2">
-            <Link href={`/news/${slug.current}`}>
-              <span className="absolute bottom-0 left-0 right-0 bg-primary text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-primary-dark transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-full group-hover:translate-y-0 text-center">
-                Read More
-              </span>
-            </Link>
-          </div>
+      className="relative flex-shrink-0 w-96 h-64 mx-4 rounded-xl overflow-hidden group cursor-pointer"
+      onMouseEnter={onHover}
+      onMouseLeave={onLeave}>
+      <Image
+        className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+        src={thumbnail?.asset?.url || "/logo-black.png"}
+        alt={title}
+        width={320}
+        height={256}
+        quality={100}
+      />
+      <div
+        className={`absolute inset-0 transition-all duration-300 ease-out ${
+          isHovered ? "bg-black/80" : "bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+        }`}
+      />
+
+      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+        <div className={`transition-all duration-300 ease-out ${isHovered ? "translate-y-0" : "translate-y-24"}`}>
+          <h3 className="font-bold text-lg mb-2 leading-tight line-clamp-2">{title}</h3>
+        </div>
+
+        <div
+          className={`transition-all duration-300 ease-out ${
+            isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+          }`}>
+          <p className="text-sm text-gray-200 mb-4 line-clamp-3 leading-relaxed">{excerpt}</p>
+          <Link href={`/news/${slug.current}`}>
+            <button className="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-primary/80 transition-colors duration-200">
+              Read More
+            </button>
+          </Link>
         </div>
       </div>
     </div>
@@ -62,11 +63,21 @@ const NewsItem = ({
 
 export default function LatestNews() {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const {scrollYProgress} = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const row1X = useTransform(scrollYProgress, [0, 1], [200, -400]);
+  const row2X = useTransform(scrollYProgress, [0, 1], [-300, 300]);
 
   useEffect(() => {
     async function fetchPosts() {
       const query = `
-      *[_type == "news"] | order(publishedAt desc)[0...4]  {
+      *[_type == "news"] | order(publishedAt desc)[0...8]  {
         title,
         slug,
         publishedAt,
@@ -85,41 +96,63 @@ export default function LatestNews() {
     fetchPosts();
   }, []);
 
+  const midPoint = Math.ceil(posts.length / 2);
+  const firstRowPosts = posts.slice(0, midPoint);
+  const secondRowPosts = posts.slice(midPoint);
+
   return (
-    <section className="py-16 bg-background" id="blog">
-      <div className="container mx-auto px-4">
-        <div className="space-y-4 items-center text-center mb-14">
-          <h3
-            data-aos="fade-up"
-            className="text-sm font-bold uppercase tracking-wide text-primary"
-          >
-            News
-          </h3>
-          <h2
-            data-aos="fade-up"
-            data-aos-delay="100"
-            className="text-4xl font-semibold tracking-tighter sm:text-4xl"
-          >
-            Latest News
-          </h2>
-          <p
-            data-aos="fade-up"
-            data-aos-delay="200"
-            className="text-neutral-500 text-[1rem] mx-auto my-4 text-center relative"
-          >
-            The latest news and insights from our blog. To see all the news{" "}
-            <Link href="/news">
-              <span className="underline">click here</span>
-            </Link>
-          </p>
-        </div>
-        <div className="flex flex-wrap -mx-4">
-          {posts?.length > 0 &&
-            posts?.map((post, index) => (
-              <NewsItem key={post._id} {...post} aosDelay={index * 100} />
-            ))}
+    <div className="py-32 bg-background w-full overflow-hidden" ref={containerRef}>
+      <div className="max-w-6xl mx-auto px-4 mb-12">
+        <div className="text-center">
+          <h2 className="text-5xl font-medium tracking-tighter text-gray-900 mb-6">Latest News</h2>
+          <p className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto">The latest news and insights from our blog.</p>
         </div>
       </div>
-    </section>
+
+      <div className="space-y-8 w-full">
+        {/* First Row - Moving Left */}
+        <motion.div className="flex w-max -ml-96" style={{x: row1X}}>
+          {firstRowPosts
+            .concat(firstRowPosts)
+            .concat(firstRowPosts)
+            .map((post, index) => (
+              <NewsItem
+                key={`row1-${post._id}-${index}`}
+                {...post}
+                isHovered={hoveredIndex === index}
+                onHover={() => setHoveredIndex(index)}
+                onLeave={() => setHoveredIndex(null)}
+              />
+            ))}
+        </motion.div>
+
+        {/* Second Row - Moving Right */}
+        <motion.div className="flex w-max -ml-96" style={{x: row2X}}>
+          {secondRowPosts
+            .concat(secondRowPosts)
+            .concat(secondRowPosts)
+            .map((post, index) => (
+              <NewsItem
+                key={`row2-${post._id}-${index}`}
+                {...post}
+                isHovered={hoveredIndex === midPoint + index}
+                onHover={() => setHoveredIndex(midPoint + index)}
+                onLeave={() => setHoveredIndex(null)}
+              />
+            ))}
+        </motion.div>
+      </div>
+
+      <div className="text-center mt-12">
+        <Link href="/news">
+          <motion.button
+            className="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/80 transition-colors"
+            whileHover={{scale: 1.05}}
+            whileTap={{scale: 0.95}}>
+            View All News
+          </motion.button>
+        </Link>
+      </div>
+    </div>
   );
 }
