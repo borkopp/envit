@@ -1,10 +1,14 @@
 "use client";
-import React, {useState} from "react";
-import {motion} from "motion/react";
+import React, { useState } from "react";
+import { motion } from "motion/react";
 import Link from "next/link";
-import {cn} from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
-export function FullBackgroundImageWithText({gradientFade = true}: {gradientFade?: boolean}) {
+export function FullBackgroundImageWithText({
+  gradientFade = true,
+}: {
+  gradientFade?: boolean;
+}) {
   const logos = [
     {
       name: "EU Partnership",
@@ -26,12 +30,18 @@ export function FullBackgroundImageWithText({gradientFade = true}: {gradientFade
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center justify-center p-10">
       <div className="absolute inset-0 h-full w-full bg-black"></div>
-      <motion.div initial={{opacity: 0}} whileInView={{opacity: [0, 0.3]}} transition={{duration: 2}} className="absolute inset-0 h-full w-full">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: [0, 0.3] }}
+        transition={{ duration: 2 }}
+        className="absolute inset-0 h-full w-full"
+      >
         <BlurImage
-          src="/bghero.jpeg"
+          src="/hero.jpeg"
           className={cn(
             "pointer-events-none absolute inset-0 h-full w-full select-none object-cover",
-            gradientFade && "[mask-image:radial-gradient(200px_at_center,transparent,black)]"
+            gradientFade &&
+              "[mask-image:radial-gradient(200px_at_center,transparent,black)]"
           )}
           width={1000}
           height={1000}
@@ -44,7 +54,8 @@ export function FullBackgroundImageWithText({gradientFade = true}: {gradientFade
         green transition worldwide
       </h1>
       <p className="relative z-10 mt-2 max-w-2xl text-center text-neutral-200 md:mt-6 md:text-xl">
-        ENVIT develops innovative soil decontamination technologies, including RESOIL®, to restore contaminated sites and enable sustainable land use
+        ENVIT develops innovative soil decontamination technologies, including
+        RESOIL®, to restore contaminated sites and enable sustainable land use
         for a greener future.
       </p>
 
@@ -85,19 +96,28 @@ export const Button = ({
   children: React.ReactNode;
   className?: string;
   variant?: "primary" | "secondary" | "simple";
-} & (React.ComponentPropsWithoutRef<"a"> | React.ComponentPropsWithoutRef<"button">)) => {
+} & (
+  | React.ComponentPropsWithoutRef<"a">
+  | React.ComponentPropsWithoutRef<"button">
+)) => {
   const baseStyles =
     "no-underline flex space-x-2 group cursor-pointer relative border-none transition duration-200 rounded-full p-px text-xs font-semibold leading-6 px-4 py-2";
 
   const variantStyles = {
-    primary: "w-full sm:w-44 h-10 rounded-lg text-sm text-center items-center justify-center relative z-20 bg-black  text-white",
-    secondary: "relative z-20 text-sm bg-white  text-black  w-full sm:w-44 h-10  flex items-center justify-center rounded-lg hover:-translate-y-0.5 ",
+    primary:
+      "w-full sm:w-44 h-10 rounded-lg text-sm text-center items-center justify-center relative z-20 bg-black  text-white",
+    secondary:
+      "relative z-20 text-sm bg-white  text-black  w-full sm:w-44 h-10  flex items-center justify-center rounded-lg hover:-translate-y-0.5 ",
     simple:
       "relative z-20 text-sm bg-transparent  text-white  w-full sm:w-44 h-10  flex items-center justify-center rounded-lg hover:-translate-y-0.5 ",
   };
 
   return (
-    <Tag href={href || undefined} className={cn(baseStyles, variantStyles[variant], className)} {...props}>
+    <Tag
+      href={href || undefined}
+      className={cn(baseStyles, variantStyles[variant], className)}
+      {...props}
+    >
       {children}
     </Tag>
   );
@@ -108,10 +128,14 @@ import Image from "next/image";
 export const BlurImage = (props: React.ComponentProps<typeof Image>) => {
   const [isLoading, setLoading] = useState(true);
 
-  const {src, width, height, alt, layout, ...rest} = props;
+  const { src, width, height, alt, layout, ...rest } = props;
   return (
     <Image
-      className={cn("transition duration-300", isLoading ? "opacity-0" : "opacity-100", props.className)}
+      className={cn(
+        "transition duration-300",
+        isLoading ? "opacity-0" : "opacity-100",
+        props.className
+      )}
       onLoad={() => setLoading(false)}
       src={src}
       width={width}
