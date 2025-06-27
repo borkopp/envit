@@ -1,12 +1,12 @@
 "use client";
 
-import {cn} from "@/lib/utils";
-import {IconChevronDown, IconMenu2, IconX} from "@tabler/icons-react";
-import {motion, AnimatePresence} from "motion/react";
+import { cn } from "@/lib/utils";
+import { IconChevronDown, IconMenu2, IconX } from "@tabler/icons-react";
+import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import {usePathname} from "next/navigation";
-import React, {useState, useEffect} from "react";
+import { usePathname } from "next/navigation";
+import React, { useState, useEffect } from "react";
 
 interface NavItem {
   name: string;
@@ -42,13 +42,13 @@ export const NewNavbar = () => {
       name: "TECHNOLOGY",
       link: "#",
       children: [
-        {name: "TECHNOLOGY DESCRIPTION", link: "/technology-description"},
-        {name: "SALES PROGRAM", link: "/sales-program"},
-        {name: "CASE STUDIES", link: "/case-studies"},
-        {name: "IP", link: "/ip"},
-        {name: "RESOIL IN BRIEF", link: "/resoil-in-brief"},
-        {name: "R&D", link: "/rnd"},
-        {name: "SOIL WASHING WITH RESOIL®", link: "/soil-washing"},
+        { name: "TECHNOLOGY DESCRIPTION", link: "/technology-description" },
+        { name: "SALES PROGRAM", link: "/sales-program" },
+        { name: "CASE STUDIES", link: "/case-studies" },
+        { name: "IP", link: "/ip" },
+        { name: "RESOIL IN BRIEF", link: "/resoil-in-brief" },
+        { name: "R&D", link: "/rnd" },
+        { name: "SOIL WASHING WITH RESOIL®", link: "/soil-washing" },
       ],
     },
     {
@@ -63,27 +63,46 @@ export const NewNavbar = () => {
 
   return (
     <div className="w-full">
-      <DesktopNav navItems={navItems} scrolled={scrolled} isHomepage={isHomepage} />
-      <MobileNav navItems={navItems} scrolled={scrolled} isHomepage={isHomepage} />
+      <DesktopNav
+        navItems={navItems}
+        scrolled={scrolled}
+        isHomepage={isHomepage}
+      />
+      <MobileNav
+        navItems={navItems}
+        scrolled={scrolled}
+        isHomepage={isHomepage}
+      />
     </div>
   );
 };
 
-const DesktopNav = ({navItems, scrolled, isHomepage}: {navItems: NavItem[]; scrolled: boolean; isHomepage: boolean}) => {
+const DesktopNav = ({
+  navItems,
+  scrolled,
+  isHomepage,
+}: {
+  navItems: NavItem[];
+  scrolled: boolean;
+  isHomepage: boolean;
+}) => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
     <motion.div
-      initial={{backgroundColor: "rgba(255, 255, 255, 0)"}}
+      initial={{ backgroundColor: "rgba(255, 255, 255, 0)" }}
       animate={{
-        backgroundColor: scrolled ? "rgba(255, 255, 255, 0.95)" : "rgba(255, 255, 255, 0)",
+        backgroundColor: scrolled
+          ? "rgba(255, 255, 255, 0.95)"
+          : "rgba(255, 255, 255, 0)",
         backdropFilter: scrolled ? "blur(10px)" : "blur(0px)",
       }}
-      transition={{duration: 0.3, ease: "easeInOut"}}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-[60] mx-auto hidden w-full flex-row items-center justify-between px-8 py-4 lg:flex",
+        "fixed top-0 left-0 right-0 z-50 mx-auto hidden w-full flex-row items-center justify-between px-8 py-4 lg:flex",
         scrolled && "shadow-lg border-b border-gray-100"
-      )}>
+      )}
+    >
       <Logo scrolled={scrolled} isHomepage={isHomepage} />
 
       <div className="flex flex-row items-center justify-end space-x-8">
@@ -101,7 +120,12 @@ const DesktopNav = ({navItems, scrolled, isHomepage}: {navItems: NavItem[]; scro
             );
           } else {
             return (
-              <NavLink key={index} href={item.link} scrolled={scrolled} isHomepage={isHomepage}>
+              <NavLink
+                key={index}
+                href={item.link}
+                scrolled={scrolled}
+                isHomepage={isHomepage}
+              >
                 {item.name}
               </NavLink>
             );
@@ -112,7 +136,17 @@ const DesktopNav = ({navItems, scrolled, isHomepage}: {navItems: NavItem[]; scro
   );
 };
 
-const NavLink = ({href, children, scrolled, isHomepage}: {href: string; children: React.ReactNode; scrolled: boolean; isHomepage: boolean}) => {
+const NavLink = ({
+  href,
+  children,
+  scrolled,
+  isHomepage,
+}: {
+  href: string;
+  children: React.ReactNode;
+  scrolled: boolean;
+  isHomepage: boolean;
+}) => {
   return (
     <Link
       href={href}
@@ -126,7 +160,8 @@ const NavLink = ({href, children, scrolled, isHomepage}: {href: string; children
           : isHomepage
             ? "text-white group-hover:text-gray-200 after:bg-white"
             : "text-gray-700 group-hover:text-black dark:text-gray-300 dark:group-hover:text-white after:bg-black dark:after:bg-white"
-      )}>
+      )}
+    >
       {children}
     </Link>
   );
@@ -148,7 +183,11 @@ const DropdownItem = ({
   const isActive = activeDropdown === item.name;
 
   return (
-    <div className="relative group" onMouseEnter={() => setActiveDropdown(item.name)} onMouseLeave={() => setActiveDropdown(null)}>
+    <div
+      className="relative group"
+      onMouseEnter={() => setActiveDropdown(item.name)}
+      onMouseLeave={() => setActiveDropdown(null)}
+    >
       <button
         className={cn(
           "relative flex items-center gap-1 text-sm font-semibold transition-colors duration-300",
@@ -160,9 +199,13 @@ const DropdownItem = ({
             : isHomepage
               ? "text-white group-hover:text-gray-200 after:bg-white"
               : "text-gray-700 group-hover:text-black dark:text-gray-300 dark:group-hover:text-white after:bg-black dark:after:bg-white"
-        )}>
+        )}
+      >
         {item.name}
-        <motion.div animate={{rotate: isActive ? 180 : 0}} transition={{duration: 0.3, ease: "easeInOut"}}>
+        <motion.div
+          animate={{ rotate: isActive ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
           <IconChevronDown size={16} />
         </motion.div>
       </button>
@@ -170,22 +213,25 @@ const DropdownItem = ({
       <AnimatePresence>
         {isActive && (
           <motion.div
-            initial={{opacity: 0, y: 10, scale: 0.95}}
-            animate={{opacity: 1, y: 0, scale: 1}}
-            exit={{opacity: 0, y: 10, scale: 0.95}}
-            transition={{duration: 0.2, ease: "easeOut"}}
-            className="absolute left-1/2 top-full mt-2 -translate-x-1/2 transform">
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="absolute left-1/2 top-full mt-2 -translate-x-1/2 transform"
+          >
             <div className="rounded-xl bg-white p-4 shadow-2xl border border-gray-100 backdrop-blur-sm dark:bg-gray-900 dark:border-gray-800">
               <div className="flex flex-col space-y-3 min-w-[240px]">
                 {item.children?.map((child: NavItem, childIndex: number) => (
                   <motion.div
                     key={childIndex}
-                    initial={{opacity: 0, x: -10}}
-                    animate={{opacity: 1, x: 0}}
-                    transition={{duration: 0.2, delay: childIndex * 0.05}}>
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2, delay: childIndex * 0.05 }}
+                  >
                     <Link
                       href={child.link}
-                      className="block rounded-lg px-4 py-3 text-sm font-medium text-gray-600 transition-all duration-200 hover:bg-gray-50 hover:text-black dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white">
+                      className="block rounded-lg px-4 py-3 text-sm font-medium text-gray-600 transition-all duration-200 hover:bg-gray-50 hover:text-black dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
+                    >
                       {child.name}
                     </Link>
                   </motion.div>
@@ -199,29 +245,48 @@ const DropdownItem = ({
   );
 };
 
-const MobileNav = ({navItems, scrolled, isHomepage}: {navItems: NavItem[]; scrolled: boolean; isHomepage: boolean}) => {
+const MobileNav = ({
+  navItems,
+  scrolled,
+  isHomepage,
+}: {
+  navItems: NavItem[];
+  scrolled: boolean;
+  isHomepage: boolean;
+}) => {
   const [open, setOpen] = useState(false);
 
   return (
     <motion.div
-      initial={{backgroundColor: "rgba(255, 255, 255, 0)"}}
+      initial={{ backgroundColor: "rgba(255, 255, 255, 0)" }}
       animate={{
-        backgroundColor: scrolled ? "rgba(255, 255, 255, 0.95)" : "rgba(255, 255, 255, 0)",
+        backgroundColor: scrolled
+          ? "rgba(255, 255, 255, 0.95)"
+          : "rgba(255, 255, 255, 0)",
         backdropFilter: scrolled ? "blur(10px)" : "blur(0px)",
       }}
-      transition={{duration: 0.3, ease: "easeInOut"}}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
       className={cn(
         "fixed top-0 left-0 right-0 z-[60] mx-auto flex w-full flex-col items-center justify-between px-4 py-4 lg:hidden",
         scrolled && "shadow-lg border-b border-gray-100"
-      )}>
+      )}
+    >
       <div className="flex w-full flex-row items-center justify-between">
         <Logo scrolled={scrolled} isHomepage={isHomepage} />
-        <motion.button whileTap={{scale: 0.95}} onClick={() => setOpen(!open)} className="p-2">
+        <motion.button
+          whileTap={{ scale: 0.95 }}
+          onClick={() => setOpen(!open)}
+          className="p-2"
+        >
           {open ? (
             <IconX
               className={cn(
                 "transition-colors duration-300",
-                scrolled ? "text-black dark:text-white" : isHomepage ? "text-white" : "text-black dark:text-white"
+                scrolled
+                  ? "text-black dark:text-white"
+                  : isHomepage
+                    ? "text-white"
+                    : "text-black dark:text-white"
               )}
               size={24}
             />
@@ -229,7 +294,11 @@ const MobileNav = ({navItems, scrolled, isHomepage}: {navItems: NavItem[]; scrol
             <IconMenu2
               className={cn(
                 "transition-colors duration-300",
-                scrolled ? "text-black dark:text-white" : isHomepage ? "text-white" : "text-black dark:text-white"
+                scrolled
+                  ? "text-black dark:text-white"
+                  : isHomepage
+                    ? "text-white"
+                    : "text-black dark:text-white"
               )}
               size={24}
             />
@@ -240,26 +309,29 @@ const MobileNav = ({navItems, scrolled, isHomepage}: {navItems: NavItem[]; scrol
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{opacity: 0, height: 0}}
-            animate={{opacity: 1, height: "auto"}}
-            exit={{opacity: 0, height: 0}}
-            transition={{duration: 0.3, ease: "easeInOut"}}
-            className="w-full overflow-hidden">
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="w-full overflow-hidden"
+          >
             <div className="flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-white/95 backdrop-blur-sm px-4 py-8 mt-4 border border-gray-100 dark:bg-gray-900/95 dark:border-gray-800">
               {navItems.map((navItem: NavItem, idx: number) => (
                 <motion.div
                   key={`navItem-${idx}`}
-                  initial={{opacity: 0, y: 20}}
-                  animate={{opacity: 1, y: 0}}
-                  transition={{duration: 0.2, delay: idx * 0.1}}
-                  className="w-full">
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2, delay: idx * 0.1 }}
+                  className="w-full"
+                >
                   {navItem.children ? (
                     <MobileDropdownItem navItem={navItem} />
                   ) : (
                     <Link
                       href={navItem.link}
                       className="block text-gray-700 hover:text-black transition-colors duration-200 dark:text-gray-300 dark:hover:text-white"
-                      onClick={() => setOpen(false)}>
+                      onClick={() => setOpen(false)}
+                    >
                       {navItem.name}
                     </Link>
                   )}
@@ -273,7 +345,7 @@ const MobileNav = ({navItems, scrolled, isHomepage}: {navItems: NavItem[]; scrol
   );
 };
 
-const MobileDropdownItem = ({navItem}: {navItem: NavItem}) => {
+const MobileDropdownItem = ({ navItem }: { navItem: NavItem }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -281,9 +353,13 @@ const MobileDropdownItem = ({navItem}: {navItem: NavItem}) => {
       <motion.button
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between text-gray-700 hover:text-black transition-colors duration-200 dark:text-gray-300 dark:hover:text-white"
-        whileTap={{scale: 0.98}}>
+        whileTap={{ scale: 0.98 }}
+      >
         <span>{navItem.name}</span>
-        <motion.div animate={{rotate: open ? 180 : 0}} transition={{duration: 0.3, ease: "easeInOut"}}>
+        <motion.div
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
           <IconChevronDown size={20} />
         </motion.div>
       </motion.button>
@@ -291,21 +367,24 @@ const MobileDropdownItem = ({navItem}: {navItem: NavItem}) => {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{opacity: 0, height: 0}}
-            animate={{opacity: 1, height: "auto"}}
-            exit={{opacity: 0, height: 0}}
-            transition={{duration: 0.3, ease: "easeInOut"}}
-            className="overflow-hidden">
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
             <div className="pl-4 pt-3 space-y-2">
               {navItem.children?.map((child: NavItem, childIdx: number) => (
                 <motion.div
                   key={`child-${childIdx}`}
-                  initial={{opacity: 0, x: -10}}
-                  animate={{opacity: 1, x: 0}}
-                  transition={{duration: 0.2, delay: childIdx * 0.05}}>
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.2, delay: childIdx * 0.05 }}
+                >
                   <Link
                     href={child.link}
-                    className="block py-2 text-sm text-gray-600 hover:text-black transition-colors duration-200 dark:text-gray-400 dark:hover:text-white">
+                    className="block py-2 text-sm text-gray-600 hover:text-black transition-colors duration-200 dark:text-gray-400 dark:hover:text-white"
+                  >
                     {child.name}
                   </Link>
                 </motion.div>
@@ -318,16 +397,28 @@ const MobileDropdownItem = ({navItem}: {navItem: NavItem}) => {
   );
 };
 
-const Logo = ({scrolled, isHomepage}: {scrolled: boolean; isHomepage: boolean}) => {
+const Logo = ({
+  scrolled,
+  isHomepage,
+}: {
+  scrolled: boolean;
+  isHomepage: boolean;
+}) => {
   return (
-    <Link href="/" className="relative z-20 flex items-center space-x-2 px-2 py-1">
-      <motion.div whileHover={{scale: 1.05}} transition={{duration: 0.2}}>
+    <Link
+      href="/"
+      className="relative z-20 flex items-center space-x-2 px-2 py-1"
+    >
+      <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
         <Image
           src="/logo2.png"
           alt="logo"
           width={100}
           height={100}
-          className={cn("transition-all duration-300", !scrolled && isHomepage && "brightness-0 invert")}
+          className={cn(
+            "transition-all duration-300",
+            !scrolled && isHomepage && "brightness-0 invert"
+          )}
         />
       </motion.div>
     </Link>

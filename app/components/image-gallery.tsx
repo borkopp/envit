@@ -62,7 +62,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
       <Dialog open={selectedImageIndex !== null} onOpenChange={closeModal}>
         <DialogContent className="max-w-[95vw] max-h-[95vh] w-full h-full p-0">
           <Button
-            className="absolute right-4 top-4 z-10 rounded-full p-2 px-2 bg-black/50 hover:bg-black/75"
+            className="absolute right-4 top-4 z- rounded-full p-2 px-2 bg-black/50 hover:bg-black/75"
             onClick={closeModal}
             aria-label="Close dialog"
           >
