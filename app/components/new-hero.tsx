@@ -1,8 +1,52 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimationProps } from "motion/react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+
+const Text = ({
+  children,
+  className,
+  delay = 0,
+  isGradientText = false,
+  ...animationProps
+}: {
+  children: string;
+  className?: string;
+  delay?: number;
+  isGradientText?: boolean;
+} & AnimationProps) => {
+  return (
+    <motion.div {...animationProps} className={className}>
+      {children.split(" ").map((word, index) => (
+        <motion.span
+          key={`word-${index}-${word}`}
+          initial={{
+            opacity: 0,
+            filter: "blur(10px)",
+            y: 10,
+          }}
+          whileInView={{
+            opacity: 1,
+            filter: "blur(0px)",
+            y: 0,
+          }}
+          transition={{
+            duration: 0.2,
+            delay: delay + index * 0.02,
+          }}
+          className={cn(
+            "inline-block",
+            isGradientText &&
+              "bg-gradient-to-b from-neutral-400 via-white to-white bg-clip-text text-transparent"
+          )}
+        >
+          {word}&nbsp;
+        </motion.span>
+      ))}
+    </motion.div>
+  );
+};
 
 export function FullBackgroundImageWithText({
   gradientFade = true,
@@ -49,25 +93,39 @@ export function FullBackgroundImageWithText({
         />
         <div className="absolute bottom-0 h-40 w-full bg-gradient-to-t from-black to-transparent"></div>
       </motion.div>
-      <h1 className="relative z-10 max-w-5xl text-balance bg-gradient-to-b from-neutral-400 via-white to-white bg-clip-text text-center text-3xl font-medium tracking-tight text-transparent md:text-7xl md:leading-tight">
-        Restoring degraded land for <br />
-        green transition worldwide
-      </h1>
-      <p className="relative z-10 mt-2 max-w-2xl text-center text-neutral-200 md:mt-6 md:text-xl">
+      <div className="relative z-10 max-w-5xl text-balance text-center text-3xl font-medium tracking-tight md:text-7xl md:leading-tight">
+        <Text className="" isGradientText={true}>
+          Restoring degraded land for green transition worldwide
+        </Text>
+      </div>
+      <Text
+        className="relative z-10 mt-2 max-w-2xl text-center text-neutral-200 md:mt-6 md:text-xl"
+        delay={0.6}
+      >
         ENVIT develops innovative soil decontamination technologies, including
         RESOIL®, to restore contaminated sites and enable sustainable land use
         for a greener future.
-      </p>
+      </Text>
 
-      <div className="mt-6 flex flex-col gap-4 sm:flex-row">
+      <motion.div
+        className="mt-6 flex flex-col gap-4 sm:flex-row"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 1.2 }}
+      >
         <Button as={Link} href="/technology-description" variant="secondary">
           Our Technology
         </Button>
         <Button as={Link} href="/about-us" variant="simple">
           Learn More
         </Button>
-      </div>
-      <div className="relative z-10 mt-10 flex flex-wrap justify-center gap-10">
+      </motion.div>
+      <motion.div
+        className="relative z-10 mt-10 flex flex-wrap justify-center gap-10"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 1.4 }}
+      >
         {logos.map((logo) => (
           <BlurImage
             key={logo.name}
@@ -78,7 +136,7 @@ export function FullBackgroundImageWithText({
             className="w-24 object-contain invert filter md:w-40"
           />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

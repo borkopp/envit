@@ -2,15 +2,21 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {client} from "@/sanity/lib/client";
-import {Post} from "../../../utils/interface";
-import {useState, useEffect} from "react";
-import {Input} from "@/components/ui/input";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
-import {Search, SortAsc} from "lucide-react";
-import SubpageTemplate from '@/app/components/SubpageTemplate';
+import { client } from "@/sanity/lib/client";
+import { Post } from "../../../utils/interface";
+import { useState, useEffect } from "react";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Search, SortAsc } from "lucide-react";
+import SubpageTemplate from "@/app/components/SubpageTemplate";
 
-const NewsItem = ({title, publishedAt, excerpt, slug, thumbnail}: Post) => (
+const NewsItem = ({ title, publishedAt, excerpt, slug, thumbnail }: Post) => (
   <div className="w-full md:w-1/2 lg:w-1/3 p-4">
     <div className="bg-white rounded-lg shadow-md overflow-hidden group hover:scale-[0.98] transition-all duration-300 h-full flex flex-col">
       <Image
@@ -25,8 +31,12 @@ const NewsItem = ({title, publishedAt, excerpt, slug, thumbnail}: Post) => (
         <p className="text-sm text-gray-500 mb-2 transition-transform duration-300 group-hover:-translate-y-1">
           {new Date(publishedAt).toLocaleDateString()}
         </p>
-        <h4 className="text-xl font-semibold mb-2 text-gray-800 transition-transform duration-300 group-hover:-translate-y-1">{title}</h4>
-        <p className="text-gray-600 mb-4 flex-grow transition-transform duration-300 group-hover:-translate-y-2">{excerpt}</p>
+        <h4 className="text-xl font-semibold mb-2 text-gray-800 transition-transform duration-300 group-hover:-translate-y-1">
+          {title}
+        </h4>
+        <p className="text-gray-600 mb-4 flex-grow transition-transform duration-300 group-hover:-translate-y-2">
+          {excerpt}
+        </p>
         <div className="relative h-8 mt-2">
           <Link href={`/news/${slug.current}`}>
             <span className="absolute bottom-0 left-0 right-0 bg-primary text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-primary-dark transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-full group-hover:translate-y-0 text-center">
@@ -67,14 +77,20 @@ export default function NewsPage() {
   }, []);
 
   const filteredPosts = posts.filter(
-    (post) => post.title.toLowerCase().includes(searchTerm.toLowerCase()) || post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+    (post) =>
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const sortedPosts = [...filteredPosts].sort((a, b) => {
     if (sortBy === "newest") {
-      return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+      return (
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+      );
     } else {
-      return new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime();
+      return (
+        new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime()
+      );
     }
   });
 
@@ -84,12 +100,24 @@ export default function NewsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <div className="relative mb-4 md:mb-0 md:mr-4 max-w-xs">
-              <Input type="text" placeholder="Search news..." className="pl-10" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600" size={18} />
+              <Input
+                type="text"
+                placeholder="Search news..."
+                className="pl-10"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <Search
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600"
+                size={18}
+              />
             </div>
             <Select value={sortBy} onValueChange={setSortBy}>
               <SelectTrigger className="w-[180px] border">
-                <SortAsc className={`mr-2 text-gray-600 transition-transform duration-300 ${sortBy === "oldest" ? "rotate-180" : ""}`} size={18} />
+                <SortAsc
+                  className={`mr-2 text-gray-600 transition-transform duration-300 ${sortBy === "oldest" ? "rotate-180" : ""}`}
+                  size={18}
+                />
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
               <SelectContent>
@@ -102,7 +130,9 @@ export default function NewsPage() {
             {sortedPosts.length > 0 ? (
               sortedPosts.map((post) => <NewsItem key={post._id} {...post} />)
             ) : (
-              <p className="text-center w-full text-gray-500">No news items found.</p>
+              <p className="text-center w-full text-gray-500">
+                No news items found.
+              </p>
             )}
           </div>
         </div>
