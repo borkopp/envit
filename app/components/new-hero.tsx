@@ -28,7 +28,7 @@ export function FullBackgroundImageWithText({gradientFade = true}: {gradientFade
       <div className="absolute inset-0 h-full w-full bg-black"></div>
       <motion.div initial={{opacity: 0}} whileInView={{opacity: [0, 0.3]}} transition={{duration: 2}} className="absolute inset-0 h-full w-full">
         <BlurImage
-          src="/hero.jpeg"
+          src="/bghero.jpeg"
           className={cn(
             "pointer-events-none absolute inset-0 h-full w-full select-none object-cover",
             gradientFade && "[mask-image:radial-gradient(200px_at_center,transparent,black)]"
