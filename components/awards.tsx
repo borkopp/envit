@@ -1,21 +1,11 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { motion } from "motion/react";
-import { LampContainer } from "@/components/ui/lamp";
+import React, {useState, useEffect} from "react";
+import {motion} from "motion/react";
+import {LampContainer} from "@/components/ui/lamp";
 import Image from "next/image";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Award,
-  Leaf,
-  Shield,
-  Star,
-  Trophy,
-  Users,
-  MoveRight,
-  MoveLeft,
-} from "lucide-react";
-import { client } from "@/sanity/lib/client";
+import {ChevronLeft, ChevronRight, Award, Leaf, Shield, Star, Trophy, Users, MoveRight, MoveLeft} from "lucide-react";
+import {client} from "@/sanity/lib/client";
+import {cn} from "@/lib/utils";
 
 interface Award {
   title: string;
@@ -64,28 +54,36 @@ export function LampDemo() {
   };
 
   return (
-    <LampContainer>
-      <div className="w-full max-w-7xl mx-auto pl-24">
-        <div className="flex flex-col lg:flex-row items-start gap-16 pt-24">
+    <section className="relative py-12 sm:py-16 md:py-24 px-4" id="awards">
+      <div className="w-full max-w-7xl mx-auto rounded-2xl">
+        <div
+          className={cn(
+            "pointer-events-none absolute inset-0 z-0 h-full w-full",
+            "bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.4)_1px,transparent_0)]",
+            "dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.4)_1px,transparent_0)]",
+            "[mask-image:radial-gradient(circle_at_center,white,transparent)]",
+            "bg-repeat",
+            "[background-size:20px_20px]"
+          )}
+        />
+        <div className="flex flex-col lg:flex-row items-start gap-16 py-24">
           {/* Left Side - Text and Navigation */}
           <div className="w-full lg:w-2/5">
             <motion.div
-              initial={{ opacity: 0.5, x: -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{opacity: 0.5, x: -100}}
+              whileInView={{opacity: 1, x: 0}}
               transition={{
                 delay: 0.3,
                 duration: 0.8,
                 ease: "easeInOut",
               }}
-              className="text-left"
-            >
+              className="text-left">
               <h1 className="bg-gradient-to-br from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-500 bg-clip-text text-4xl font-medium tracking-tight text-transparent md:text-7xl leading-tight mb-6">
                 Recognition <br /> & Awards
               </h1>
 
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-md">
-                Being appreciated by the industry and environmental
-                organizations means the world to us.
+                Being appreciated by the industry and environmental organizations means the world to us.
               </p>
 
               {/* Navigation Buttons */}
@@ -93,8 +91,7 @@ export function LampDemo() {
                 <button
                   onClick={prevSlide}
                   className="flex items-center justify-center w-12 h-12 rounded-full hover:bg-green-50 transition-all duration-300 group"
-                  disabled={currentSlide === 0}
-                >
+                  disabled={currentSlide === 0}>
                   <MoveLeft className="w-8 h-8 text-slate-600 dark:text-slate-400 group-hover:text-green-600" />
                 </button>
 
@@ -110,8 +107,7 @@ export function LampDemo() {
                 <button
                   onClick={nextSlide}
                   className="flex items-center justify-center w-12 h-12 rounded-full hover:bg-green-50  transition-all duration-300 group"
-                  disabled={currentSlide === totalSlides - 1}
-                >
+                  disabled={currentSlide === totalSlides - 1}>
                   <MoveRight className="w-8 h-8 text-slate-600 dark:text-slate-400 group-hover:text-green-600" />
                 </button>
               </div>
@@ -129,49 +125,36 @@ export function LampDemo() {
                   duration: 0.5,
                   ease: "easeInOut",
                 }}
-                className="flex"
-              >
+                className="flex">
                 {awards.map((award, index) => {
                   const isFirstInSlide = index === currentSlide;
                   return (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0, y: 30 }}
+                      initial={{opacity: 0, y: 30}}
                       animate={{
                         opacity: 1,
                         y: 0,
                         scale: isFirstInSlide ? 1.05 : 1,
                       }}
-                      transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                      transition={{duration: 0.5, delay: 0.5 + index * 0.1}}
                       className="group bg-white/80 backdrop-blur-sm dark:bg-slate-800/80 rounded-2xl p-6 shadow-md  transition-all duration-300 border border-gray-100/50 dark:border-slate-700/50 hover:border-green-200 dark:hover:border-green-800 flex-shrink-0 mr-6"
                       style={{
                         width: "300px",
                         height: "300px",
-                      }}
-                    >
+                      }}>
                       {/* Award Image */}
                       <div className="flex items-center justify-center w-28 h-28 rounded-xl mb-4 mx-auto group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                         <div className="relative w-28 h-28">
-                          <Image
-                            src={award.image.asset.url}
-                            alt={award.title}
-                            fill
-                            className="object-contain"
-                          />
+                          <Image src={award.image.asset.url} alt={award.title} fill className="object-contain" />
                         </div>
                       </div>
 
                       {/* Award Info */}
                       <div className="text-center space-y-4 flex-1 flex flex-col">
-                        <div className="text-sm font-bold text-green-600 dark:text-green-400">
-                          {award.year}
-                        </div>
-                        <h3 className="font-bold text-slate-800 dark:text-slate-200 text-sm leading-tight">
-                          {award.title}
-                        </h3>
-                        <p className="text-xs text-slate-600 dark:text-slate-400 flex-1 line-clamp-4">
-                          {award.description}
-                        </p>
+                        <div className="text-sm font-bold text-green-600 dark:text-green-400">{award.year}</div>
+                        <h3 className="font-bold text-slate-800 dark:text-slate-200 text-sm leading-tight">{award.title}</h3>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 flex-1 line-clamp-4">{award.description}</p>
                       </div>
                     </motion.div>
                   );
@@ -181,6 +164,6 @@ export function LampDemo() {
           </div>
         </div>
       </div>
-    </LampContainer>
+    </section>
   );
 }

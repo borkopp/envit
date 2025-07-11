@@ -1,6 +1,5 @@
 "use client";
 
-import {useState} from "react";
 import Image from "next/image";
 import SubpageTemplate from "@/app/components/SubpageTemplate";
 
@@ -22,13 +21,27 @@ export default function RnD() {
 
         {/* Full-Width Image */}
         <div className="relative w-full h-80 md:h-[500px] mb-12">
-          <Image src="/rnd.jpg" alt="Scientific Cooperation" layout="fill" objectFit="cover" className="w-full h-full" />
+          <Image src="/rnd.jpg" alt="Scientific Cooperation" layout="fill" objectFit="cover" className="w-full h-full rounded-2xl" />
         </div>
 
         {/* Scientific Papers Section */}
         <section className="mb-12">
           <h2 className="text-xl md:text-2xl font-bold mb-4">ReSoil® Scientific Papers</h2>
           <ul className="list-disc pl-5 space-y-3">
+            <li>
+              <strong>
+                MORALES ARTEAGA, Juan, Francisco, VODNIK, Dominik, KASTELEC, Damjana, ZUPANC, Mojca, DULAR, Matevz, ORTAR, Jernej, ĐURIĆ, Marija,
+                KAURIN, Anela, and LESTAN, Domen.
+              </strong>{" "}
+              <a
+                href="https://doi.org/10.1016/j.scitotenv.2024.171444"
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer">
+                Removal of toxic metals from sewage sludge by EDTA and hydrodynamic cavitation and use of the sludge as fertilizer.
+              </a>
+              Science of the Total Environment, 2024, 923, p.171444.
+            </li>
             <li>
               <strong>MORALES ARTEAGA, Juan, Francisco, ZUPANC, Mojca, DULAR, Matevz, LESTAN, Domen, and KAURIN, Anela.</strong>{" "}
               <a href="https://doi.org/10.3390/ijerph20032544" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
