@@ -17,6 +17,16 @@ interface CaseStudy {
     };
   };
   date: string;
+  primaryLink: {
+    type: "url" | "pdf";
+    url?: string;
+    fileUrl?: string;
+  };
+  secondaryLink?: {
+    type: "url" | "pdf";
+    url?: string;
+    fileUrl?: string;
+  };
 }
 
 export function ExpandableCardDemo() {
@@ -38,7 +48,17 @@ export function ExpandableCardDemo() {
             url
           }
         },
-        date
+        date,
+        primaryLink {
+          type,
+          url,
+          "fileUrl": file.asset->url
+        },
+        secondaryLink {
+          type,
+          url,
+          "fileUrl": file.asset->url
+        }
       }`;
       const result = await client.fetch(query);
       setCaseStudies(result);
@@ -48,8 +68,9 @@ export function ExpandableCardDemo() {
         description: study.date,
         title: study.title,
         src: study.thumbnail.asset.url,
-        ctaText: "Read More",
-        ctaLink: `/case-studies/${study.slug.current}`,
+        ctaText: study.primaryLink?.type === "pdf" ? "View PDF" : "Read More",
+        ctaLink: study.primaryLink?.type === "url" ? study.primaryLink.url : study.primaryLink?.fileUrl,
+        isExternal: study.primaryLink?.type === "url" ? !study.primaryLink.url?.startsWith("/") : true,
         content: () => {
           return (
             <div>
@@ -124,7 +145,7 @@ export function ExpandableCardDemo() {
                   height={200}
                   src={active.src}
                   alt={active.title}
-                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
+                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-contain"
                 />
               </motion.div>
 
@@ -145,7 +166,8 @@ export function ExpandableCardDemo() {
                     animate={{opacity: 1}}
                     exit={{opacity: 0}}
                     href={active.ctaLink}
-                    target="_blank"
+                    target={active.isExternal ? "_blank" : "_self"}
+                    rel={active.isExternal ? "noopener noreferrer" : undefined}
                     className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white">
                     {active.ctaText}
                   </motion.a>
@@ -189,7 +211,7 @@ export function ExpandableCardDemo() {
                 className="p-4 flex flex-col hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer">
                 <div className="flex gap-4 flex-col w-full">
                   <motion.div layoutId={`image-${card.title}-${id}`}>
-                    <img width={100} height={100} src={card.src} alt={card.title} className="h-60 w-full rounded-lg object-cover object-top" />
+                    <img width={100} height={100} src={card.src} alt={card.title} className="h-60 w-full rounded-lg object-contain" />
                   </motion.div>
                   <div className="flex justify-center items-center flex-col">
                     <motion.h3
