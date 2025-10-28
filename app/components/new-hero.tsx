@@ -95,20 +95,19 @@ export function FullBackgroundImageWithText({
       </motion.div>
       <div className="relative z-10 max-w-5xl text-balance text-center text-3xl font-medium tracking-tight md:text-7xl md:leading-tight">
         <Text className="" isGradientText={true}>
-          Restoring degraded land for green transition worldwide
+          Deep-Tech Innovation Tackling Soil Contamination
         </Text>
       </div>
       <Text
-        className="relative z-10 mt-2 max-w-2xl text-center text-neutral-200 md:mt-6 md:text-xl"
+        className="relative z-10 mt-2 max-w-3xl text-center text-neutral-200 md:mt-6 md:text-xl"
         delay={0.6}
       >
-        ENVIT develops innovative soil decontamination technologies, including
-        RESOIL®, to restore contaminated sites and enable sustainable land use
-        for a greener future.
+        A deep-tech startup with proprietary ReSoil® technology, developed
+        through years of R&D and proven on real contaminated sites worldwide.
       </Text>
 
       <motion.div
-        className="mt-6 flex flex-col gap-4 sm:flex-row"
+        className="mt-6 flex flex-wrap gap-4 justify-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 1.2 }}
@@ -116,8 +115,11 @@ export function FullBackgroundImageWithText({
         <Button as={Link} href="/technology-description" variant="secondary">
           Our Technology
         </Button>
-        <Button as={Link} href="/about-us" variant="simple">
-          Learn More
+        <Button as={Link} href="#case-studies" variant="secondary">
+          View Case Studies
+        </Button>
+        <Button as={Link} href="/rnd" variant="simple">
+          R&D & Scientific Base
         </Button>
       </motion.div>
       <motion.div
@@ -126,7 +128,7 @@ export function FullBackgroundImageWithText({
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 1.4 }}
       >
-        {logos.map((logo) => (
+        {/* {logos.map((logo) => (
           <BlurImage
             key={logo.name}
             src={logo.image}
@@ -135,7 +137,7 @@ export function FullBackgroundImageWithText({
             alt={logo.name}
             className="w-24 object-contain invert filter md:w-40"
           />
-        ))}
+        ))} */}
       </motion.div>
     </div>
   );
