@@ -107,18 +107,25 @@ export function FullBackgroundImageWithText({
       </Text>
 
       <motion.div
-        className="mt-6 flex flex-wrap gap-4 justify-center"
+        className="mt-6 flex flex-col gap-4 justify-center max-w-md mx-auto"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 1.2 }}
       >
-        <Button as={Link} href="/technology-description" variant="secondary">
-          Our Technology
-        </Button>
-        <Button as={Link} href="#case-studies" variant="secondary">
-          View Case Studies
-        </Button>
-        <Button as={Link} href="/rnd" variant="simple">
+        <div className="flex gap-4 justify-center">
+          <Button as={Link} href="/technology-description" variant="secondary">
+            Our Technology
+          </Button>
+          <Button as={Link} href="#case-studies" variant="secondary">
+            View Case Studies
+          </Button>
+        </div>
+        <Button
+          className="w-full whitespace-nowrap max-w-md mx-auto hover:underline"
+          as={Link}
+          href="/rnd"
+          variant="simple"
+        >
           R&D & Scientific Base
         </Button>
       </motion.div>
